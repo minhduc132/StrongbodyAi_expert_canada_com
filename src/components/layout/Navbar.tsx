@@ -63,6 +63,11 @@ const Navbar = () => {
                             alt="StrongBody AI Logo"
                             className="h-9 w-auto object-contain"
                         />
+                        <img
+                            src="https://flagcdn.com/w160/us.png"
+                            alt="US Flag"
+                            className="w-16 h-auto object-contain border border-slate-100 shadow-sm"
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}

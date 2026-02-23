@@ -23,12 +23,12 @@ const testimonials = [
 
 const Testimonials = () => {
     return (
-        <section className="py-24 bg-slate-50">
+        <section className="py-24 relative overflow-hidden" style={{ background: 'var(--brand-gradient)' }}>
             <Container>
                 <div className="text-center mb-16">
-                    <h2 className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3">Community</h2>
-                    <p className="text-4xl font-extrabold text-slate-900 mb-4">What Our Community Shares</p>
-                    <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+                    <h2 className="text-white font-bold tracking-wider uppercase text-sm mb-3">Community</h2>
+                    <p className="text-4xl font-extrabold text-white mb-4">What Our Community Shares</p>
+                    <div className="w-20 h-1.5 bg-white mx-auto rounded-full"></div>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
@@ -39,7 +39,7 @@ const Testimonials = () => {
                             className="h-full"
                         >
                             <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow relative h-full">
-                                <Quote className="text-blue-50/50 absolute top-4 right-4 w-12 h-12 -z-0" />
+                                <Quote className="text-primary-text/20 absolute top-4 right-4 w-12 h-12 -z-0" />
                                 <div className="relative z-10 flex flex-col h-full">
                                     <p className="text-slate-600 italic mb-6 leading-relaxed flex-1">"{t.quote}"</p>
                                     <div>

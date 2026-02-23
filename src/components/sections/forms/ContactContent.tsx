@@ -26,7 +26,7 @@ const ContactContent = () => {
                                     </div>
                                     <div>
                                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Email</div>
-                                        <a href="mailto:contact@strongbodyai.com" className="text-base font-bold text-slate-900 hover:text-primary transition-colors">contact@strongbodyai.com</a>
+                                        <a href="mailto:contact@strongbodyai.com" className="text-base font-bold text-slate-900 hover:text-[#1c906c] transition-colors">contact@strongbodyai.com</a>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4 p-5 rounded-xl bg-slate-50 border border-slate-100">
@@ -35,7 +35,7 @@ const ContactContent = () => {
                                     </div>
                                     <div>
                                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Phone</div>
-                                        <a href="tel:+18001234567" className="text-base font-bold text-slate-900 hover:text-primary transition-colors">+1 (800) 123-4567</a>
+                                        <a href="tel:+18001234567" className="text-base font-bold text-slate-900 hover:text-[#1c906c] transition-colors">+1 (800) 123-4567</a>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4 p-5 rounded-xl bg-slate-50 border border-slate-100">
@@ -89,7 +89,7 @@ const ContactContent = () => {
                                     <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium resize-none" placeholder="Tell us how we can help..."></textarea>
                                 </div>
 
-                                <button type="submit" className="w-full bg-primary text-white py-4 rounded-xl font-bold text-base hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/15 flex items-center justify-center gap-2">
+                                <button type="submit" className="w-full bg-primary text-white py-4 rounded-xl font-bold text-base hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 flex items-center justify-center gap-2">
                                     Send Message <Send size={16} />
                                 </button>
                             </form>

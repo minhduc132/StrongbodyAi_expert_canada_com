@@ -5,11 +5,11 @@ import { Reveal } from "@/components/animations/Reveal";
 
 const RecruitmentProcess = () => {
     return (
-        <section className="py-20 bg-slate-50">
+        <section className="py-20 relative overflow-hidden" style={{ background: 'var(--brand-gradient)' }}>
             <Container>
-                <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">The Process</span>
-                <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Partnership Recruitment Process</h2>
-                <p className="text-slate-500 font-medium mb-10 max-w-2xl">
+                <span className="text-white font-bold tracking-widest text-xs uppercase mb-4 block">The Process</span>
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Partnership Recruitment Process</h2>
+                <p className="text-white font-medium mb-10 max-w-2xl">
                     Our selective recruitment process ensures that every partner meets the highest standards of professionalism and compliance.
                 </p>
 
@@ -22,11 +22,11 @@ const RecruitmentProcess = () => {
                         >
                             <div className="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm relative h-full hover:shadow-md transition-shadow">
                                 <div className="text-4xl font-black text-slate-100 absolute top-5 right-5">{step.num}</div>
-                                <div className="w-11 h-11 rounded-xl bg-blue-50 text-primary flex items-center justify-center mb-4">
+                                <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#1c906c] flex items-center justify-center mb-4">
                                     {step.icon}
                                 </div>
                                 <h4 className="text-base font-bold text-slate-900 mb-2">{step.title}</h4>
-                                <p className="text-sm text-slate-500 font-medium leading-relaxed">{step.desc}</p>
+                                <p className="text-sm text-[#1c906c] font-medium leading-relaxed">{step.desc}</p>
                             </div>
                         </Reveal>
                     ))}

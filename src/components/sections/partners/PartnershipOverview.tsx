@@ -15,15 +15,15 @@ const highlights = [
 
 const PartnershipOverview = () => {
     return (
-        <section className="py-24 bg-slate-950 text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[40%] h-full bg-indigo-500/10 -skew-x-12 translate-x-1/4"></div>
-            <div className="absolute bottom-0 left-0 w-[30%] h-full bg-blue-500/5 skew-x-12 -translate-x-1/4"></div>
+        <section className="py-24 text-white relative overflow-hidden" style={{ background: 'var(--brand-gradient)' }}>
+            <div className="absolute top-0 right-0 w-[40%] h-full bg-primary/10 -skew-x-12 translate-x-1/4"></div>
+            <div className="absolute bottom-0 left-0 w-[30%] h-full bg-primary/5 skew-x-12 -translate-x-1/4"></div>
 
             <Container className="relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <FadeIn>
-                            <span className="text-indigo-400 font-bold tracking-widest text-xs uppercase mb-4 block">
+                            <span className="text-white font-bold tracking-widest text-xs uppercase mb-4 block">
                                 Partnership Recruitment — US
                             </span>
                         </FadeIn>
@@ -32,7 +32,7 @@ const PartnershipOverview = () => {
                                 Partnership Recruitment — StrongBody AI US
                             </h2>
                         </Reveal>
-                        <p className="text-lg text-slate-300 font-medium leading-relaxed mb-6">
+                        <p className="text-lg text-white font-medium leading-relaxed mb-6">
                             We select Strategic Health Service Partners — licensed professionals and organizations that meet the highest standards of expertise, compliance, and ethical practice.
                         </p>
                         <div className="p-4 rounded-xl bg-white/10 border border-white/10 mb-8">
@@ -56,7 +56,7 @@ const PartnershipOverview = () => {
                                     delay={idx * 0.1}
                                 >
                                     <div className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                                        <div className="text-indigo-400">{item.icon}</div>
+                                        <div className="text-white">{item.icon}</div>
                                         <span className="text-sm font-bold">{item.label}</span>
                                     </div>
                                 </Reveal>

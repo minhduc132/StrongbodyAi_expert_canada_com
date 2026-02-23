@@ -5,10 +5,10 @@ import { Reveal } from "@/components/animations/Reveal";
 
 const TargetProfiles = () => {
     return (
-        <section className="py-20 bg-slate-50">
+        <section className="py-20 relative overflow-hidden" style={{ background: 'var(--brand-gradient)' }}>
             <Container>
-                <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Who We're Looking For</span>
-                <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-10">Target Partnership Profiles</h2>
+                <span className="text-[#1c906c] font-bold tracking-widest text-xs uppercase mb-4 block">Who We're Looking For</span>
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-10">Target Partnership Profiles</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {targetProfiles.map((profile, idx) => (
                         <Reveal
@@ -20,12 +20,12 @@ const TargetProfiles = () => {
                                 <div className="w-11 h-11 rounded-xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
                                     {profile.icon}
                                 </div>
-                                <span className="text-base font-bold text-slate-800">{profile.label}</span>
+                                <span className="text-base font-bold text-primary-text">{profile.label}</span>
                             </div>
                         </Reveal>
                     ))}
                 </div>
-                <p className="text-sm text-slate-500 font-medium mt-6">
+                <p className="text-sm text-white font-medium mt-6">
                     All applicants must hold a valid professional license recognized in the United States.
                 </p>
             </Container>

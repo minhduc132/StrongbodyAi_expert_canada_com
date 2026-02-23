@@ -11,11 +11,11 @@ const items = [
 
 const TrustSection = () => {
     return (
-        <section className="py-24 bg-blue-50/40">
+        <section className="py-24 bg-primary/5">
             <Container>
                 <div className="text-center mb-14">
                     <FadeIn>
-                        <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                        <span className="text-[#1c906c] font-black tracking-widest text-xs uppercase mb-4 block">
                             Compliance
                         </span>
                     </FadeIn>
@@ -34,7 +34,7 @@ const TrustSection = () => {
                             className="h-full"
                         >
                             <div className="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm h-full">
-                                <div className="w-11 h-11 rounded-xl bg-blue-100 text-primary flex items-center justify-center mb-4">
+                                <div className="w-11 h-11 rounded-xl bg-primary/10 text-[#1c906c] flex items-center justify-center mb-4">
                                     {item.icon}
                                 </div>
                                 <h4 className="text-base font-bold text-slate-900 mb-2">{item.title}</h4>

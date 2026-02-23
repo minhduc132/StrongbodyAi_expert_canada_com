@@ -21,7 +21,7 @@ export default function PartnershipModelsPage() {
             <ServiceCards />
 
             {/* Path to Partnership */}
-            <section className="py-24 bg-slate-900 text-white rounded-[4rem] mx-4 my-12 overflow-hidden relative">
+            <section className="py-24 text-white rounded-[4rem] mx-4 my-12 overflow-hidden relative" style={{ background: 'var(--brand-gradient)' }}>
                 <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -29,32 +29,32 @@ export default function PartnershipModelsPage() {
 
                     <div className="grid md:grid-cols-3 gap-12 text-left">
                         <div className="space-y-6">
-                            <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                                <Building2 className="w-8 h-8" />
+                            <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20">
+                                <Building2 className="w-8 h-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold">1. Apply</h3>
-                            <p className="text-slate-400 text-lg">Submit your organization details and goals through our application portal.</p>
+                            <h3 className="text-2xl font-bold text-white">1. Apply</h3>
+                            <p className="text-white text-lg">Submit your organization details and goals through our application portal.</p>
                         </div>
 
                         <div className="space-y-6">
-                            <div className="w-16 h-16 bg-teal-500 rounded-2xl flex items-center justify-center shadow-lg shadow-teal-500/20">
-                                <Zap className="w-8 h-8" />
+                            <div className="w-16 h-16 bg-primary-text rounded-2xl flex items-center justify-center shadow-lg shadow-primary-text/20">
+                                <Zap className="w-8 h-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold">2. Integration</h3>
-                            <p className="text-slate-400 text-lg">Our technical team assists in connecting your existing systems with StrongBody AI.</p>
+                            <h3 className="text-2xl font-bold text-white">2. Integration</h3>
+                            <p className="text-white text-lg">Our technical team assists in connecting your existing systems with StrongBody AI.</p>
                         </div>
 
                         <div className="space-y-6">
-                            <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg shadow-red-500/20">
-                                <UserPlus className="w-8 h-8" />
+                            <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20">
+                                <UserPlus className="w-8 h-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold">3. Go Live</h3>
-                            <p className="text-slate-400 text-lg">Launch your verified account and start connecting users with healthcare expertos.</p>
+                            <h3 className="text-2xl font-bold text-white">3. Go Live</h3>
+                            <p className="text-white text-lg">Launch your verified account and start connecting users with healthcare expertos.</p>
                         </div>
                     </div>
 
                     <div className="mt-20">
-                        <Link href="/contact" className="inline-flex items-center gap-3 bg-white text-slate-900 px-10 py-5 rounded-full text-xl font-bold hover:bg-blue-50 transition-all">
+                        <Link href="/contact" className="inline-flex items-center gap-3 bg-primary text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-primary/90 transition-all">
                             Start Your Application <ArrowRight className="w-6 h-6" />
                         </Link>
                     </div>

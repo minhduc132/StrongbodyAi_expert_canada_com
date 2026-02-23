@@ -3,20 +3,24 @@
 :root {
     --background: #ffffff;
     --foreground: #0F172A;
-    --primary: #0055D4;
-    --primary-gradient: linear-gradient(135deg, #0055D4 0%, #00B8D9 100%);
+    --primary: #1877f2;
+    --primary-text: #2f8cf9;
+    --primary-gradient: linear-gradient(135deg, #1877f2 0%, #2f8cf9 100%);
     --muted-blue: #F0F7FF;
-    --secondary: #00B8D9;
+    --secondary: #2f8cf9;
+    --brand-gradient: linear-gradient(rgb(28, 144, 108) 60.66%, rgba(28, 144, 108, 0.4) 90.1%, rgba(224, 241, 236, 0) 100.02%), linear-gradient(138.3deg, rgba(30, 145, 109, 0) 43.72%, rgba(43, 210, 158, 0.7) 83.86%), linear-gradient(175.04deg, rgba(0, 110, 88, 0.6) 2.23%, rgba(255, 255, 255, 0) 61.66%);
 }
 
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
-    --color-primary: #0055D4;
-    --color-accent: #00B8D9;
+    --color-primary: #1877f2;
+    --color-primary-text: #2f8cf9;
+    --color-accent: #2f8cf9;
     --color-muted-blue: var(--muted-blue);
     --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
     --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+    --background-image-brand: var(--brand-gradient);
 
     /* Custom Animations */
     --animate-bounce-slow: bounce-slow 3s infinite;

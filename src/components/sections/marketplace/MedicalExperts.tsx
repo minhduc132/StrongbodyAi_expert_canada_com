@@ -26,21 +26,21 @@ const experts = [
 
 const MedicalExperts = () => {
     return (
-        <section className="py-32 bg-slate-50 relative overflow-hidden">
+        <section className="py-32 relative overflow-hidden" style={{ background: 'var(--brand-gradient)' }}>
             <Container>
                 <div className="text-center mb-24">
                     <FadeIn>
-                        <span className="inline-block text-primary font-bold tracking-[0.2em] text-sm uppercase mb-4">
+                        <span className="inline-block text-white font-bold tracking-[0.2em] text-sm uppercase mb-4">
                             Elite Network
                         </span>
                     </FadeIn>
                     <Reveal delay={0.1}>
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6">
+                        <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
                             World-Class Experts
                         </h2>
                     </Reveal>
                     <Reveal delay={0.2} className="flex justify-center">
-                        <div className="h-1.5 w-20 bg-primary rounded-full" />
+                        <div className="h-1.5 w-20 bg-white rounded-full" />
                     </Reveal>
                 </div>
 
@@ -63,8 +63,8 @@ const MedicalExperts = () => {
                                 </div>
 
                                 <h4 className="text-2xl font-black text-slate-900 mb-2 text-center">{expert.name}</h4>
-                                <span className="text-[10px] font-black tracking-widest text-primary uppercase mb-6 bg-blue-50 px-4 py-1.5 rounded-full">{expert.role}</span>
-                                <p className="text-slate-500 font-medium leading-relaxed text-center">
+                                <span className="text-[10px] font-black tracking-widest text-[#1c906c] uppercase mb-6 bg-blue-50 px-4 py-1.5 rounded-full">{expert.role}</span>
+                                <p className="text-[#1c906c] font-medium leading-relaxed text-center">
                                     {expert.description}
                                 </p>
 

@@ -19,7 +19,7 @@ const ForClients = () => {
             <Container>
                 <div className="text-center mb-16">
                     <FadeIn>
-                        <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                        <span className="text-[#1c906c] font-black tracking-widest text-xs uppercase mb-4 block">
                             For Clients
                         </span>
                     </FadeIn>
@@ -36,8 +36,8 @@ const ForClients = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
                     {benefits.map((b, idx) => (
                         <Reveal key={idx} delay={idx * 0.05} className="h-full">
-                            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-lg hover:border-blue-100 transition-all group h-full">
-                                <div className="w-11 h-11 rounded-xl bg-blue-100 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
+                            <div className="p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl hover:border-primary/20 transition-all group h-full">
+                                <div className="w-11 h-11 rounded-xl bg-primary/10 text-[#1c906c] flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
                                     {b.icon}
                                 </div>
                                 <h4 className="text-base font-bold text-slate-900 mb-2">{b.title}</h4>
@@ -50,7 +50,7 @@ const ForClients = () => {
                 <div className="text-center">
                     <Link
                         href="/services"
-                        className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/15"
+                        className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-xl text-sm font-bold hover:shadow-primary/30 hover:scale-[1.02] transition-all shadow-lg shadow-primary/20"
                     >
                         Start Your Health Journey — Explore Services <ArrowRight size={16} />
                     </Link>

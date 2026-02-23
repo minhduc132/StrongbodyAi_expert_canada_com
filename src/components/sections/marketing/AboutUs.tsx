@@ -24,7 +24,7 @@ const AboutSection = () => {
                     {/* Content */}
                     <div>
                         <Reveal>
-                            <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">About the Platform</span>
+                            <span className="text-[#1c906c] font-black tracking-widest text-xs uppercase mb-4 block">About the Platform</span>
                             <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">
                                 What is StrongBody AI?
                             </h2>
@@ -39,8 +39,8 @@ const AboutSection = () => {
                                     key={idx}
                                     delay={idx * 0.08}
                                 >
-                                    <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-100 hover:bg-blue-50/30 transition-all group h-full">
-                                        <div className="w-10 h-10 rounded-xl bg-blue-100 text-primary flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-all">
+                                    <div className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all group h-full">
+                                        <div className="w-10 h-10 rounded-xl bg-white/10 text-primary-text flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-all">
                                             {item.icon}
                                         </div>
                                         <h4 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h4>
@@ -64,9 +64,9 @@ const AboutSection = () => {
                         </Reveal>
 
                         <Reveal delay={0.3}>
-                            <div className="p-8 rounded-2xl bg-slate-900 text-white">
-                                <span className="text-blue-400 font-bold tracking-widest text-xs uppercase mb-3 block">Our Mission in the US</span>
-                                <p className="text-base font-medium leading-relaxed text-slate-300">
+                            <div className="p-8 rounded-2xl text-white" style={{ background: 'var(--brand-gradient)' }}>
+                                <span className="text-primary-text font-bold tracking-widest text-xs uppercase mb-3 block">Our Mission in the US</span>
+                                <p className="text-base font-medium leading-relaxed text-white">
                                     To build a transparent, standards-driven health services ecosystem that connects local communities with a verified global network of medical expertise.
                                 </p>
                             </div>

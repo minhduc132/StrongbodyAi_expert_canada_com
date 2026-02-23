@@ -26,10 +26,10 @@ const PartnershipFramework = () => {
                             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
                                 <h4 className="font-bold text-slate-900 mb-2">Platform Provides</h4>
                                 <ul className="space-y-2 text-sm text-slate-600 font-medium">
-                                    <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-blue-500 shrink-0 mt-0.5" /> Transaction infrastructure and marketplace access</li>
-                                    <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-blue-500 shrink-0 mt-0.5" /> AI-powered communication and translation tools</li>
-                                    <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-blue-500 shrink-0 mt-0.5" /> Secure escrow payment processing</li>
-                                    <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-blue-500 shrink-0 mt-0.5" /> Review and transparency management system</li>
+                                    <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> Transaction infrastructure and marketplace access</li>
+                                    <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> AI-powered communication and translation tools</li>
+                                    <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> Secure escrow payment processing</li>
+                                    <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> Review and transparency management system</li>
                                 </ul>
                             </div>
                         </div>

@@ -5,7 +5,7 @@ import SpecializedCare from "./Services/SpecializedCare";
 
 const ServicesSection = () => {
     return (
-        <section id="services" className="py-24 bg-slate-50">
+        <section id="services" className="py-24 bg-white relative overflow-hidden">
             <Container>
                 <ServicesGrid />
                 <SpecializedCare />

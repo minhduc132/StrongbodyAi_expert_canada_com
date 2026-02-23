@@ -33,13 +33,13 @@ export default function EcosystemPage() {
 
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shrink-0">
+                                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-primary-text shrink-0">
                                         <Globe size={24} />
                                     </div>
                                     <span className="text-lg font-bold text-slate-800">Operating in 15+ Countries</span>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 shrink-0">
+                                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-primary-text shrink-0">
                                         <Link2 size={24} />
                                     </div>
                                     <span className="text-lg font-bold text-slate-800">Integrated with 200+ EHR Systems</span>

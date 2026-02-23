@@ -21,7 +21,7 @@ const StrategicValue = () => {
                                     {val.icon}
                                 </div>
                                 <h4 className="text-lg font-bold text-slate-900 mb-2">{val.title}</h4>
-                                <p className="text-sm text-slate-500 font-medium leading-relaxed">{val.desc}</p>
+                                <p className="text-sm text-[#1c906c] font-medium leading-relaxed">{val.desc}</p>
                             </div>
                         </Reveal>
                     ))}

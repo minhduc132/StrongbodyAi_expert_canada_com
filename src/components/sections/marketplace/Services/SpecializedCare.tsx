@@ -28,7 +28,7 @@ const SpecializedCare = () => {
                         delay={idx * 0.1}
                         className="h-full"
                     >
-                        <div className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 h-full flex flex-col">
+                        <div className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 h-full flex flex-col">
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src={service.image}
@@ -41,15 +41,15 @@ const SpecializedCare = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                             </div>
                             <div className="p-8 flex-1 flex flex-col">
-                                <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors line-clamp-1">
+                                <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary-text transition-colors line-clamp-1">
                                     {service.title}
                                 </h4>
-                                <p className="text-sm text-slate-500 font-medium leading-relaxed mb-6 line-clamp-2 flex-1">
+                                <p className="text-sm text-primary-text font-medium leading-relaxed mb-6 line-clamp-2 flex-1">
                                     {service.desc}
                                 </p>
                                 <Link
                                     href="/contact"
-                                    className="inline-flex items-center gap-2 text-xs font-bold text-slate-950 hover:text-primary transition-colors uppercase tracking-wider mt-auto"
+                                    className="inline-flex items-center gap-2 text-xs font-bold text-slate-950 hover:text-primary-text transition-colors uppercase tracking-wider mt-auto"
                                 >
                                     Learn More <ArrowRight size={14} />
                                 </Link>

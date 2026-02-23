@@ -9,7 +9,7 @@ const ServicesGrid = () => {
         <div className="mb-12">
             <div className="text-center mb-16">
                 <FadeIn>
-                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                    <span className="text-[#1c906c] font-bold tracking-widest text-xs uppercase mb-4 block">
                         Available Services
                     </span>
                 </FadeIn>
@@ -18,7 +18,7 @@ const ServicesGrid = () => {
                         Featured Services in the United States
                     </h2>
                 </Reveal>
-                <p className="text-base text-slate-500 font-medium max-w-2xl mx-auto">
+                <p className="text-base text-slate-600 font-medium max-w-2xl mx-auto">
                     Explore a growing range of verified health services available through our marketplace.
                 </p>
             </div>
@@ -35,10 +35,10 @@ const ServicesGrid = () => {
                                 {service.icon}
                             </div>
                             <h3 className="text-lg font-bold text-slate-900 mb-2 line-clamp-1">{service.title}</h3>
-                            <p className="text-sm text-slate-500 font-medium leading-relaxed mb-5 flex-1 line-clamp-2">{service.desc}</p>
+                            <p className="text-sm text-primary-text font-medium leading-relaxed mb-5 flex-1 line-clamp-2">{service.desc}</p>
                             <Link
                                 href="/contact"
-                                className="text-primary text-xs font-bold hover:underline inline-flex items-center gap-1 mt-auto"
+                                className="text-primary-text text-xs font-bold hover:underline inline-flex items-center gap-1 mt-auto"
                             >
                                 Browse Similar Services <ArrowRight size={12} />
                             </Link>

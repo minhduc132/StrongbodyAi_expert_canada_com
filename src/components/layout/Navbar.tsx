@@ -36,10 +36,11 @@ const Navbar = () => {
         { name: "About", href: "/about" },
         { name: "How It Works", href: "/how-it-works" },
         { name: "Services", href: "/services" },
-        { name: "For Clients", href: "/for-clients" },
+        { name: "Blog", href: "/blog" },
     ];
 
     const moreLinks = [
+        { name: "For Clients", href: "/for-clients", icon: Globe, desc: "Client Resources" },
         { name: "For Partners", href: "/for-partners", icon: Globe, desc: "Recruitment & Network" },
         { name: "FAQ", href: "/faq", icon: HelpCircle, desc: "Common Questions" },
         { name: "Legal", href: "/legal", icon: Shield, desc: "Trust & Compliance" },
@@ -79,7 +80,7 @@ const Navbar = () => {
                                     key={link.name}
                                     href={link.href}
                                     className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${isActive
-                                        ? "text-primary bg-blue-50/50"
+                                        ? "text-primary bg-primary/10"
                                         : "text-slate-600 hover:text-primary hover:bg-slate-50"
                                         }`}
                                 >
@@ -93,7 +94,7 @@ const Navbar = () => {
                             <button
                                 onClick={() => setShowMore(!showMore)}
                                 className={`flex items-center gap-1 px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${showMore || moreLinks.some(l => pathname === l.href)
-                                    ? "text-primary bg-blue-50/50"
+                                    ? "text-primary bg-primary/10"
                                     : "text-slate-600 hover:text-primary hover:bg-slate-50"
                                     }`}
                             >
@@ -109,7 +110,7 @@ const Navbar = () => {
                                                 key={link.name}
                                                 href={link.href}
                                                 onClick={() => setShowMore(false)}
-                                                className={`flex items-start gap-3 p-3 rounded-xl transition-all ${isActive ? "bg-blue-50 text-primary" : "text-slate-700 hover:bg-slate-50"
+                                                className={`flex items-start gap-3 p-3 rounded-xl transition-all ${isActive ? "bg-primary/10 text-primary" : "text-slate-700 hover:bg-slate-50"
                                                     }`}
                                             >
                                                 <div className={`mt-0.5 p-1.5 rounded-lg ${isActive ? "bg-primary text-white" : "bg-slate-100 text-slate-500"}`}>
@@ -141,13 +142,13 @@ const Navbar = () => {
                     <div className="flex items-center gap-2">
                         <Link
                             href="/services"
-                            className="hidden lg:flex items-center gap-1.5 bg-primary text-white px-5 py-2.5 rounded-lg text-[13px] font-bold tracking-wide hover:bg-blue-700 transition-all active:scale-[0.98]"
+                            className="hidden lg:flex items-center gap-1.5 bg-primary text-white px-5 py-2.5 rounded-lg text-[13px] font-bold tracking-wide hover:bg-primary/90 transition-all active:scale-[0.98]"
                         >
                             Explore Services
                         </Link>
                         <Link
                             href="/for-partners"
-                            className="hidden lg:flex items-center gap-1.5 bg-violet-600 text-white px-5 py-2.5 rounded-lg text-[13px] font-bold tracking-wide hover:bg-violet-700 transition-all active:scale-[0.98]"
+                            className="hidden lg:flex items-center gap-1.5 bg-primary text-white px-5 py-2.5 rounded-lg text-[13px] font-bold tracking-wide hover:bg-primary/90 transition-all active:scale-[0.98]"
                         >
                             Become a Partner <ArrowRight size={12} />
                         </Link>
@@ -217,7 +218,7 @@ const Navbar = () => {
                             </Link>
                             <Link
                                 href="/for-partners"
-                                className="block w-full text-center bg-violet-600 text-white py-4 rounded-xl text-base font-bold"
+                                className="block w-full text-center bg-primary text-white py-4 rounded-xl text-base font-bold"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Become a Partner

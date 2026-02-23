@@ -108,8 +108,8 @@ const Hero = () => {
                         </Reveal>
                     </div>
 
-                    {/* Right Visual Area */}
-                    <div className="relative pt-10 lg:pt-0 px-4 lg:pl-10 lg:pr-0 overflow-visible">
+                    {/* Right Visual Area - Hidden on mobile, visible on desktop */}
+                    <div className="relative pt-10 lg:pt-0 px-4 lg:pl-10 lg:pr-0 overflow-visible hidden lg:block">
                         <ScaleIn delay={0.2}>
                             <div className="relative">
                                 {/* Doctor Image with specific rounding */}

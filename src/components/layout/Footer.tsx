@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
@@ -32,13 +30,6 @@ const Footer = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
                     {/* Brand */}
                     <div className="lg:col-span-2 space-y-5">
-                        {/* <Link href="/" className="block">
-                            <img
-                                src="/images/logo.png"
-                                alt="StrongBody AI Logo"
-                                className="h-10 w-auto object-contain brightness-0 invert"
-                            />
-                        </Link> */}
                         <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-sm">
                             AI-native health services marketplace connecting verified professionals and clients in the United States and beyond.
                         </p>

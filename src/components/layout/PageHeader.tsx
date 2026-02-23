@@ -1,7 +1,5 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/animations/Reveal";
 
 interface PageHeaderProps {
     title: string;
@@ -18,11 +16,7 @@ const PageHeader = ({ title, description, breadcrumb }: PageHeaderProps) => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
+                <Reveal>
                     <nav className="flex justify-center mb-6">
                         <ol className="flex items-center space-x-2 text-sm font-medium text-slate-500 uppercase tracking-widest">
                             <li>Home</li>
@@ -36,7 +30,7 @@ const PageHeader = ({ title, description, breadcrumb }: PageHeaderProps) => {
                     <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                         {description}
                     </p>
-                </motion.div>
+                </Reveal>
             </div>
         </section>
     );

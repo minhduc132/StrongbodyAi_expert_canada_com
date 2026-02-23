@@ -109,7 +109,7 @@ const Hero = () => {
                     </div>
 
                     {/* Right Visual Area */}
-                    <div className="relative pt-10 lg:pt-0 pl-10 pr-20 lg:pr-0">
+                    <div className="relative pt-10 lg:pt-0 px-4 lg:pl-10 lg:pr-0 overflow-visible">
                         <ScaleIn delay={0.2}>
                             <div className="relative">
                                 {/* Doctor Image with specific rounding */}
@@ -123,7 +123,7 @@ const Hero = () => {
                                 </div>
 
                                 {/* Floating Trust Badges (The Right Side Pills) */}
-                                <div className="absolute top-1/4 -right-12 z-20 flex flex-col gap-3">
+                                <div className="absolute top-1/4 -right-10 md:-right-12 lg:-right-12 z-20 flex flex-col gap-2 md:gap-3 scale-75 md:scale-90 lg:scale-100 origin-right">
                                     <Float delay={0.6}>
                                         <div className="bg-white/95 backdrop-blur shadow-xl py-3 px-5 rounded-2xl border border-slate-100 flex items-center gap-3 w-44 hover:translate-x-[-10px] transition-transform">
                                             <div className="w-8 h-8 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600">
@@ -160,7 +160,7 @@ const Hero = () => {
                                 </div>
 
                                 {/* Large State Coverage Badge (Bottom) */}
-                                <div className="absolute -bottom-8 -left-8 lg:-left-16 z-20">
+                                <div className="absolute -bottom-6 md:-bottom-8 -left-8 md:-left-12 lg:-left-16 z-20 scale-75 md:scale-90 lg:scale-100 origin-left">
                                     <Float delay={1.2}>
                                         <div className="bg-white/90 backdrop-blur-xl p-5 md:p-6 rounded-[32px] shadow-2xl border border-white/50 max-w-[320px]">
                                             <div className="flex items-center gap-4 mb-3">

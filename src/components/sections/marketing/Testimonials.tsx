@@ -1,12 +1,10 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { Reveal } from "@/components/animations/Reveal";
 
 const testimonials = [
     {
-        quote: "The platform has completely transformed how we handle patient referrals and expert consultations. The AI insights are a game-changer.",
+        quote: "The platform has completely transformed how we handle patient referrals and expert consultations. The AI insights are a game-change.",
         author: "Platform User",
         role: "Health Administrator"
     },
@@ -34,23 +32,22 @@ const Testimonials = () => {
 
                 <div className="grid md:grid-cols-3 gap-8">
                     {testimonials.map((t, index) => (
-                        <motion.div
+                        <Reveal
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow relative"
+                            delay={index * 0.1}
+                            className="h-full"
                         >
-                            <Quote className="text-blue-100 absolute top-4 right-4 w-12 h-12 -z-0" />
-                            <div className="relative z-10">
-                                <p className="text-slate-600 italic mb-6 leading-relaxed">"{t.quote}"</p>
-                                <div>
-                                    <h4 className="font-bold text-slate-900">{t.author}</h4>
-                                    <p className="text-sm text-slate-500">{t.role}</p>
+                            <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow relative h-full">
+                                <Quote className="text-blue-50/50 absolute top-4 right-4 w-12 h-12 -z-0" />
+                                <div className="relative z-10 flex flex-col h-full">
+                                    <p className="text-slate-600 italic mb-6 leading-relaxed flex-1">"{t.quote}"</p>
+                                    <div>
+                                        <h4 className="font-bold text-slate-900">{t.author}</h4>
+                                        <p className="text-sm text-slate-500">{t.role}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </Reveal>
                     ))}
                 </div>
             </div>

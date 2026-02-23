@@ -1,11 +1,12 @@
 import React from "react";
 import { values } from "./constants";
+import Container from "@/components/layout/Container";
 import { Reveal } from "@/components/animations/Reveal";
 
 const StrategicValue = () => {
     return (
         <section className="py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Why Partner With Us</span>
                 <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-10">Strategic Value of Partnership</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -25,7 +26,7 @@ const StrategicValue = () => {
                         </Reveal>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

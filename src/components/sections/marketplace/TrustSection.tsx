@@ -1,5 +1,6 @@
 import React from "react";
 import { Server, Scale, ShieldCheck, AlertTriangle } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const items = [
@@ -11,7 +12,7 @@ const items = [
 const TrustSection = () => {
     return (
         <section className="py-24 bg-blue-50/40">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="text-center mb-14">
                     <FadeIn>
                         <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
@@ -57,7 +58,7 @@ const TrustSection = () => {
                         </div>
                     </div>
                 </Reveal>
-            </div>
+            </Container>
         </section>
     );
 };

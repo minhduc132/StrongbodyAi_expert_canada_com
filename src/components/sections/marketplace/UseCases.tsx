@@ -1,5 +1,6 @@
 import React from "react";
 import { Plane, Microscope, Shield, HeartPulse, Sparkles, Globe2, ChevronRight } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal, ScaleIn, FadeIn } from "@/components/animations/Reveal";
 
 const useCases = [
@@ -44,7 +45,7 @@ const useCases = [
 const UseCases = () => {
     return (
         <section id="use-cases" className="py-32 bg-white relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <Container className="relative z-10">
                 <div className="text-center mb-24">
                     <FadeIn>
                         <span className="inline-block text-primary font-bold tracking-[0.2em] text-sm uppercase mb-4">
@@ -85,7 +86,7 @@ const UseCases = () => {
                         </ScaleIn>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

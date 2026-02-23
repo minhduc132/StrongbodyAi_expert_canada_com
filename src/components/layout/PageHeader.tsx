@@ -1,4 +1,5 @@
 import React from "react";
+import Container from "@/components/layout/Container";
 import { Reveal } from "@/components/animations/Reveal";
 
 interface PageHeaderProps {
@@ -15,7 +16,7 @@ const PageHeader = ({ title, description, breadcrumb }: PageHeaderProps) => {
                 <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[50%] bg-slate-100 rounded-full blur-[100px]"></div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <Container className="relative z-10 text-center">
                 <Reveal>
                     <nav className="flex justify-center mb-6">
                         <ol className="flex items-center space-x-2 text-sm font-medium text-slate-500 uppercase tracking-widest">
@@ -31,7 +32,7 @@ const PageHeader = ({ title, description, breadcrumb }: PageHeaderProps) => {
                         {description}
                     </p>
                 </Reveal>
-            </div>
+            </Container>
         </section>
     );
 };

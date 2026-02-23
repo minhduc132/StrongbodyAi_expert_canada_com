@@ -1,10 +1,11 @@
 import React from "react";
+import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const PartnersHero = () => {
     return (
         <section className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="max-w-3xl">
                     <FadeIn>
                         <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
@@ -25,7 +26,7 @@ const PartnersHero = () => {
                         </p>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

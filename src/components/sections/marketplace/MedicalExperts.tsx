@@ -1,5 +1,6 @@
 import React from "react";
 import { Star, Award } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal, ScaleIn, FadeIn } from "@/components/animations/Reveal";
 
 const experts = [
@@ -26,7 +27,7 @@ const experts = [
 const MedicalExperts = () => {
     return (
         <section className="py-32 bg-slate-50 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="text-center mb-24">
                     <FadeIn>
                         <span className="inline-block text-primary font-bold tracking-[0.2em] text-sm uppercase mb-4">
@@ -74,7 +75,7 @@ const MedicalExperts = () => {
                         </ScaleIn>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

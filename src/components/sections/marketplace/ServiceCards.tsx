@@ -1,6 +1,7 @@
 import React from "react";
 import { Hospital, Pill, HeartPulse, HardDrive, ArrowUpRight, Check } from "lucide-react";
 import Link from "next/link";
+import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const models = [
@@ -49,7 +50,7 @@ const models = [
 const ServiceCards = () => {
     return (
         <section id="models" className="py-24 bg-slate-50 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <Container className="relative z-10">
                 <div className="text-center mb-20">
                     <FadeIn>
                         <span className="inline-block text-primary font-bold tracking-[0.2em] text-sm uppercase mb-4">
@@ -105,7 +106,7 @@ const ServiceCards = () => {
                         </Reveal>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

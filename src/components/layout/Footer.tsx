@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Container from "@/components/layout/Container";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const platformLinks = [
@@ -26,7 +27,7 @@ const legalLinks = [
 const Footer = () => {
     return (
         <footer className="bg-slate-900 text-white pt-20 pb-10">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
                     {/* Brand */}
                     <div className="lg:col-span-2 space-y-5">
@@ -107,13 +108,13 @@ const Footer = () => {
 
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-slate-500 text-xs font-medium">
-                        © 2026 StrongBody AI — Vietnam-based Global Platform. All rights reserved.
+                        © 2026 StrongBody AI — Singapore-based Global Platform. All rights reserved.
                     </p>
                     <p className="text-slate-600 text-[10px] font-medium max-w-md text-center md:text-right">
                         StrongBody AI is a technology marketplace platform. We do not directly provide medical services. All services are provided by independent verified partners.
                     </p>
                 </div>
-            </div>
+            </Container>
         </footer>
     );
 };

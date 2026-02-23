@@ -1,5 +1,6 @@
 import React from "react";
 import { Users, FileText, CreditCard, Globe2, Cpu, ShieldCheck, Wifi } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const capabilities = [
@@ -17,8 +18,8 @@ const stats = [
 
 const AboutSection = () => {
     return (
-        <section id="about" className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="about" className="pt-12 pb-24 bg-white">
+            <Container>
                 <div className="grid lg:grid-cols-2 gap-20 items-center">
                     {/* Content */}
                     <div>
@@ -82,7 +83,7 @@ const AboutSection = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

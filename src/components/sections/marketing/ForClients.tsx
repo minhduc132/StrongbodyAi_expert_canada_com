@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ShieldCheck, DollarSign, Users, Globe2, Clock, Star, ArrowRight } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const benefits = [
@@ -15,7 +16,7 @@ const benefits = [
 const ForClients = () => {
     return (
         <section id="for-clients" className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="text-center mb-16">
                     <FadeIn>
                         <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
@@ -54,7 +55,7 @@ const ForClients = () => {
                         Start Your Health Journey — Explore Services <ArrowRight size={16} />
                     </Link>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

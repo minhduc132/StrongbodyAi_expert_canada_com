@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Users, Briefcase } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal } from "@/components/animations/Reveal";
 
 const FinalCTA = () => {
     return (
         <section className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <Reveal>
                     <div className="grid md:grid-cols-2 gap-6">
                         {/* For Clients */}
@@ -56,7 +57,7 @@ const FinalCTA = () => {
                         </div>
                     </div>
                 </Reveal>
-            </div>
+            </Container>
         </section>
     );
 };

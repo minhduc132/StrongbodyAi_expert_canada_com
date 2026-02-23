@@ -1,5 +1,6 @@
 import React from "react";
 import { Quote } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal } from "@/components/animations/Reveal";
 
 const testimonials = [
@@ -23,7 +24,7 @@ const testimonials = [
 const Testimonials = () => {
     return (
         <section className="py-24 bg-slate-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="text-center mb-16">
                     <h2 className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3">Community</h2>
                     <p className="text-4xl font-extrabold text-slate-900 mb-4">What Our Community Shares</p>
@@ -50,7 +51,7 @@ const Testimonials = () => {
                         </Reveal>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

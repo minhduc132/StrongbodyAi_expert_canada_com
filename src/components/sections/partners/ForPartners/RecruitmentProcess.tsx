@@ -1,11 +1,12 @@
 import React from "react";
 import { processSteps } from "./constants";
+import Container from "@/components/layout/Container";
 import { Reveal } from "@/components/animations/Reveal";
 
 const RecruitmentProcess = () => {
     return (
         <section className="py-20 bg-slate-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">The Process</span>
                 <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Partnership Recruitment Process</h2>
                 <p className="text-slate-500 font-medium mb-10 max-w-2xl">
@@ -36,7 +37,7 @@ const RecruitmentProcess = () => {
                         StrongBody AI applies a selective recruitment policy. Not all applications will be approved.
                     </p>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

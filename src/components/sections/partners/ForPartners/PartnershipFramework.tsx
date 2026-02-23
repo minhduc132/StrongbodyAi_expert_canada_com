@@ -1,10 +1,11 @@
 import React from "react";
+import Container from "@/components/layout/Container";
 import { ShieldCheck, CheckCircle2 } from "lucide-react";
 
 const PartnershipFramework = () => {
     return (
         <section className="py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="grid lg:grid-cols-2 gap-16">
                     <div>
                         <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Framework</span>
@@ -55,7 +56,7 @@ const PartnershipFramework = () => {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

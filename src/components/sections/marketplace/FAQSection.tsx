@@ -22,7 +22,7 @@ const FAQSection = () => {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-14">
                     <FadeIn>
-                        <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                        <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">
                             Help
                         </span>
                     </FadeIn>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Cpu, FileText, CreditCard, Globe2, BarChart3, Zap } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const differentiators = [
@@ -40,7 +41,7 @@ const WhyDifferent = () => {
         <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
             <div className="absolute top-0 right-0 w-[60%] h-full bg-blue-600/5 skew-x-12 translate-x-1/3"></div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <Container className="relative z-10">
                 <div className="text-center mb-16">
                     <FadeIn>
                         <span className="text-blue-400 font-bold tracking-widest text-xs uppercase mb-4 block">
@@ -74,7 +75,7 @@ const WhyDifferent = () => {
                         </Reveal>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

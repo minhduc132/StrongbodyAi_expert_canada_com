@@ -16,7 +16,7 @@ export default function Home() {
       <AboutSection />
       <HowItWorks />
       <ForClients />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <PartnershipOverview />
       <WhyDifferent />
       <TrustSection />

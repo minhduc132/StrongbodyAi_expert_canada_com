@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Search, MessageSquare, FileCheck, ShieldCheck, Play } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const steps = [
@@ -33,7 +34,7 @@ const steps = [
 const HowItWorks = () => {
     return (
         <section id="how-it-works" className="py-24 bg-slate-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="text-center mb-16">
                     <FadeIn>
                         <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
@@ -81,7 +82,7 @@ const HowItWorks = () => {
                         </Reveal>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

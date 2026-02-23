@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Globe2, FileText, CreditCard, MessageSquare, BarChart3, Zap } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const highlights = [
@@ -18,7 +19,7 @@ const PartnershipOverview = () => {
             <div className="absolute top-0 right-0 w-[40%] h-full bg-indigo-500/10 -skew-x-12 translate-x-1/4"></div>
             <div className="absolute bottom-0 left-0 w-[30%] h-full bg-blue-500/5 skew-x-12 -translate-x-1/4"></div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <Container className="relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <FadeIn>
@@ -63,7 +64,7 @@ const PartnershipOverview = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

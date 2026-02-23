@@ -1,5 +1,6 @@
 import React from "react";
 import { Globe, Shield, Zap, Binary, Share2 } from "lucide-react";
+import Container from "@/components/layout/Container";
 import { Reveal, FadeIn, ScaleIn, Float } from "@/components/animations/Reveal";
 
 const stats = [
@@ -12,7 +13,7 @@ const stats = [
 const Ecosystem = () => {
     return (
         <section id="ecosystem" className="py-32 bg-slate-50 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="grid lg:grid-cols-2 gap-20 items-center">
                     <div>
                         <FadeIn>
@@ -68,7 +69,7 @@ const Ecosystem = () => {
                         </Float>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

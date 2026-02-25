@@ -1,8 +1,6 @@
 import PageHeader from "@/components/layout/PageHeader";
-import Container from "@/components/layout/Container";
-import Link from "next/link";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { Metadata } from "next";
+import BlogListClient from "./BlogListClient";
 
 export const metadata: Metadata = {
     title: "Blog | StrongBody AI Health Insights",
@@ -79,7 +77,6 @@ const blogPosts = [
     }
 ];
 
-const categories = ["All", "Technology", "Healthcare", "Compliance", "Finance", "Partnership"];
 
 export default function BlogPage() {
     return (
@@ -89,79 +86,7 @@ export default function BlogPage() {
                 description="Stay informed with the latest healthcare innovations, platform updates, and expert insights from StrongBody AI."
                 breadcrumb="Blog"
             />
-
-            <section className="py-24 bg-white">
-                <Container>
-                    {/* Categories Filter */}
-                    <div className="flex flex-wrap gap-3 mb-12">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
-                                    category === "All"
-                                        ? "bg-primary text-white"
-                                        : "bg-slate-100 text-slate-700 hover:bg-primary hover:text-white"
-                                }`}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Blog Grid */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {blogPosts.map((post) => (
-                            <Link
-                                key={post.id}
-                                href={`/blog/${post.slug}`}
-                                className="group bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
-                            >
-                                <div className="relative h-48 overflow-hidden">
-                                    <img
-                                        src={post.image}
-                                        alt={post.title}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                    />
-                                    <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">
-                                        {post.category}
-                                    </div>
-                                </div>
-                                <div className="p-6 flex-1 flex flex-col">
-                                    <div className="flex items-center gap-4 text-xs text-slate-500 font-medium mb-3">
-                                        <div className="flex items-center gap-1">
-                                            <Calendar size={12} />
-                                            {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <Clock size={12} />
-                                            {post.readTime}
-                                        </div>
-                                    </div>
-                                    <h3 className="text-xl font-black text-slate-900 mb-3 group-hover:text-primary-text transition-colors line-clamp-2">
-                                        {post.title}
-                                    </h3>
-                                    <p className="text-sm text-slate-600 font-medium leading-relaxed mb-4 line-clamp-3 flex-1">
-                                        {post.excerpt}
-                                    </p>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-bold text-slate-500">{post.author}</span>
-                                        <div className="flex items-center gap-2 text-primary-text font-bold text-sm group-hover:gap-3 transition-all">
-                                            Read More <ArrowRight size={14} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-
-                    {/* Load More Button */}
-                    <div className="text-center mt-12">
-                        <button className="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-primary/90 transition-all">
-                            Load More Articles
-                        </button>
-                    </div>
-                </Container>
-            </section>
+            <BlogListClient initialPosts={blogPosts} />
         </main>
     );
 }

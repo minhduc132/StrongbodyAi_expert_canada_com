@@ -28,7 +28,10 @@ const SpecializedCare = () => {
                         delay={idx * 0.1}
                         className="h-full"
                     >
-                        <div className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 h-full flex flex-col">
+                        <Link
+                            href={`/services/${service.slug}`}
+                            className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 h-full flex flex-col cursor-pointer block"
+                        >
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src={service.image}
@@ -44,17 +47,16 @@ const SpecializedCare = () => {
                                 <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary-text transition-colors line-clamp-1">
                                     {service.title}
                                 </h4>
-                                <p className="text-sm text-primary-text font-medium leading-relaxed mb-6 line-clamp-2 flex-1">
+                                <p className="text-sm text-slate-600 font-medium leading-relaxed mb-6 line-clamp-2 flex-1">
                                     {service.desc}
                                 </p>
-                                <Link
-                                    href="/contact"
-                                    className="inline-flex items-center gap-2 text-xs font-bold text-slate-950 hover:text-primary-text transition-colors uppercase tracking-wider mt-auto"
+                                <div
+                                    className="inline-flex items-center gap-2 text-xs font-bold text-slate-950 group-hover:text-primary-text transition-colors uppercase tracking-wider mt-auto"
                                 >
                                     Learn More <ArrowRight size={14} />
-                                </Link>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </ScaleIn>
                 ))}
             </div>

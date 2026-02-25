@@ -13,7 +13,7 @@ const ContactContent = () => {
                         <Reveal>
                             <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Get in Touch</span>
                             <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
-                                Contact StrongBody AI
+                                Contact <span className="text-primary">StrongBody AI</span>
                             </h1>
                             <p className="text-lg text-slate-600 font-medium leading-relaxed mb-10">
                                 Whether you're a client exploring services or a professional interested in partnership — we'd love to hear from you.
@@ -21,25 +21,25 @@ const ContactContent = () => {
 
                             <div className="space-y-5">
                                 <div className="flex items-center gap-4 p-5 rounded-xl bg-slate-50 border border-slate-100">
-                                    <div className="w-11 h-11 rounded-xl bg-blue-100 text-primary flex items-center justify-center">
+                                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                                         <Mail size={20} />
                                     </div>
                                     <div>
                                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Email</div>
-                                        <a href="mailto:contact@strongbodyai.com" className="text-base font-bold text-slate-900 hover:text-[#1c906c] transition-colors">contact@strongbodyai.com</a>
+                                        <a href="mailto:contact@strongbodyai.com" className="text-base font-bold text-slate-900 hover:text-primary transition-colors">contact@strongbodyai.com</a>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4 p-5 rounded-xl bg-slate-50 border border-slate-100">
-                                    <div className="w-11 h-11 rounded-xl bg-blue-100 text-primary flex items-center justify-center">
+                                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                                         <Phone size={20} />
                                     </div>
                                     <div>
                                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Phone</div>
-                                        <a href="tel:+18001234567" className="text-base font-bold text-slate-900 hover:text-[#1c906c] transition-colors">+1 (800) 123-4567</a>
+                                        <a href="tel:+18001234567" className="text-base font-bold text-slate-900 hover:text-primary transition-colors">+1 (800) 123-4567</a>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4 p-5 rounded-xl bg-slate-50 border border-slate-100">
-                                    <div className="w-11 h-11 rounded-xl bg-blue-100 text-primary flex items-center justify-center">
+                                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                                         <MapPin size={20} />
                                     </div>
                                     <div>

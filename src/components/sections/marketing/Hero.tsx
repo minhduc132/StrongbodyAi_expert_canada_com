@@ -76,7 +76,7 @@ const Hero = () => {
                                     Explore Services in the US <ArrowRight size={18} />
                                 </Link>
                                 <Link
-                                    href="/for-partners"
+                                    href="https://www.strongbody.ai/signup"
                                     className="bg-primary-text text-white px-8 py-4 rounded-2xl text-[15px] font-bold transition-all shadow-lg shadow-primary-text/20 hover:shadow-primary-text/35 hover:-translate-y-0.5 flex items-center justify-center gap-2"
                                 >
                                     Become a Strategic Partner

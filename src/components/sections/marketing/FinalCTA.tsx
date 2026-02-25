@@ -48,7 +48,7 @@ const FinalCTA = () => {
                                     Join our selective network of verified health professionals and grow your practice globally.
                                 </p>
                                 <Link
-                                    href="/for-partners"
+                                    href="https://www.strongbody.ai/signup"
                                     className="inline-flex items-center gap-2 bg-white text-primary px-7 py-3.5 rounded-xl font-bold hover:bg-slate-100 transition-all text-sm shadow-lg"
                                 >
                                     Become a Partner <ArrowRight size={16} />

@@ -156,14 +156,15 @@ const blogPosts = [
 ];
 
 interface BlogPostPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-    const post = blogPosts.find((p) => p.slug === params.slug);
-    
+    const resolvedParams = await params;
+    const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
+
     if (!post) {
         return {
             title: "Post Not Found | StrongBody AI Blog",
@@ -176,8 +177,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-    const post = blogPosts.find((p) => p.slug === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+    const resolvedParams = await params;
+    console.log("Blog Params:", resolvedParams);
+    const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
+    console.log("Found post:", post ? post.title : "Not found");
 
     if (!post) {
         notFound();

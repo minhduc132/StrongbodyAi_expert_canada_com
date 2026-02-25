@@ -147,7 +147,7 @@ const Navbar = () => {
                             Explore Services
                         </Link>
                         <Link
-                            href="/for-partners"
+                            href="https://www.strongbody.ai/signup"
                             className="hidden lg:flex items-center gap-1.5 bg-primary text-white px-5 py-2.5 rounded-lg text-[13px] font-bold tracking-wide hover:bg-primary/90 transition-all active:scale-[0.98]"
                         >
                             Become a Partner <ArrowRight size={12} />
@@ -217,7 +217,7 @@ const Navbar = () => {
                                 Explore Services
                             </Link>
                             <Link
-                                href="/for-partners"
+                                href="https://www.strongbody.ai/signup"
                                 className="block w-full text-center bg-primary text-white py-4 rounded-xl text-base font-bold"
                                 onClick={() => setIsOpen(false)}
                             >

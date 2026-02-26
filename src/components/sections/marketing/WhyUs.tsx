@@ -1,39 +1,34 @@
 import React from "react";
-import { Cpu, FileText, CreditCard, Globe2, BarChart3, Zap } from "lucide-react";
+import { Cpu, FileText, Smartphone, Globe2, BarChart3 } from "lucide-react";
 import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const differentiators = [
     {
         icon: <Cpu size={26} />,
-        title: "AI-Native Marketplace",
-        desc: "Built around AI from the ground up — not retrofitted. Every interaction is enhanced by intelligent automation.",
+        title: "True AI-Native Voice Experience from day one",
+        desc: "Built around AI voice translation — speak naturally in any language.",
     },
     {
         icon: <FileText size={26} />,
-        title: "Offer-Based Commerce",
-        desc: "Every transaction starts with a transparent, structured Offer. No ambiguity, no surprises.",
+        title: "Offer-Based + Escrow Commerce",
+        desc: "Unique in chat apps: seamless professional transactions combined with iron-clad escrow protection.",
     },
     {
-        icon: <CreditCard size={26} />,
-        title: "Secure Escrow Layer",
-        desc: "Payments are only released when service conditions are fully met. Both parties are protected.",
+        icon: <Smartphone size={26} />,
+        title: "One Account, One App",
+        desc: "StrongBody + Global Voice Network — manage everything from a single secure account.",
     },
     {
         icon: <Globe2 size={26} />,
-        title: "Cross-Border Enablement",
-        desc: "US-based professionals can serve clients globally. Break geographic limitations with AI translation.",
+        title: "Cross-Border Power",
+        desc: "Experts in Malaysia reach premium global clients easily and effectively.",
     },
     {
         icon: <BarChart3 size={26} />,
-        title: "Structured Reputation System",
-        desc: "Professional reputation built on verified data, real reviews, and measurable performance metrics.",
-    },
-    {
-        icon: <Zap size={26} />,
-        title: "Global Reach Without Borders",
-        desc: "A truly borderless healthcare marketplace — connect, consult, and transact from anywhere in the world.",
-    },
+        title: "Structured Reputation",
+        desc: "Built via Voice & Real Reviews, maintaining high-fidelity trust over time.",
+    }
 ];
 
 const WhyDifferent = () => {
@@ -50,7 +45,7 @@ const WhyDifferent = () => {
                     </FadeIn>
                     <Reveal delay={0.1}>
                         <h2 className="text-3xl md:text-4xl font-black mb-4">
-                            What Sets StrongBody AI Apart
+                            Why StrongBody AI + MultiMe AI Is Different
                         </h2>
                     </Reveal>
                     <p className="text-base text-white/80 font-medium max-w-2xl mx-auto">
@@ -58,7 +53,7 @@ const WhyDifferent = () => {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center">
                     {differentiators.map((item, idx) => (
                         <Reveal
                             key={idx}

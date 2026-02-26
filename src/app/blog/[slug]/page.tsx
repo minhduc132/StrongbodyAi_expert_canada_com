@@ -155,6 +155,8 @@ const blogPosts = [
     }
 ];
 
+import { fetchPostDetail, fetchAllBlogs } from "@/lib/api";
+
 interface BlogPostPageProps {
     params: Promise<{
         slug: string;
@@ -163,7 +165,15 @@ interface BlogPostPageProps {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
     const resolvedParams = await params;
-    const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
+
+    // First try to fetch from API
+    let post = await fetchPostDetail(resolvedParams.slug);
+
+    // Fallback to hardcoded mock data if API fails
+    if (!post) {
+        const localPost = blogPosts.find((p) => p.slug === resolvedParams.slug);
+        if (localPost) post = localPost;
+    }
 
     if (!post) {
         return {
@@ -171,20 +181,49 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         };
     }
 
+    const description = post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').substring(0, 160) : "");
+
     return {
         title: `${post.title} | StrongBody AI Blog`,
-        description: post.content.replace(/<[^>]*>/g, '').substring(0, 160),
+        description: description,
     };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const resolvedParams = await params;
-    console.log("Blog Params:", resolvedParams);
-    const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
-    console.log("Found post:", post ? post.title : "Not found");
+
+    // Fetch detailed post
+    let post = await fetchPostDetail(resolvedParams.slug);
+    let isFallback = false;
+
+    // Fallback
+    if (!post) {
+        const localPost = blogPosts.find((p) => p.slug === resolvedParams.slug);
+        if (localPost) {
+            post = localPost;
+            isFallback = true;
+        }
+    }
 
     if (!post) {
         notFound();
+    }
+
+    // Mapping API response to our UI variables
+    const title = post.title;
+    const content = post.content || post.details?.content || "<p>No content available.</p>";
+    const image = post.featured_image_url || post.image || "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200";
+    const category = post.category?.name || "Uncategorized";
+    const date = post.published_at || post.date || new Date().toISOString();
+    const author = "StrongBody AI";
+    const authorRole = "Content Team";
+    const authorImage = "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&q=80&w=400&h=400";
+    const readTime = "5 min read";
+
+    // Fetch related posts
+    let relatedPosts = await fetchAllBlogs();
+    if (!relatedPosts || relatedPosts.length === 0) {
+        relatedPosts = blogPosts;
     }
 
     return (
@@ -192,27 +231,27 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* Hero Image */}
             <div className="relative h-[400px] md:h-[500px] overflow-hidden">
                 <img
-                    src={post.image}
-                    alt={post.title}
+                    src={image}
+                    alt={title}
                     className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-slate-900/40"></div>
                 <Container className="relative h-full flex items-end pb-12">
                     <div className="text-white">
                         <div className="inline-block bg-primary text-white px-4 py-1.5 rounded-full text-xs font-bold mb-4">
-                            {post.category}
+                            {category}
                         </div>
                         <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
-                            {post.title}
+                            {title}
                         </h1>
                         <div className="flex items-center gap-6 text-sm font-medium">
                             <div className="flex items-center gap-2">
                                 <Calendar size={16} />
-                                {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                                {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                             </div>
                             <div className="flex items-center gap-2">
                                 <Clock size={16} />
-                                {post.readTime}
+                                {readTime}
                             </div>
                         </div>
                     </div>
@@ -235,22 +274,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         <article className="lg:col-span-2">
                             <div
                                 className="prose prose-lg max-w-none"
-                                dangerouslySetInnerHTML={{ __html: post.content }}
+                                dangerouslySetInnerHTML={{ __html: content }}
                             />
 
                             {/* Author Section */}
                             <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-100">
                                 <div className="flex items-start gap-4">
                                     <img
-                                        src={post.authorImage}
-                                        alt={post.author}
+                                        src={authorImage}
+                                        alt={author}
                                         className="w-16 h-16 rounded-full object-cover"
                                     />
                                     <div>
-                                        <h4 className="text-lg font-black text-slate-900 mb-1">{post.author}</h4>
-                                        <p className="text-sm text-slate-500 font-medium mb-3">{post.authorRole}</p>
+                                        <h4 className="text-lg font-black text-slate-900 mb-1">{author}</h4>
+                                        <p className="text-sm text-slate-500 font-medium mb-3">{authorRole}</p>
                                         <p className="text-sm text-slate-600 font-medium">
-                                            {post.author} is a key contributor to StrongBody AI's mission of making quality healthcare accessible globally.
+                                            {author} is a key contributor to StrongBody AI's mission of making quality healthcare accessible globally.
                                         </p>
                                     </div>
                                 </div>
@@ -283,10 +322,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                 <div>
                                     <h3 className="text-xl font-black text-slate-900 mb-6">Related Articles</h3>
                                     <div className="space-y-4">
-                                        {blogPosts
-                                            .filter((p) => p.id !== post.id && p.category === post.category)
+                                        {relatedPosts
+                                            .filter((p: any) => p.slug !== resolvedParams.slug)
                                             .slice(0, 3)
-                                            .map((relatedPost) => (
+                                            .map((relatedPost: any) => (
                                                 <Link
                                                     key={relatedPost.id}
                                                     href={`/blog/${relatedPost.slug}`}

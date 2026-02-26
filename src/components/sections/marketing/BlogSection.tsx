@@ -41,7 +41,16 @@ const recentPosts = [
     }
 ];
 
-const BlogSection = () => {
+import { fetchAllBlogs } from "@/lib/api";
+
+const BlogSection = async () => {
+    let posts = await fetchAllBlogs();
+    if (!posts || posts.length === 0) {
+        posts = recentPosts;
+    } else {
+        posts = posts.slice(0, 3);
+    }
+
     return (
         <section className="py-24 bg-slate-50 relative overflow-hidden">
             <Container>
@@ -70,7 +79,7 @@ const BlogSection = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {recentPosts.map((post, idx) => (
+                    {posts.map((post: any, idx: number) => (
                         <ScaleIn key={post.id} delay={idx * 0.1}>
                             <Link
                                 href={`/blog/${post.slug}`}

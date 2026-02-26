@@ -1,21 +1,21 @@
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck, DollarSign, Users, Globe2, Clock, Star, ArrowRight } from "lucide-react";
+import { ShieldCheck, DollarSign, Users, Globe2, Activity, Star, ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const benefits = [
-    { icon: <ShieldCheck size={22} />, title: "Verified Professionals", desc: "Every professional on StrongBody AI is credential-verified and licensed in their jurisdiction." },
-    { icon: <DollarSign size={22} />, title: "Transparent Pricing", desc: "See all costs upfront before committing. No hidden fees, no surprises." },
-    { icon: <Users size={22} />, title: "Compare Experts & Offers", desc: "Browse multiple experts, compare qualifications, reviews, and Offers side by side." },
-    { icon: <Globe2 size={22} />, title: "No Language Barriers", desc: "AI MultiMe-powered real-time translation enables seamless communication in any language." },
-    { icon: <Clock size={22} />, title: "Secure Service History", desc: "Your complete service history is stored securely for easy reference and follow-ups." },
-    { icon: <Star size={22} />, title: "Transparent Reviews & History", desc: "Read verified reviews and track record from real clients to make informed decisions." },
+    { icon: <Users size={22} />, title: "Personalized Care Team", desc: "Build your own Personal Care Team — doctors, pharmacists, aesthetic specialists, nutritionists, trainers..." },
+    { icon: <Activity size={22} />, title: "Flexible Online Support", desc: "Enjoy flexible online health & wellness consultations & support – anytime, no waiting." },
+    { icon: <Globe2 size={22} />, title: "Affordable Global Experts", desc: "Access high-quality services at affordable prices from global experts." },
+    { icon: <Star size={22} />, title: "Native Communication", desc: "Communicate effortlessly in your native language thanks to AI Voice Translate." },
+    { icon: <DollarSign size={22} />, title: "Transparent Offers", desc: "Compare transparent Offers before deciding on your care." },
+    { icon: <ShieldCheck size={22} />, title: "Secure Escrow & History", desc: "Secure Escrow – pay only when satisfied. Full history of consultations safely stored." },
 ];
 
 const ForClients = () => {
     return (
-        <section id="for-clients" className="py-24 bg-white">
+        <section id="for-clients" className="py-24 bg-slate-50">
             <Container>
                 <div className="text-center mb-16">
                     <FadeIn>
@@ -25,11 +25,11 @@ const ForClients = () => {
                     </FadeIn>
                     <Reveal delay={0.1}>
                         <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-                            Why US Clients Choose StrongBody AI
+                            Why Malaysia Residents Love StrongBody AI on MultiMe
                         </h2>
                     </Reveal>
-                    <p className="text-base text-slate-500 font-medium max-w-2xl mx-auto">
-                        Access world-class healthcare expertise with full transparency and protection.
+                    <p className="text-base text-slate-500 font-medium max-w-2xl mx-auto mb-6">
+                        You are a perfect fit if you want to experience borderless healthcare without language barriers, high costs, or compromising on quality.
                     </p>
                 </div>
 
@@ -49,10 +49,10 @@ const ForClients = () => {
 
                 <div className="text-center">
                     <Link
-                        href="/services"
-                        className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-xl text-sm font-bold hover:shadow-primary/30 hover:scale-[1.02] transition-all shadow-lg shadow-primary/20"
+                        href="/multime"
+                        className="inline-flex items-center justify-center gap-2 bg-primary text-white px-7 py-4 rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.02] transition-all"
                     >
-                        Start Your Health Journey — Explore Services <ArrowRight size={16} />
+                        Download MultiMe AI & Build Your Personal Care Team Today <ArrowRight size={16} />
                     </Link>
                 </div>
             </Container>

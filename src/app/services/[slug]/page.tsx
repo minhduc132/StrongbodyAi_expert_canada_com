@@ -2,8 +2,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, Star, Clock, ShieldCheck, MapPin } from "lucide-react";
 import Container from "@/components/layout/Container";
-import { services, additionalServices } from "@/components/sections/marketplace/Services/constants";
+import { services as defaultServices, additionalServices as defaultAdditionalServices } from "@/components/sections/marketplace/Services/constants";
 import { Metadata } from "next";
+import { fetchPostDetail } from "@/lib/api";
 
 interface ServicePageProps {
     params: Promise<{
@@ -13,9 +14,14 @@ interface ServicePageProps {
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
     const resolvedParams = await params;
-    const mainService = services.find((s) => s.slug === resolvedParams.slug);
-    const addService = additionalServices.find((s) => s.slug === resolvedParams.slug);
-    const service = mainService || addService;
+
+    let service: any = await fetchPostDetail(resolvedParams.slug);
+
+    if (!service) {
+        const mainService = defaultServices.find((s) => s.slug === resolvedParams.slug);
+        const addService = defaultAdditionalServices.find((s) => s.slug === resolvedParams.slug);
+        service = mainService || addService;
+    }
 
     if (!service) {
         return {
@@ -23,23 +29,36 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
         };
     }
 
+    const description = service.excerpt || service.desc || (service.content ? service.content.replace(/<[^>]*>/g, '').substring(0, 160) : "");
+
     return {
         title: `${service.title} | StrongBody AI Services`,
-        description: service.desc,
+        description: description,
     };
 }
 
 export default async function ServiceDetailsPage({ params }: ServicePageProps) {
     const resolvedParams = await params;
-    const mainService = services.find((s) => s.slug === resolvedParams.slug);
-    const addService = additionalServices.find((s) => s.slug === resolvedParams.slug);
-    const service: any = mainService || addService;
+
+    let service: any = await fetchPostDetail(resolvedParams.slug);
+    let isFallback = false;
+
+    if (!service) {
+        const mainService = defaultServices.find((s) => s.slug === resolvedParams.slug);
+        const addService = defaultAdditionalServices.find((s) => s.slug === resolvedParams.slug);
+        service = mainService || addService;
+        isFallback = true;
+    }
 
     if (!service) {
         notFound();
     }
 
-    const isAdditional = !!addService;
+    const title = service.title;
+    const content = service.content || service.details?.content || service.desc || "<p>Coming soon...</p>";
+    const image = service.featured_image_url || service.image;
+    const tag = service.category?.name || service.tag;
+    const isAdditional = isFallback ? !!defaultAdditionalServices.find((s) => s.slug === resolvedParams.slug) : false;
 
     return (
         <main className="min-h-screen bg-slate-50 pt-24 pb-24">
@@ -59,30 +78,31 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
                     {/* Left/Main Content */}
                     <div className="lg:col-span-2">
                         <div className="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm mb-8">
-                            {service.tag && (
+                            {tag && (
                                 <div className="inline-flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold mb-6">
                                     <Star size={14} className="fill-primary text-primary" />
-                                    {service.tag}
+                                    {tag}
                                 </div>
                             )}
 
-                            {!service.tag && mainService && (
+                            {!tag && !isAdditional && service.icon && (
                                 <div className="w-16 h-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center mb-6">
                                     {service.icon}
                                 </div>
                             )}
 
                             <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
-                                {service.title}
+                                {title}
                             </h1>
 
-                            <p className="text-lg text-slate-600 font-medium leading-relaxed mb-8">
-                                {service.desc}
-                            </p>
+                            <div
+                                className="text-lg text-slate-600 font-medium leading-relaxed mb-8 prose prose-lg"
+                                dangerouslySetInnerHTML={{ __html: content }}
+                            />
 
-                            {service.image && (
+                            {image && (
                                 <div className="w-full h-[400px] rounded-2xl overflow-hidden mb-8">
-                                    <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                                    <img src={image} alt={title} className="w-full h-full object-cover" />
                                 </div>
                             )}
 
@@ -107,7 +127,7 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
                                 <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                                     <h4 className="text-lg font-bold text-slate-900 mb-2">Our Commitment to Quality</h4>
                                     <p className="text-sm text-slate-600 font-medium leading-relaxed">
-                                        Every specialist offering {service.title.toLowerCase()} has undergone a rigorous verification process. We assure quality, safety, and confidentiality in every interaction through StrongBody AI.
+                                        Every specialist offering {title.toLowerCase()} has undergone a rigorous verification process. We assure quality, safety, and confidentiality in every interaction through StrongBody AI.
                                     </p>
                                 </div>
                             </div>

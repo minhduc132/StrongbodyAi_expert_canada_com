@@ -1,87 +1,91 @@
 import React from "react";
-import { Users, FileText, CreditCard, Globe2, Cpu, ShieldCheck, Wifi } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
 import { Reveal, FadeIn } from "@/components/animations/Reveal";
-
-const capabilities = [
-    { icon: <Users size={22} />, title: "Direct Connection", desc: "Connect directly with verified health professionals — no middlemen, no hidden fees." },
-    { icon: <FileText size={22} />, title: "Transparent Offers", desc: "Every transaction begins with a clear, structured Offer created within the conversation." },
-    { icon: <CreditCard size={22} />, title: "Escrow Payments", desc: "Funds are held securely and only released when service conditions are fulfilled." },
-    { icon: <Globe2 size={22} />, title: "Real-time AI Translation", desc: "Communicate with professionals worldwide via MultiMe AI — language is no longer a barrier." },
-];
-
-const stats = [
-    { icon: <Cpu size={16} />, label: "Powered by AI" },
-    { icon: <Wifi size={16} />, label: "Borderless Access" },
-    { icon: <ShieldCheck size={16} />, label: "Compliant & Secure" },
-];
+import Link from "next/link";
 
 const AboutSection = () => {
     return (
-        <section id="about" className="pt-12 pb-24 bg-white">
+        <section id="multime-ai-app" className="pt-12 pb-24 bg-white">
             <Container>
-                <div className="grid lg:grid-cols-2 gap-20 items-center">
-                    {/* Content */}
-                    <div>
-                        <Reveal>
-                            <span className="text-[#1c906c] font-black tracking-widest text-xs uppercase mb-4 block">About the Platform</span>
-                            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">
-                                What is StrongBody AI?
-                            </h2>
-                            <p className="text-base text-slate-600 mb-8 leading-relaxed font-medium">
-                                StrongBody AI is an AI-powered technology platform that facilitates health service transactions. It enables direct connections between clients and verified professionals, transparent Offer-based commerce, secure escrow payments, and real-time multilingual communication through MultiMe AI.
-                            </p>
-                        </Reveal>
+                <div className="text-center mb-16">
+                    <Reveal>
+                        <span className="text-[#1c906c] font-black tracking-widest text-xs uppercase mb-4 block">MultiMe AI App</span>
+                        <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 leading-tight">
+                            Why Download the MultiMe AI App?
+                        </h2>
+                        <h3 className="text-xl font-bold text-slate-700 mb-4">
+                            The only app you need to experience StrongBody AI fully.
+                        </h3>
+                        <p className="text-base text-slate-600 mb-8 leading-relaxed font-medium max-w-2xl mx-auto">
+                            One account – seamless access to voice translation, offers, escrow, and your Personal Care Team.
+                        </p>
+                    </Reveal>
+                </div>
 
-                        <div className="grid sm:grid-cols-2 gap-5">
-                            {capabilities.map((item, idx) => (
-                                <Reveal
-                                    key={idx}
-                                    delay={idx * 0.08}
-                                >
-                                    <div className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all group h-full">
-                                        <div className="w-10 h-10 rounded-xl bg-white/10 text-primary-text flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-all">
-                                            {item.icon}
-                                        </div>
-                                        <h4 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h4>
-                                        <p className="text-xs text-slate-500 leading-relaxed font-medium">{item.desc}</p>
-                                    </div>
-                                </Reveal>
-                            ))}
+                <div className="grid lg:grid-cols-2 gap-10">
+                    {/* Block 1 */}
+                    <Reveal delay={0.1}>
+                        <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 h-full flex flex-col">
+                            <h4 className="text-xl font-black text-slate-900 mb-4">
+                                For Clients – Get World-Class Care in Your Own Voice
+                            </h4>
+                            <p className="text-sm font-bold text-slate-600 mb-6">You get:</p>
+                            <ul className="space-y-4 mb-8 flex-1">
+                                {[
+                                    "Real-time AI Voice Translate: Speak in your Malaysia language – experts hear and reply in theirs instantly.",
+                                    "Build your Personal Care Team personalized in minutes (doctors + pharmacists + nutritionists + trainers + aesthetic specialists…).",
+                                    "Compare transparent Offers from thousands of global experts.",
+                                    "Secure Escrow payment – money released only when you are 100% satisfied.",
+                                    "Manage full consultation history, results, and care team inside one app.",
+                                    "Flexible 24/7 services at affordable prices (often 40-70% less than local options)."
+                                ].map((item, idx) => (
+                                    <li key={idx} className="flex items-start gap-3">
+                                        <CheckCircle2 size={18} className="text-primary mt-0.5 shrink-0" />
+                                        <span className="text-sm text-slate-600 font-medium">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <Link
+                                href="/multime"
+                                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-3.5 rounded-xl text-[14px] font-bold transition-all shadow-lg hover:shadow-primary/30"
+                            >
+                                Download MultiMe AI & Build Your Personal Care Team Now
+                            </Link>
                         </div>
-                    </div>
+                    </Reveal>
 
-                    {/* Right: Mission + Stats */}
-                    <div className="space-y-6">
-                        <Reveal delay={0.2}>
-                            <div className="rounded-3xl overflow-hidden shadow-xl border border-slate-100 aspect-[4/3]">
-                                <img
-                                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
-                                    alt="Medical team collaboration"
-                                    className="object-cover w-full h-full bg-slate-100"
-                                />
-                            </div>
-                        </Reveal>
-
-                        <Reveal delay={0.3}>
-                            <div className="p-8 rounded-2xl text-white" style={{ background: 'var(--brand-gradient)' }}>
-                                <span className="text-primary-text font-bold tracking-widest text-xs uppercase mb-3 block">Our Mission in the US</span>
-                                <p className="text-base font-medium leading-relaxed text-white">
-                                    To build a transparent, standards-driven health services ecosystem that connects local communities with a verified global network of medical expertise.
-                                </p>
-                            </div>
-                        </Reveal>
-
-                        {/* Stats strip */}
-                        <div className="flex items-center gap-6 px-2">
-                            {stats.map((stat, idx) => (
-                                <FadeIn key={idx} delay={0.4 + idx * 0.1} className="flex items-center gap-2 text-slate-400">
-                                    <div className="text-primary">{stat.icon}</div>
-                                    <span className="text-xs font-semibold">{stat.label}</span>
-                                </FadeIn>
-                            ))}
+                    {/* Block 2 */}
+                    <Reveal delay={0.2}>
+                        <div className="p-8 rounded-3xl text-white h-full flex flex-col" style={{ background: 'var(--brand-gradient)' }}>
+                            <h4 className="text-xl font-black mb-4">
+                                For Health Professionals – Turn Your Expertise into Global Revenue
+                            </h4>
+                            <p className="text-sm font-bold text-white/80 mb-6">You gain the opportunity to globalize your service sales immediately:</p>
+                            <ul className="space-y-4 mb-8 flex-1">
+                                {[
+                                    "Reach tens of millions of high-paying clients from US, UK, EU, Canada, Australia… without running ads.",
+                                    "AI Voice Translate lets international clients understand you perfectly – even if you only speak your local language.",
+                                    "Create professional Offers (price, package, schedule, terms) directly inside voice conversations.",
+                                    "Receive secure Escrow payments – withdraw to your bank in just 30 minutes.",
+                                    "Build powerful personal brand through Voice Hub – your personal “radio station” auto-translated to 194 languages.",
+                                    "Keep 80% of revenue (only 20% platform fee) from premium international clients.",
+                                    "Proactively reach potential clients via Active Message + Voice Hub – sell services globally 24/7 from home."
+                                ].map((item, idx) => (
+                                    <li key={idx} className="flex items-start gap-3">
+                                        <CheckCircle2 size={18} className="text-white shrink-0 mt-0.5" />
+                                        <span className="text-sm text-white/90 font-medium">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <Link
+                                href="/multime"
+                                className="w-full inline-flex items-center justify-center gap-2 bg-white text-primary px-6 py-3.5 rounded-xl text-[14px] font-bold transition-all shadow-lg hover:bg-slate-50"
+                            >
+                                Download MultiMe AI & Start Receiving Global Clients Today
+                            </Link>
                         </div>
-                    </div>
+                    </Reveal>
                 </div>
             </Container>
         </section>

@@ -21,7 +21,7 @@ const TrustSection = () => {
                     </FadeIn>
                     <Reveal delay={0.1}>
                         <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-                            Trust & Compliance
+                            Trust, Legal & Compliance
                         </h2>
                     </Reveal>
                 </div>
@@ -53,7 +53,7 @@ const TrustSection = () => {
                         <div>
                             <h4 className="text-sm font-bold text-amber-900 mb-1">Platform Disclaimer</h4>
                             <p className="text-sm text-amber-800/80 font-medium leading-relaxed">
-                                StrongBody AI is a technology marketplace platform that connects clients with independent health professionals. We do not directly provide medical services or bear medical liability. All services are delivered by independently verified partners.
+                                Important Disclaimer: StrongBody AI & MultiMe AI are technology platforms connecting users with independent licensed professionals. We do not provide medical services ourselves. All clinical responsibility belongs to the verified Strategic Partners.
                             </p>
                         </div>
                     </div>

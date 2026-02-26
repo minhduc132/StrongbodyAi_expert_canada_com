@@ -78,7 +78,14 @@ const blogPosts = [
 ];
 
 
-export default function BlogPage() {
+import { fetchAllBlogs } from "@/lib/api";
+
+export default async function BlogPage() {
+    let posts = await fetchAllBlogs();
+    if (!posts || posts.length === 0) {
+        posts = blogPosts;
+    }
+
     return (
         <main className="min-h-screen">
             <PageHeader
@@ -86,7 +93,7 @@ export default function BlogPage() {
                 description="Stay informed with the latest healthcare innovations, platform updates, and expert insights from StrongBody AI."
                 breadcrumb="Blog"
             />
-            <BlogListClient initialPosts={blogPosts} />
+            <BlogListClient initialPosts={posts} />
         </main>
     );
 }

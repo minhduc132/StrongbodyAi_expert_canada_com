@@ -57,29 +57,29 @@ const Hero = () => {
                             </div>
 
                             <h1 className="text-4xl lg:text-[3.5rem] font-black text-slate-900 tracking-tight leading-[1.1] mb-2">
-                                StrongBody <span className="text-[#1c906c]">AI</span> <span className="text-slate-500 font-bold">us</span>
+                                StrongBody <span className="text-[#1c906c]">AI</span> <span className="text-slate-500 font-bold">Malaysia</span>
                             </h1>
                             <h2 className="text-xl lg:text-2xl font-bold text-slate-900 mb-6">
-                                AI-Native Health Services Marketplace
+                                Powered by MultiMe AI – Speak Your Language, Reach the World
                             </h2>
 
                             <p className="text-base text-slate-600 mb-10 leading-relaxed font-medium">
-                                A secure digital infrastructure connecting verified health professionals and clients in the United States and beyond.
+                                Real-time AI Voice Translation (194 languages) • Personal Care Team • Transparent Offers • Secure Escrow – All inside one free app.
                             </p>
 
                             {/* 2 CTAs */}
                             <div className="flex flex-col sm:flex-row gap-4 mb-8">
                                 <Link
-                                    href="/services"
+                                    href="/multime"
                                     className="bg-primary text-white px-8 py-4 rounded-2xl text-[15px] font-bold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 flex items-center justify-center gap-2"
                                 >
-                                    Explore Services in the US <ArrowRight size={18} />
+                                    Download MultiMe AI App Free Now <ArrowRight size={18} />
                                 </Link>
                                 <Link
-                                    href="https://www.strongbody.ai/signup"
+                                    href="/services"
                                     className="bg-primary-text text-white px-8 py-4 rounded-2xl text-[15px] font-bold transition-all shadow-lg shadow-primary-text/20 hover:shadow-primary-text/35 hover:-translate-y-0.5 flex items-center justify-center gap-2"
                                 >
-                                    Become a Strategic Partner
+                                    Browse Services in Malaysia
                                 </Link>
                             </div>
 

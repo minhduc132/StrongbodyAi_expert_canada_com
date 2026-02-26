@@ -19,16 +19,16 @@ const FinalCTA = () => {
                                 </div>
                                 <span className="text-white font-bold tracking-widest text-xs uppercase block mb-3">For Clients</span>
                                 <h3 className="text-2xl md:text-3xl font-black mb-4 leading-tight">
-                                    Explore Trusted Health Services in the US
+                                    Ready to speak with global experts in your own language?
                                 </h3>
                                 <p className="text-white/80 font-medium mb-8 leading-relaxed">
                                     Find verified professionals, compare options, and book with confidence — all in one platform.
                                 </p>
                                 <Link
-                                    href="/services"
+                                    href="/multime"
                                     className="inline-flex items-center gap-2 bg-white text-primary px-7 py-3.5 rounded-xl font-bold hover:bg-slate-50 transition-all text-sm shadow-lg"
                                 >
-                                    Explore Services <ArrowRight size={16} />
+                                    Download MultiMe AI App Now <ArrowRight size={16} />
                                 </Link>
                             </div>
                         </div>
@@ -42,7 +42,7 @@ const FinalCTA = () => {
                                 </div>
                                 <span className="text-white font-bold tracking-widest text-xs uppercase block mb-3">For Professionals</span>
                                 <h3 className="text-2xl md:text-3xl font-black mb-4 leading-tight">
-                                    Partner with StrongBody AI and Expand Your Reach
+                                    Licensed doctor, pharmacist, aesthetic specialist or wellness expert?
                                 </h3>
                                 <p className="text-white/80 font-medium mb-8 leading-relaxed">
                                     Join our selective network of verified health professionals and grow your practice globally.
@@ -51,7 +51,7 @@ const FinalCTA = () => {
                                     href="https://www.strongbody.ai/signup"
                                     className="inline-flex items-center gap-2 bg-white text-primary px-7 py-3.5 rounded-xl font-bold hover:bg-slate-100 transition-all text-sm shadow-lg"
                                 >
-                                    Become a Partner <ArrowRight size={16} />
+                                    Apply as Strategic Partner <ArrowRight size={16} />
                                 </Link>
                             </div>
                         </div>

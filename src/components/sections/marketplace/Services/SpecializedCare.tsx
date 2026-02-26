@@ -1,10 +1,24 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { additionalServices } from "./constants";
+import { additionalServices as defaultAdditionalServices } from "./constants";
 import { Reveal, ScaleIn } from "@/components/animations/Reveal";
+import { fetchAllServices } from "@/lib/api";
 
-const SpecializedCare = () => {
+const SpecializedCare = async () => {
+    let rawServices = await fetchAllServices();
+    let services = [];
+
+    if (!rawServices || rawServices.length === 0) {
+        services = defaultAdditionalServices;
+    } else {
+        // Just use the next few ones, skipping the first 6 used by ServicesGrid
+        services = rawServices.slice(6, 9);
+        if (services.length === 0) {
+            services = defaultAdditionalServices;
+        }
+    }
+
     return (
         <div className="pt-24 border-t border-slate-100">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -22,7 +36,7 @@ const SpecializedCare = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-                {additionalServices.map((service, idx) => (
+                {services.map((service: any, idx: number) => (
                     <ScaleIn
                         key={idx}
                         delay={idx * 0.1}

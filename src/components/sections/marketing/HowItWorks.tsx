@@ -7,26 +7,26 @@ import { Reveal, FadeIn } from "@/components/animations/Reveal";
 const steps = [
     {
         num: "01",
-        title: "Discover",
-        desc: "Search and find verified health professionals that match your needs in the US or globally.",
+        title: "Download & Sign In",
+        desc: "Install MultiMe AI → log in with your StrongBody account (auto-linked).",
         icon: <Search size={26} />,
     },
     {
         num: "02",
-        title: "AI-Assisted Consultation",
-        desc: "Communicate directly with professionals through MultiMe AI Chat with real-time voice translation.",
+        title: "Discover & Voice Chat",
+        desc: "Find experts in Malaysia or worldwide → voice chat with real-time translation.",
         icon: <MessageSquare size={26} />,
     },
     {
         num: "03",
-        title: "Transparent Offer",
-        desc: "The professional creates a clear Offer — detailing services, costs, conditions, and timeline before you commit.",
+        title: "Receive Transparent Offer",
+        desc: "Expert creates detailed Offer inside chat (price, package, terms).",
         icon: <FileCheck size={26} />,
     },
     {
         num: "04",
         title: "Secure Completion",
-        desc: "Pay securely via escrow → receive the service → leave a transparent review → payment is released.",
+        desc: "Pay via Escrow → receive service → review → funds released automatically.",
         icon: <ShieldCheck size={26} />,
     },
 ];
@@ -44,7 +44,7 @@ const HowItWorks = () => {
                     </FadeIn>
                     <Reveal delay={0.1}>
                         <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                            How StrongBody AI Works
+                            How StrongBody AI Works – All Inside MultiMe AI App
                         </h2>
                     </Reveal>
                     <p className="text-base text-white/80 font-medium max-w-2xl mx-auto mb-6">

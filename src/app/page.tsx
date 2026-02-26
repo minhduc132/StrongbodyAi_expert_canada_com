@@ -16,13 +16,13 @@ export default function Home() {
       <Hero />
       <AboutSection />
       <HowItWorks />
+      <BlogSection />
       <ForClients />
-      {/* <ServicesSection /> */}
+      <ServicesSection />
       <PartnershipOverview />
       <WhyDifferent />
       <TrustSection />
       <FAQSection />
-      <BlogSection />
       <FinalCTA />
     </main>
   );

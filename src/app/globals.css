@@ -1,40 +1,76 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
     --background: #ffffff;
-    --foreground: #0F172A;
-    --primary: #1877f2;
-    --primary-text: #2f8cf9;
-    --primary-gradient: linear-gradient(135deg, #1877f2 0%, #2f8cf9 100%);
-    --muted-blue: #F0F7FF;
-    --secondary: #2f8cf9;
-    --brand-gradient: linear-gradient(rgb(28, 144, 108) 60.66%, rgba(28, 144, 108, 0.4) 90.1%, rgba(224, 241, 236, 0) 100.02%), linear-gradient(138.3deg, rgba(30, 145, 109, 0) 43.72%, rgba(43, 210, 158, 0.7) 83.86%), linear-gradient(175.04deg, rgba(0, 110, 88, 0.6) 2.23%, rgba(255, 255, 255, 0) 61.66%);
+    --foreground: #111827;
+
+    /* Main Colors */
+    --primary: #DA1F27;
+    --primary-light: #FDF1F1;
+    --secondary: #1F2C43;
+    --secondary-light: #F0F4F8;
+
+    /* Text Colors */
+    --text-p: #111827;
+    --text-m: #687588;
+    --text-s: #C6C6C6;
+
+    /* Greyscale */
+    --grey-50: #FAFAFA;
+    --grey-100: #F5F6F8;
+    --grey-200: #EBEDF0;
+    --grey-300: #E2E4E8;
+    --grey-400: #CBD5E0;
+    --grey-500: #A0AEC0;
+    --grey-600: #687588;
+    --grey-700: #323B49;
+    --grey-800: #1F2937;
+    --grey-900: #111827;
+
+    /* Gradients */
+    --primary-gradient: linear-gradient(135deg, #DA1F27 0%, #B91C1C 100%);
+    --secondary-gradient: linear-gradient(135deg, #1F2C43 0%, #111A2E 100%);
+    --brand-gradient: linear-gradient(135deg, #1F2C43 0%, #111827 100%);
 }
 
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
-    --color-primary: #1877f2;
-    --color-primary-text: #2f8cf9;
-    --color-accent: #2f8cf9;
-    --color-muted-blue: var(--muted-blue);
-    --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-    --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-    --background-image-brand: var(--brand-gradient);
+    --color-primary: var(--primary);
+    --color-primary-light: var(--primary-light);
+    --color-secondary: var(--secondary);
 
-    /* Custom Animations */
-    --animate-bounce-slow: bounce-slow 3s infinite;
-    --animate-bounce-slower: bounce-slower 4s infinite;
+    --color-text-p: var(--text-p);
+    --color-text-m: var(--text-m);
+    --color-text-s: var(--text-s);
+
+    --color-grey-50: var(--grey-50);
+    --color-grey-100: var(--grey-100);
+    --color-grey-200: var(--grey-200);
+    --color-grey-300: var(--grey-300);
+    --color-grey-400: var(--grey-400);
+    --color-grey-500: var(--grey-500);
+    --color-grey-600: var(--grey-600);
+    --color-grey-700: var(--grey-700);
+    --color-grey-800: var(--grey-800);
+    --color-grey-900: var(--grey-900);
+
+    --color-primary-gradient: var(--primary-gradient);
+    --color-secondary-gradient: var(--secondary-gradient);
+
+    --font-heading: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+    --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
     * {
-        @apply border-slate-200;
-        font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+        @apply border-grey-300;
+        font-family: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
     }
 
     body {
-        @apply bg-white text-slate-900 antialiased;
+        @apply bg-white text-text-m antialiased;
         line-height: 1.6;
     }
 
@@ -44,14 +80,51 @@
     h4,
     h5,
     h6 {
-        @apply tracking-tight font-black;
-        line-height: 1.2;
+        @apply tracking-tight font-bold text-text-p;
+        line-height: 1.15;
+    }
+
+    h1 {
+        font-size: 64px;
+    }
+
+    h2 {
+        font-size: 48px;
+    }
+
+    h3 {
+        font-size: 40px;
+    }
+
+    h4 {
+        font-size: 32px;
+    }
+
+    h5 {
+        font-size: 24px;
+    }
+
+    h6 {
+        font-size: 20px;
     }
 
     p {
-        @apply font-medium;
+        @apply text-text-m;
+        font-size: 16px;
     }
 }
+
+@layer utilities {
+    .glass {
+        @apply bg-white/70 backdrop-blur-md border border-white/20;
+    }
+
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+
 
 @layer utilities {
     .glass {

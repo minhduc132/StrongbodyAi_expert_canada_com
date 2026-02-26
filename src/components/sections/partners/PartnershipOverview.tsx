@@ -36,21 +36,17 @@ const recruitmentProcess = [
 
 const PartnershipOverview = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden text-slate-900 border-t border-slate-100">
+        <section className="py-24 bg-white relative overflow-hidden text-grey-900 border-t border-grey-100">
             <Container className="relative z-10">
                 <div className="text-center mb-16">
-                    <FadeIn>
-                        <span className="text-[#1c906c] font-black tracking-widest text-xs uppercase mb-4 block">
-                            Partnership Recruitment
-                        </span>
-                    </FadeIn>
-                    <Reveal delay={0.1}>
-                        <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight">
-                            Become a Strategic Partner in Malaysia
-                        </h2>
-                    </Reveal>
-                    <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-                        We are selectively recruiting licensed health professionals in Malaysia.
+                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                        Partnership Recruitment
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-text-p mb-6 leading-tight">
+                        Become a Strategic Partner
+                    </h2>
+                    <p className="text-lg text-text-m font-medium leading-relaxed max-w-2xl mx-auto">
+                        We are selectively recruiting licensed health professionals to join our global network.
                     </p>
                 </div>
 
@@ -58,34 +54,34 @@ const PartnershipOverview = () => {
                     {/* Left side */}
                     <div>
                         <Reveal>
-                            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                            <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-text-p">
                                 <Award className="text-primary" size={24} /> Perfect Fit For:
                             </h3>
                             <ul className="space-y-3 mb-8">
                                 {eligibleProfessions.map((prof, idx) => (
                                     <li key={idx} className="flex items-start gap-3">
                                         <CheckCircle2 size={18} className="text-primary mt-0.5 shrink-0" />
-                                        <span className="text-sm font-medium text-slate-700 leading-relaxed">{prof}</span>
+                                        <span className="text-sm font-medium text-text-m leading-relaxed">{prof}</span>
                                     </li>
                                 ))}
                             </ul>
 
-                            <div className="p-4 rounded-xl bg-amber-50 border border-amber-100 text-amber-900 text-sm font-bold mb-8">
-                                Minimum requirement: You must hold a valid practicing license in Malaysia.
+                            <div className="p-4 rounded-xl bg-primary-light border border-primary/10 text-primary text-sm font-bold mb-8">
+                                Minimum requirement: You must hold a valid practicing license in your jurisdiction.
                             </div>
                         </Reveal>
 
                         <Reveal delay={0.1}>
-                            <h3 className="text-xl font-bold mb-6 flex items-center gap-2 mt-12">
+                            <h3 className="text-xl font-bold mb-6 flex items-center gap-2 mt-12 text-text-p">
                                 <ClipboardCheck className="text-primary" size={24} /> Recruitment Process
                             </h3>
-                            <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
+                            <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-grey-200 before:to-transparent">
                                 {recruitmentProcess.map((step, idx) => (
                                     <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-100 group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-grey-100 group-[.is-active]:bg-primary text-grey-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                                             {idx + 1}
                                         </div>
-                                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-100 bg-white shadow-sm font-bold text-sm text-slate-700">
+                                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-grey-100 bg-white shadow-sm font-bold text-sm text-text-p">
                                             {step}
                                         </div>
                                     </div>
@@ -97,41 +93,44 @@ const PartnershipOverview = () => {
                     {/* Right side */}
                     <div>
                         <Reveal delay={0.2} className="h-full">
-                            <div className="p-8 md:p-10 rounded-3xl h-full flex flex-col text-white shadow-2xl" style={{ background: 'var(--brand-gradient)' }}>
-                                <h3 className="text-2xl font-black mb-8">What You Get as a Strategic Partner</h3>
-                                <ul className="space-y-5 mb-10 flex-1">
-                                    {partnerBenefits.map((benefit, idx) => (
-                                        <li key={idx} className="flex items-start gap-3">
-                                            <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
-                                                <CheckCircle2 size={14} className="text-white" />
-                                            </div>
-                                            <span className="text-sm font-medium leading-relaxed">{benefit}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                            <div className="p-8 md:p-10 rounded-[2.5rem] h-full flex flex-col bg-white border border-grey-300 shadow-2xl relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+                                <div className="relative z-10 flex-1 flex flex-col">
+                                    <h3 className="text-2xl font-bold mb-8 text-text-p">What You Get as a Strategic Partner</h3>
+                                    <ul className="space-y-5 mb-10 flex-1">
+                                        {partnerBenefits.map((benefit, idx) => (
+                                            <li key={idx} className="flex items-start gap-3">
+                                                <div className="w-6 h-6 rounded-full bg-primary-light flex items-center justify-center shrink-0 mt-0.5">
+                                                    <CheckCircle2 size={14} className="text-primary" />
+                                                </div>
+                                                <span className="text-sm font-medium leading-relaxed text-text-m">{benefit}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
 
-                                <div className="text-center">
-                                    <p className="text-xs font-bold text-white/80 uppercase tracking-widest mb-4">
-                                        Selective recruitment policy – Not all applications are accepted.
-                                    </p>
-                                    <Link
-                                        href="https://www.strongbody.ai/signup"
-                                        className="w-full inline-flex items-center justify-center gap-2 bg-white text-primary px-7 py-4 rounded-xl text-sm font-bold hover:bg-slate-50 transition-all shadow-lg text-center"
-                                    >
-                                        Apply to Become a Strategic Partner in Malaysia
-                                    </Link>
-                                    <p className="text-xs text-white/70 mt-3 font-medium">
-                                        (Takes 2 minutes • Request Partnership Kit • Schedule Consultation)
-                                    </p>
+                                    <div className="mt-auto">
+                                        <p className="text-xs font-bold text-text-s uppercase tracking-widest mb-6">
+                                            Selective recruitment policy – Not all applications are accepted.
+                                        </p>
+                                        <Link
+                                            href="https://www.strongbody.ai/signup"
+                                            className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white px-7 py-4 rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-xl text-center"
+                                        >
+                                            Apply to Become a Strategic Partner <ArrowRight size={16} />
+                                        </Link>
+                                        <p className="text-xs text-text-m mt-4 font-medium text-center">
+                                            Takes 2 minutes • Request Partnership Kit • Schedule Consultation
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </Reveal>
                     </div>
                 </div>
-
             </Container>
         </section>
     );
 };
+
 
 export default PartnershipOverview;

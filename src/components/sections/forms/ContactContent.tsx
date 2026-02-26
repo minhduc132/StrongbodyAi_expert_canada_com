@@ -12,40 +12,29 @@ const ContactContent = () => {
                     <div>
                         <Reveal>
                             <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Get in Touch</span>
-                            <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                            <h1 className="text-4xl md:text-5xl font-bold text-text-p mb-6 leading-tight">
                                 Contact <span className="text-primary">StrongBody AI</span>
                             </h1>
-                            <p className="text-lg text-slate-600 font-medium leading-relaxed mb-10">
+                            <p className="text-lg text-text-m font-medium leading-relaxed mb-10">
                                 Whether you're a client exploring services or a professional interested in partnership — we'd love to hear from you.
                             </p>
 
-                            <div className="space-y-5">
-                                <div className="flex items-center gap-4 p-5 rounded-xl bg-slate-50 border border-slate-100">
-                                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                                        <Mail size={20} />
+                            <div className="space-y-6">
+                                <div className="flex items-center gap-5 p-6 rounded-2xl bg-grey-50 border border-grey-200 group hover:border-primary/20 transition-all">
+                                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                                        <Mail size={22} />
                                     </div>
                                     <div>
-                                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Email</div>
-                                        <a href="mailto:contact@strongbodyai.com" className="text-base font-bold text-slate-900 hover:text-primary transition-colors">contact@strongbodyai.com</a>
+                                        <div className="text-[10px] font-bold text-text-s uppercase tracking-[0.2em] mb-1">Send us an Email</div>
+                                        <a href="mailto:contact@strongbodyai.com" className="text-lg font-bold text-text-p hover:text-primary transition-colors">contact@strongbodyai.com</a>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-4 p-5 rounded-xl bg-slate-50 border border-slate-100">
-                                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                                        <Phone size={20} />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Phone</div>
-                                        <a href="tel:+18001234567" className="text-base font-bold text-slate-900 hover:text-primary transition-colors">+1 (800) 123-4567</a>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-4 p-5 rounded-xl bg-slate-50 border border-slate-100">
-                                    <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                                        <MapPin size={20} />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Office</div>
-                                        <span className="text-base font-bold text-slate-900">San Francisco, California, US</span>
-                                    </div>
+
+                                <div className="p-6 rounded-2xl bg-secondary-light/50 border border-secondary/5">
+                                    <h4 className="text-sm font-bold text-secondary mb-2">Platform Support</h4>
+                                    <p className="text-xs text-text-m font-medium leading-relaxed">
+                                        For technical assistance with the MultiMe AI App or your Professional Profile, please include your User ID in the email.
+                                    </p>
                                 </div>
                             </div>
                         </Reveal>
@@ -54,29 +43,29 @@ const ContactContent = () => {
                     {/* Form */}
                     <div>
                         <Reveal delay={0.2}>
-                            <form className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 space-y-5">
-                                <h3 className="text-2xl font-black text-slate-900 mb-2">Send Us a Message</h3>
-                                <p className="text-sm text-slate-500 font-medium mb-4">We typically respond within 24 business hours.</p>
+                            <form className="bg-grey-50 p-8 md:p-10 rounded-[2rem] border border-grey-200 space-y-6 shadow-sm">
+                                <h3 className="text-2xl font-bold text-text-p mb-2">Send Us a Message</h3>
+                                <p className="text-sm text-text-m font-medium mb-4">We typically respond within 24 business hours.</p>
 
-                                <div className="grid sm:grid-cols-2 gap-4">
+                                <div className="grid sm:grid-cols-2 gap-5">
                                     <div>
-                                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">First Name</label>
-                                        <input type="text" className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium" placeholder="John" />
+                                        <label className="block text-xs font-bold text-text-p uppercase tracking-wider mb-2">First Name</label>
+                                        <input type="text" className="w-full px-4 py-3 rounded-xl border border-grey-300 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium text-text-p" placeholder="John" />
                                     </div>
                                     <div>
-                                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Last Name</label>
-                                        <input type="text" className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium" placeholder="Doe" />
+                                        <label className="block text-xs font-bold text-text-p uppercase tracking-wider mb-2">Last Name</label>
+                                        <input type="text" className="w-full px-4 py-3 rounded-xl border border-grey-300 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium text-text-p" placeholder="Doe" />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Email</label>
-                                    <input type="email" className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium" placeholder="john@example.com" />
+                                    <label className="block text-xs font-bold text-text-p uppercase tracking-wider mb-2">Email Address</label>
+                                    <input type="email" className="w-full px-4 py-3 rounded-xl border border-grey-300 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium text-text-p" placeholder="john@example.com" />
                                 </div>
 
                                 <div>
-                                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">I am a</label>
-                                    <select className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium text-slate-700">
+                                    <label className="block text-xs font-bold text-text-p uppercase tracking-wider mb-2">I am a</label>
+                                    <select className="w-full px-4 py-3 rounded-xl border border-grey-300 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-bold text-text-p appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5%207L10%2012L15%207%22%20stroke%3D%22%23687588%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E')] bg-[length:20px_20px] bg-[right_1rem_center] bg-no-repeat">
                                         <option>Client looking for services</option>
                                         <option>Professional interested in partnership</option>
                                         <option>Organization / Clinic</option>
@@ -85,11 +74,11 @@ const ContactContent = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Message</label>
-                                    <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium resize-none" placeholder="Tell us how we can help..."></textarea>
+                                    <label className="block text-xs font-bold text-text-p uppercase tracking-wider mb-2">Message</label>
+                                    <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-grey-300 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm font-medium text-text-p resize-none" placeholder="Tell us how we can help..."></textarea>
                                 </div>
 
-                                <button type="submit" className="w-full bg-primary text-white py-4 rounded-xl font-bold text-base hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 flex items-center justify-center gap-2">
+                                <button type="submit" className="w-full bg-primary text-white py-4 rounded-xl font-bold text-base hover:bg-primary/90 transition-all shadow-lg active:scale-[0.98] flex items-center justify-center gap-2">
                                     Send Message <Send size={16} />
                                 </button>
                             </form>

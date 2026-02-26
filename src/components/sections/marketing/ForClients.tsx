@@ -15,20 +15,16 @@ const benefits = [
 
 const ForClients = () => {
     return (
-        <section id="for-clients" className="py-24 bg-slate-50">
+        <section id="for-clients" className="py-24 bg-grey-50">
             <Container>
                 <div className="text-center mb-16">
-                    <FadeIn>
-                        <span className="text-[#1c906c] font-black tracking-widest text-xs uppercase mb-4 block">
-                            For Clients
-                        </span>
-                    </FadeIn>
-                    <Reveal delay={0.1}>
-                        <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-                            Why Malaysia Residents Love StrongBody AI on MultiMe
-                        </h2>
-                    </Reveal>
-                    <p className="text-base text-slate-500 font-medium max-w-2xl mx-auto mb-6">
+                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                        For Clients
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-grey-900 mb-4">
+                        Why Residents Love StrongBody AI on MultiMe
+                    </h2>
+                    <p className="text-base text-grey-600 font-medium max-w-2xl mx-auto mb-6">
                         You are a perfect fit if you want to experience borderless healthcare without language barriers, high costs, or compromising on quality.
                     </p>
                 </div>
@@ -36,12 +32,12 @@ const ForClients = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
                     {benefits.map((b, idx) => (
                         <Reveal key={idx} delay={idx * 0.05} className="h-full">
-                            <div className="p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl hover:border-primary/20 transition-all group h-full">
-                                <div className="w-11 h-11 rounded-xl bg-primary/10 text-[#1c906c] flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
+                            <div className="p-6 rounded-2xl bg-white border border-grey-100 hover:shadow-xl hover:border-primary/20 transition-all group h-full">
+                                <div className="w-11 h-11 rounded-xl bg-primary-light text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
                                     {b.icon}
                                 </div>
-                                <h4 className="text-base font-bold text-slate-900 mb-2">{b.title}</h4>
-                                <p className="text-sm text-slate-500 font-medium leading-relaxed">{b.desc}</p>
+                                <h4 className="text-base font-bold text-grey-900 mb-2">{b.title}</h4>
+                                <p className="text-sm text-grey-500 font-medium leading-relaxed">{b.desc}</p>
                             </div>
                         </Reveal>
                     ))}
@@ -52,7 +48,7 @@ const ForClients = () => {
                         href="/multime"
                         className="inline-flex items-center justify-center gap-2 bg-primary text-white px-7 py-4 rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.02] transition-all"
                     >
-                        Download MultiMe AI & Build Your Personal Care Team Today <ArrowRight size={16} />
+                        Download MultiMe AI & Build Your Personal Care Team <ArrowRight size={16} />
                     </Link>
                 </div>
             </Container>

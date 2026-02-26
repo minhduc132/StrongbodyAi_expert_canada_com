@@ -1,21 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 import Container from "@/components/layout/Container";
 
-const categories = ["All", "Technology", "Healthcare", "Compliance", "Finance", "Partnership"];
-
 interface BlogPost {
-    id: number;
+    id: string | number;
     title: string;
     excerpt: string;
     author: string;
     date: string;
     readTime: string;
     category: string;
-    image: string;
+    image?: string;
     slug: string;
 }
 
@@ -24,71 +22,57 @@ interface BlogListClientProps {
 }
 
 export default function BlogListClient({ initialPosts }: BlogListClientProps) {
-    const [selectedCategory, setSelectedCategory] = useState("All");
-
-    const filteredPosts = initialPosts.filter(
-        (post) => selectedCategory === "All" || post.category === selectedCategory
-    );
+    const posts = initialPosts;
 
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-white min-h-[600px]">
             <Container>
-                {/* Categories Filter */}
-                <div className="flex flex-wrap gap-3 mb-12">
-                    {categories.map((category) => (
-                        <button
-                            key={category}
-                            onClick={() => setSelectedCategory(category)}
-                            className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${category === selectedCategory
-                                    ? "bg-primary text-white shadow-md shadow-primary/20"
-                                    : "bg-slate-100 text-slate-700 hover:bg-primary hover:text-white"
-                                }`}
-                        >
-                            {category}
-                        </button>
-                    ))}
-                </div>
-
                 {/* Blog Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredPosts.length > 0 ? (
-                        filteredPosts.map((post) => (
+                    {posts.length > 0 ? (
+                        posts.map((post: BlogPost) => (
                             <Link
                                 key={post.id}
                                 href={`/blog/${post.slug}`}
-                                className="group bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+                                className="group bg-white rounded-2xl border border-grey-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                             >
                                 <div className="relative h-48 overflow-hidden">
-                                    <img
-                                        src={post.image}
-                                        alt={post.title}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                    />
+                                    {post.image ? (
+                                        <img
+                                            src={post.image}
+                                            alt={post.title}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full bg-grey-100 flex items-center justify-center">
+                                            <Calendar className="text-grey-400" size={48} />
+                                        </div>
+                                    )}
                                     <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">
                                         {post.category}
                                     </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-grey-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 </div>
                                 <div className="p-6 flex-1 flex flex-col">
-                                    <div className="flex items-center gap-4 text-xs text-slate-500 font-medium mb-3">
+                                    <div className="flex items-center gap-4 text-xs text-grey-500 font-medium mb-3">
                                         <div className="flex items-center gap-1">
                                             <Calendar size={12} className="text-primary/70" />
-                                            {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                            {post.date && new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                                         </div>
                                         <div className="flex items-center gap-1">
                                             <Clock size={12} className="text-primary/70" />
                                             {post.readTime}
                                         </div>
                                     </div>
-                                    <h3 className="text-xl font-black text-slate-900 mb-3 group-hover:text-primary-text transition-colors line-clamp-2">
+                                    <h3 className="text-xl font-bold text-grey-900 mb-3 group-hover:text-primary transition-colors line-clamp-2">
                                         {post.title}
                                     </h3>
-                                    <p className="text-sm text-slate-600 font-medium leading-relaxed mb-4 line-clamp-3 flex-1">
+                                    <p className="text-sm text-grey-600 font-medium leading-relaxed mb-4 line-clamp-3 flex-1">
                                         {post.excerpt}
                                     </p>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-xs font-bold text-slate-500">{post.author}</span>
-                                        <div className="flex items-center gap-2 text-primary-text font-bold text-sm group-hover:gap-3 transition-all">
+                                        <span className="text-xs font-bold text-grey-500">{post.author}</span>
+                                        <div className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-3 transition-all">
                                             Read More <ArrowRight size={14} />
                                         </div>
                                     </div>
@@ -97,30 +81,16 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
                         ))
                     ) : (
                         <div className="col-span-full text-center py-12">
-                            <div className="inline-flex w-16 h-16 rounded-full bg-slate-100 items-center justify-center text-slate-400 mb-4">
+                            <div className="inline-flex w-16 h-16 rounded-full bg-grey-100 items-center justify-center text-grey-400 mb-4">
                                 <Calendar size={24} />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-2">No articles found</h3>
-                            <p className="text-slate-500 font-medium">There are currently no articles in the "{selectedCategory}" category.</p>
-                            <button
-                                onClick={() => setSelectedCategory("All")}
-                                className="mt-6 text-primary font-bold hover:underline"
-                            >
-                                View all articles
-                            </button>
+                            <h3 className="text-xl font-bold text-grey-900 mb-2">No articles found</h3>
+                            <p className="text-grey-500 font-medium">There are currently no articles in this category.</p>
                         </div>
                     )}
                 </div>
-
-                {/* Load More Button */}
-                {filteredPosts.length > 0 && (
-                    <div className="text-center mt-12">
-                        <button className="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-primary/90 transition-all">
-                            Load More Articles
-                        </button>
-                    </div>
-                )}
             </Container>
         </section>
     );
 }
+

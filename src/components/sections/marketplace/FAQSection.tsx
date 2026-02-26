@@ -18,35 +18,28 @@ const partnerFAQs = [
 
 const FAQSection = () => {
     return (
-        <section className="py-24 text-white overflow-hidden relative" style={{ background: 'var(--brand-gradient)' }}>
-            {/* Added a subtle overlay to the brand background if needed */}
-            <div className="absolute inset-0 opacity-100 -z-10"></div>
-
+        <section className="py-24 bg-white border-t border-grey-100">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-14">
-                    <FadeIn>
-                        <span className="text-white font-black tracking-[0.2em] text-xs uppercase mb-4 block">
-                            Help
-                        </span>
-                    </FadeIn>
-                    <Reveal delay={0.1}>
-                        <h2 className="text-3xl md:text-4xl font-black text-white">
-                            Frequently Asked Questions
-                        </h2>
-                    </Reveal>
+                    <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">
+                        Help
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-text-p">
+                        Frequently Asked Questions
+                    </h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-10">
                     <div>
-                        <h3 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                        <h3 className="text-sm font-bold text-text-p mb-4 flex items-center gap-2">
+                            <div className="w-2 h-2 bg-primary rounded-full"></div>
                             For Clients
                         </h3>
                         <FAQAccordion items={clientFAQs} />
                     </div>
                     <div>
-                        <h3 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                        <h3 className="text-sm font-bold text-text-p mb-4 flex items-center gap-2">
+                            <div className="w-2 h-2 bg-primary rounded-full"></div>
                             For Partners
                         </h3>
                         <FAQAccordion items={partnerFAQs} />

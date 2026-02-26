@@ -5,6 +5,7 @@ import Container from "@/components/layout/Container";
 import { Reveal, ScaleIn } from "@/components/animations/Reveal";
 
 // Using the same sample data from the blog page for consistency
+/*
 const recentPosts = [
     {
         id: 1,
@@ -40,38 +41,56 @@ const recentPosts = [
         slug: "medical-tourism-world-class-care"
     }
 ];
+*/
 
-import { fetchAllBlogs } from "@/lib/api";
+import { fetchWidgetItems } from "@/app/api";
 
 const BlogSection = async () => {
-    let posts = await fetchAllBlogs();
-    if (!posts || posts.length === 0) {
-        posts = recentPosts;
-    } else {
-        posts = posts.slice(0, 3);
+    let widgetData = await fetchWidgetItems("blogs");
+
+    // Fallback try with singular 'blog' if 'blogs' is empty (standard API behavior)
+    if (!widgetData || !widgetData.items || widgetData.items.length === 0) {
+        widgetData = await fetchWidgetItems("blog");
     }
 
+    let posts = [];
+
+    if (widgetData && widgetData.items && widgetData.items.length > 0) {
+        posts = widgetData.items.slice(0, 3).map((item: any) => ({
+            id: item.id || Math.random().toString(),
+            title: item.title || item.name || "",
+            excerpt: item.excerpt || item.description || item.desc || "",
+            author: item.author || "",
+            date: item.published_at || item.created_at || "",
+            readTime: "",
+            category: item.category_name || "",
+            image: item.featured_image_url || item.image || item.thumbnail || null,
+            slug: item.slug
+        }));
+    }
+
+    // No posts? Don't show anything to avoid confusion
+    if (posts.length === 0) return null;
+
     return (
-        <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <section className="py-24 bg-grey-50 relative overflow-hidden">
             <Container>
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <div className="max-w-2xl">
-                        <Reveal>
-                            <span className="text-[#1c906c] font-bold tracking-widest text-xs uppercase mb-4 block">
-                                Latest Insights
-                            </span>
-                            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">
-                                Health & Technology Blog
-                            </h2>
-                            <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                                Stay updated with the latest healthcare innovations, platform updates, and expert insights from StrongBody AI.
-                            </p>
-                        </Reveal>
+                        <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                            Latest Insights
+                        </span>
+                        <h2 className="text-3xl md:text-5xl font-bold text-grey-900 mb-6">
+                            Health & Technology Blog
+                        </h2>
+                        <p className="text-lg text-grey-600 font-medium leading-relaxed">
+                            Stay informed with the latest healthcare innovations, platform updates, and expert insights from StrongBody AI.
+                        </p>
                     </div>
                     <Reveal delay={0.2}>
                         <Link
                             href="/blog"
-                            className="inline-flex items-center gap-2 bg-white text-slate-900 border border-slate-200 px-6 py-3 rounded-xl font-bold hover:border-primary hover:text-primary transition-all shadow-sm"
+                            className="inline-flex items-center gap-2 bg-white text-grey-900 border border-grey-200 px-6 py-3 rounded-xl font-bold hover:border-primary hover:text-primary transition-all shadow-sm"
                         >
                             View All Articles <ArrowRight size={18} />
                         </Link>
@@ -83,7 +102,7 @@ const BlogSection = async () => {
                         <ScaleIn key={post.id} delay={idx * 0.1}>
                             <Link
                                 href={`/blog/${post.slug}`}
-                                className="group bg-white rounded-[2rem] border border-slate-100 overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 flex flex-col h-full"
+                                className="group bg-white rounded-[2rem] border border-grey-100 overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 flex flex-col h-full"
                             >
                                 <div className="relative h-56 overflow-hidden">
                                     <img
@@ -91,36 +110,36 @@ const BlogSection = async () => {
                                         alt={post.title}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     />
-                                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md text-primary px-3 py-1 rounded-full text-xs font-black shadow-lg">
+                                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md text-primary px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                                         {post.category}
                                     </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-grey-900/60 via-grey-900/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col">
-                                    <div className="flex items-center gap-4 text-xs text-slate-500 font-medium mb-4">
+                                    <div className="flex items-center gap-4 text-xs text-grey-500 font-medium mb-4">
                                         <div className="flex items-center gap-1.5">
-                                            <Calendar size={14} className="text-[#1c906c]" />
+                                            <Calendar size={14} className="text-primary" />
                                             {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                                         </div>
                                         <div className="flex items-center gap-1.5">
-                                            <Clock size={14} className="text-[#1c906c]" />
+                                            <Clock size={14} className="text-primary" />
                                             {post.readTime}
                                         </div>
                                     </div>
-                                    <h3 className="text-xl font-black text-slate-900 mb-4 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+                                    <h3 className="text-xl font-bold text-grey-900 mb-4 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
                                         {post.title}
                                     </h3>
-                                    <p className="text-sm text-slate-600 font-medium leading-relaxed mb-6 line-clamp-3 flex-1">
+                                    <p className="text-sm text-grey-600 font-medium leading-relaxed mb-6 line-clamp-3 flex-1">
                                         {post.excerpt}
                                     </p>
-                                    <div className="flex items-center justify-between mt-auto pt-6 border-t border-slate-100">
+                                    <div className="flex items-center justify-between mt-auto pt-6 border-t border-grey-100">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-[#1c906c] font-black text-xs">
+                                            <div className="w-8 h-8 rounded-full bg-primary-light flex items-center justify-center text-primary font-bold text-xs border border-primary/10">
                                                 {post.author.charAt(0)}
                                             </div>
-                                            <span className="text-xs font-bold text-slate-700">{post.author}</span>
+                                            <span className="text-xs font-bold text-grey-700">{post.author}</span>
                                         </div>
-                                        <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors text-slate-400">
+                                        <div className="w-8 h-8 rounded-full bg-grey-50 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors text-grey-400">
                                             <ArrowRight size={14} />
                                         </div>
                                     </div>
@@ -133,5 +152,6 @@ const BlogSection = async () => {
         </section>
     );
 };
+
 
 export default BlogSection;

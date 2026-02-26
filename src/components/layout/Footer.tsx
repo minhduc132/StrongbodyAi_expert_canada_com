@@ -26,15 +26,15 @@ const legalLinks = [
 
 const Footer = () => {
     return (
-        <footer className="bg-[#FAFAFA] text-slate-900 pt-20 pb-10 border-t border-slate-200">
+        <footer className="bg-grey-50 text-grey-900 pt-20 pb-10 border-t border-grey-200">
             <Container>
                 <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
                     {/* Brand */}
                     <div className="lg:col-span-2 space-y-5">
-                        <p className="text-slate-700 text-sm font-medium leading-relaxed max-w-sm">
+                        <p className="text-grey-700 text-sm font-medium leading-relaxed max-w-sm">
                             AI-native health services marketplace connecting verified professionals and clients in the United States and beyond.
                         </p>
-                        <div className="space-y-2.5 text-sm text-slate-600 font-medium">
+                        <div className="space-y-2.5 text-sm text-grey-600 font-medium">
                             <div className="flex items-center gap-2">
                                 <Mail size={14} className="text-primary" />
                                 <a href="mailto:support@strongbody.ai" className="hover:text-primary transition-colors">support@strongbody.ai</a>
@@ -62,11 +62,11 @@ const Footer = () => {
 
                     {/* Platform */}
                     <div>
-                        <h4 className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-5">Platform</h4>
+                        <h4 className="text-xs font-bold tracking-widest uppercase text-grey-700 mb-5">Platform</h4>
                         <ul className="space-y-3">
                             {platformLinks.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-sm text-slate-600 hover:text-primary font-medium transition-colors">
+                                    <Link href={link.href} className="text-sm text-grey-600 hover:text-primary font-medium transition-colors">
                                         {link.name}
                                     </Link>
                                 </li>
@@ -76,11 +76,11 @@ const Footer = () => {
 
                     {/* For You */}
                     <div>
-                        <h4 className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-5">For You</h4>
+                        <h4 className="text-xs font-bold tracking-widest uppercase text-grey-700 mb-5">For You</h4>
                         <ul className="space-y-3">
                             {userLinks.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-sm text-slate-600 hover:text-primary font-medium transition-colors">
+                                    <Link href={link.href} className="text-sm text-grey-600 hover:text-primary font-medium transition-colors">
                                         {link.name}
                                     </Link>
                                 </li>
@@ -90,11 +90,11 @@ const Footer = () => {
 
                     {/* Legal */}
                     <div>
-                        <h4 className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-5">Legal</h4>
+                        <h4 className="text-xs font-bold tracking-widest uppercase text-grey-700 mb-5">Legal</h4>
                         <ul className="space-y-3">
                             {legalLinks.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-sm text-slate-600 hover:text-primary font-medium transition-colors">
+                                    <Link href={link.href} className="text-sm text-grey-600 hover:text-primary font-medium transition-colors">
                                         {link.name}
                                     </Link>
                                 </li>
@@ -103,14 +103,15 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-slate-500 text-xs font-medium text-center md:text-left">
+                <div className="pt-8 border-t border-grey-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-grey-500 text-xs font-medium text-center md:text-left">
                         © 2026 StrongBody AI – Powered by MultiMe AI – Vietnam-based Global Platform. All rights reserved.
                     </p>
-                    <p className="text-slate-600 text-[10px] font-medium max-w-md text-center md:text-right">
+                    <p className="text-grey-600 text-[10px] font-medium max-w-md text-center md:text-right">
                         StrongBody AI is a technology marketplace platform. We do not directly provide medical services. All services are provided by independent verified partners.
                     </p>
                 </div>
+
             </Container>
         </footer>
     );

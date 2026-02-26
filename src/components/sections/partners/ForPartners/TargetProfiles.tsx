@@ -7,8 +7,8 @@ const TargetProfiles = () => {
     return (
         <section className="py-20 relative overflow-hidden" style={{ background: 'var(--brand-gradient)' }}>
             <Container>
-                <span className="text-[#1c906c] font-bold tracking-widest text-xs uppercase mb-4 block">Who We're Looking For</span>
-                <h2 className="text-3xl md:text-4xl font-black text-white mb-10">Target Partnership Profiles</h2>
+                <span className="text-primary-light font-bold tracking-widest text-xs uppercase mb-4 block">Who We're Looking For</span>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">Target Partnership Profiles</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {targetProfiles.map((profile, idx) => (
                         <Reveal
@@ -16,11 +16,11 @@ const TargetProfiles = () => {
                             delay={idx * 0.05}
                             className="h-full"
                         >
-                            <div className="flex items-center gap-4 p-5 bg-white rounded-xl border border-slate-100 shadow-sm h-full hover:shadow-md transition-shadow">
-                                <div className="w-11 h-11 rounded-xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
+                            <div className="flex items-center gap-4 p-5 bg-white rounded-xl border border-grey-300 shadow-sm h-full hover:shadow-md transition-shadow">
+                                <div className="w-11 h-11 rounded-xl bg-primary-light text-primary flex items-center justify-center shrink-0">
                                     {profile.icon}
                                 </div>
-                                <span className="text-base font-bold text-primary-text">{profile.label}</span>
+                                <span className="text-base font-bold text-text-p">{profile.label}</span>
                             </div>
                         </Reveal>
                     ))}

@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const poppins = Poppins({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta",
 });
+
 
 export const metadata: Metadata = {
   title: "StrongBody AI | AI-Native Health Services Marketplace",
@@ -57,7 +58,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${poppins.variable} font-sans antialiased text-slate-900 bg-white`}>
+      <body className={`${jakarta.variable} font-sans antialiased text-slate-900 bg-white`}>
         <Navbar />
         {children}
         <Footer />

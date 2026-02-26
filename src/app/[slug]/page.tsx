@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const title = post.title;
     const content = post.content || post.details?.content || "<p>No content available.</p>";
     const image = post.featured_image_url || post.image || null;
-    const category = post.categories?.[0]?.name || post.category?.name || "Uncategorized";
+    const category = post.category?.name || "Uncategorized";
     const date = post.published_at || post.date || new Date().toISOString();
     const authorObj = post.author;
     const author = (authorObj && typeof authorObj === 'object')
@@ -180,7 +180,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                                 .map((relatedPost: any) => (
                                                     <Link
                                                         key={relatedPost.id}
-                                                        href={`/blog/${relatedPost.slug}`}
+                                                        href={`/${relatedPost.slug}`}
                                                         className="block group"
                                                     >
                                                         <div className="flex gap-4">

@@ -9,23 +9,23 @@ const PartnershipFramework = () => {
                 <div className="grid lg:grid-cols-2 gap-16">
                     <div>
                         <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Framework</span>
-                        <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">Partnership Framework</h2>
-                        <p className="text-slate-600 font-medium mb-8 leading-relaxed">
+                        <h2 className="text-3xl md:text-4xl font-bold text-text-p mb-6">Partnership Framework</h2>
+                        <p className="text-text-m font-medium mb-8 leading-relaxed">
                             StrongBody AI operates as a technology marketplace infrastructure provider. Here's what that means for our partners:
                         </p>
 
                         <div className="space-y-4">
-                            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
-                                <h4 className="font-bold text-slate-900 mb-2">Partners Retain Full Independence</h4>
-                                <ul className="space-y-2 text-sm text-slate-600 font-medium">
+                            <div className="p-5 rounded-2xl bg-grey-50 border border-grey-200">
+                                <h4 className="font-bold text-text-p mb-2 text-xl">Partners Retain Full Independence</h4>
+                                <ul className="space-y-2 text-sm text-text-m font-medium">
                                     <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> Full professional autonomy over services</li>
                                     <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> Complete control over pricing and service configuration</li>
                                     <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> Professional liability as per local regulations</li>
                                 </ul>
                             </div>
-                            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
-                                <h4 className="font-bold text-slate-900 mb-2">Platform Provides</h4>
-                                <ul className="space-y-2 text-sm text-slate-600 font-medium">
+                            <div className="p-5 rounded-2xl bg-grey-50 border border-grey-200">
+                                <h4 className="font-bold text-text-p mb-2">Platform Provides</h4>
+                                <ul className="space-y-2 text-sm text-text-m font-medium">
                                     <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> Transaction infrastructure and marketplace access</li>
                                     <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> AI-powered communication and translation tools</li>
                                     <li className="flex items-start gap-2"><CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" /> Secure escrow payment processing</li>
@@ -37,8 +37,8 @@ const PartnershipFramework = () => {
 
                     <div>
                         <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Standards</span>
-                        <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">Compliance & Professional Standards</h2>
-                        <p className="text-slate-600 font-medium mb-8 leading-relaxed">
+                        <h2 className="text-3xl md:text-4xl font-bold text-text-p mb-6">Compliance & Professional Standards</h2>
+                        <p className="text-text-m font-medium mb-8 leading-relaxed">
                             All selected partners must adhere to the following requirements:
                         </p>
                         <ul className="space-y-4">
@@ -48,9 +48,9 @@ const PartnershipFramework = () => {
                                 "Accept transparency and performance evaluation mechanisms",
                                 "Agree to the platform's professional code of ethics"
                             ].map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                                <li key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-grey-50 border border-grey-200 shadow-sm">
                                     <ShieldCheck size={18} className="text-primary shrink-0 mt-0.5" />
-                                    <span className="text-sm font-bold text-slate-700">{item}</span>
+                                    <span className="text-sm font-bold text-text-p">{item}</span>
                                 </li>
                             ))}
                         </ul>

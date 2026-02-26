@@ -8,7 +8,7 @@ const StrategicValue = () => {
         <section className="py-20 bg-white">
             <Container>
                 <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Why Partner With Us</span>
-                <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-10">Strategic Value of Partnership</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-text-p mb-10">Strategic Value of Partnership</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {values.map((val, idx) => (
                         <Reveal
@@ -16,12 +16,12 @@ const StrategicValue = () => {
                             delay={idx * 0.08}
                             className="h-full"
                         >
-                            <div className="p-7 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-lg transition-all group h-full">
-                                <div className="w-12 h-12 rounded-xl bg-blue-100 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
+                            <div className="p-7 rounded-2xl bg-grey-50 border border-grey-200 hover:bg-white hover:shadow-lg transition-all group h-full">
+                                <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
                                     {val.icon}
                                 </div>
-                                <h4 className="text-lg font-bold text-slate-900 mb-2">{val.title}</h4>
-                                <p className="text-sm text-[#1c906c] font-medium leading-relaxed">{val.desc}</p>
+                                <h4 className="text-lg font-bold text-text-p mb-2">{val.title}</h4>
+                                <p className="text-sm text-text-m font-medium leading-relaxed">{val.desc}</p>
                             </div>
                         </Reveal>
                     ))}

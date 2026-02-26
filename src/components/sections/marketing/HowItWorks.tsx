@@ -33,28 +33,29 @@ const steps = [
 
 const HowItWorks = () => {
     return (
-        <section id="how-it-works" className="py-24 bg-brand text-white overflow-hidden relative">
-            <div className="absolute inset-0 bg-brand opacity-100 -z-10"></div>
+        <section id="how-it-works" className="py-24 bg-secondary text-white overflow-hidden relative">
             <Container>
                 <div className="text-center mb-16">
-                    <FadeIn>
-                        <span className="text-[#1c906c] font-bold tracking-widest text-xs uppercase mb-4 block">
-                            Process
-                        </span>
-                    </FadeIn>
-                    <Reveal delay={0.1}>
-                        <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                            How StrongBody AI Works – All Inside MultiMe AI App
-                        </h2>
-                    </Reveal>
-                    <p className="text-base text-white/80 font-medium max-w-2xl mx-auto mb-6">
-                        From discovery to completion — every step is transparent, secure, and powered by AI.
+
+                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                        Process
+                    </span>
+
+
+                    <h2 className="text-3xl md:text-5xl font-bold !text-white mb-6">How It Works</h2>
+
+                    <p className="text-lg !text-white/70 max-w-2xl mx-auto leading-relaxed">
+                        Accessing global medical expertise is now as simple as a voice message.
+                        Follow our streamlined process to begin your health journey.
+                    </p>
+                    <p className="text-base text-white/70 font-medium max-w-2xl mx-auto mb-10">
+                        From discovery to completion — every step is transparent, secure, and powered by AI inside MultiMe AI App.
                     </p>
 
                     {/* Demo Video Button */}
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white/20 hover:border-white/30 transition-all shadow-sm"
+                        className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-white/20 hover:border-white/30 transition-all shadow-sm"
                     >
                         <div className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center">
                             <Play size={14} fill="currentColor" />
@@ -71,21 +72,23 @@ const HowItWorks = () => {
                             className="h-full"
                         >
                             <div className="bg-white/5 backdrop-blur-sm p-7 rounded-2xl border border-white/10 shadow-sm hover:shadow-lg hover:border-white/30 transition-all group relative h-full text-left">
-                                <div className="text-4xl font-black text-white/10 absolute top-5 right-5 group-hover:text-white/20 transition-colors">
+                                <div className="text-4xl font-bold text-white/10 absolute top-5 right-5 group-hover:text-white/20 transition-colors">
                                     {step.num}
                                 </div>
-                                <div className="w-12 h-12 rounded-xl bg-white/10 text-[#1c906c] flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all">
+                                <div className="w-12 h-12 rounded-xl bg-white/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all">
                                     {step.icon}
                                 </div>
                                 <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                                <p className="text-white/70 font-medium leading-relaxed text-sm">{step.desc}</p>
+                                <p className="text-white/60 font-medium leading-relaxed text-sm">{step.desc}</p>
                             </div>
                         </Reveal>
                     ))}
                 </div>
+
             </Container>
         </section>
     );
 };
+
 
 export default HowItWorks;

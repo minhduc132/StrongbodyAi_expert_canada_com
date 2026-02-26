@@ -4,7 +4,7 @@ import { ArrowLeft, CheckCircle2, Star, Clock, ShieldCheck, MapPin } from "lucid
 import Container from "@/components/layout/Container";
 import { services as defaultServices, additionalServices as defaultAdditionalServices } from "@/components/sections/marketplace/Services/constants";
 import { Metadata } from "next";
-import { fetchPostDetail } from "@/lib/api";
+import { fetchPostDetail } from "@/app/api";
 
 interface ServicePageProps {
     params: Promise<{

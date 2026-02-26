@@ -16,16 +16,12 @@ const Ecosystem = () => {
             <Container>
                 <div className="grid lg:grid-cols-2 gap-20 items-center">
                     <div>
-                        <FadeIn>
-                            <span className="inline-block text-white font-bold tracking-[0.2em] text-sm uppercase mb-6">
-                                Global Infrastructure
-                            </span>
-                        </FadeIn>
-                        <Reveal delay={0.1}>
-                            <h2 className="text-4xl md:text-7xl font-black text-white mb-10 leading-[0.9] tracking-tight">
-                                The Connected <span className="text-white italic">Ecosystem.</span>
-                            </h2>
-                        </Reveal>
+                        <span className="inline-block text-white font-bold tracking-[0.2em] text-sm uppercase mb-6">
+                            Global Infrastructure
+                        </span>
+                        <h2 className="text-4xl md:text-7xl font-black text-white mb-10 leading-[0.9] tracking-tight">
+                            The Connected <span className="text-white italic">Ecosystem.</span>
+                        </h2>
                         <p className="text-xl text-white font-medium leading-relaxed mb-12 max-w-xl">
                             Our architecture enables organizations to function as verified nodes within a global medical network, sharing knowledge securely and instantly.
                         </p>
@@ -56,7 +52,7 @@ const Ecosystem = () => {
                                 <img
                                     src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200"
                                     alt="Global Medical Network"
-                                    className="rounded-[3.5rem] transform transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                                    className="rounded-[3.5rem] transform transition-transform duration-1000 group-hover:scale-110"
                                 />
                             </div>
                         </ScaleIn>

@@ -33,22 +33,18 @@ const differentiators = [
 
 const WhyDifferent = () => {
     return (
-        <section className="py-24 text-white overflow-hidden relative" style={{ background: 'var(--brand-gradient)' }}>
+        <section className="py-24 text-white overflow-hidden relative bg-secondary">
             <div className="absolute top-0 right-0 w-[60%] h-full bg-white/5 skew-x-12 translate-x-1/3"></div>
 
             <Container className="relative z-10">
                 <div className="text-center mb-16">
-                    <FadeIn>
-                        <span className="text-white font-bold tracking-widest text-xs uppercase mb-4 block">
-                            The Difference
-                        </span>
-                    </FadeIn>
-                    <Reveal delay={0.1}>
-                        <h2 className="text-3xl md:text-4xl font-black mb-4">
-                            Why StrongBody AI + MultiMe AI Is Different
-                        </h2>
-                    </Reveal>
-                    <p className="text-base text-white/80 font-medium max-w-2xl mx-auto">
+                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                        The Difference
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                        Why StrongBody AI is Different
+                    </h2>
+                    <p className="text-base text-white/70 font-medium max-w-2xl mx-auto">
                         We are not just another healthcare directory. StrongBody AI is a complete commerce infrastructure designed for modern health services.
                     </p>
                 </div>
@@ -61,11 +57,11 @@ const WhyDifferent = () => {
                             className="h-full"
                         >
                             <div className="p-7 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all group h-full">
-                                <div className="w-12 h-12 rounded-xl bg-white/10 text-white flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
+                                <div className="w-12 h-12 rounded-xl bg-white/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
                                     {item.icon}
                                 </div>
                                 <h4 className="text-lg font-bold mb-2 text-white">{item.title}</h4>
-                                <p className="text-sm text-white font-medium leading-relaxed">{item.desc}</p>
+                                <p className="text-sm text-white/60 font-medium leading-relaxed">{item.desc}</p>
                             </div>
                         </Reveal>
                     ))}
@@ -74,5 +70,6 @@ const WhyDifferent = () => {
         </section>
     );
 };
+
 
 export default WhyDifferent;

@@ -73,13 +73,13 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${scrolled
-                ? "bg-white/95 backdrop-blur-xl border-b border-slate-100 py-2 shadow-sm"
-                : "bg-white/80 backdrop-blur-md py-3"
+            className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${scrolled
+                ? "bg-white border-b border-grey-100 py-2 shadow-sm"
+                : "bg-white py-3"
                 }`}
         >
             <Container>
-                <div className="flex justify-between items-center text-slate-800">
+                <div className="flex justify-between items-center text-grey-800">
                     {/* Logo */}
                     <Link href="/" className="flex-shrink-0 flex items-center gap-2 group">
                         <img
@@ -87,18 +87,13 @@ const Navbar = () => {
                             alt="StrongBody AI Logo"
                             className="h-9 w-auto object-contain"
                         />
-                        <img
-                            src="https://flagcdn.com/w160/my.png"
-                            alt="Malaysia Flag"
-                            className="w-16 h-auto object-contain border border-slate-100 shadow-sm"
-                        />
                     </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden xl:flex items-center space-x-1">
                         {/* Home & About */}
-                        <Link href="/" className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${pathname === "/" ? "text-primary bg-primary/10" : "hover:text-primary hover:bg-slate-50"}`}>Home</Link>
-                        <Link href="/about" className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${pathname === "/about" ? "text-primary bg-primary/10" : "hover:text-primary hover:bg-slate-50"}`}>About</Link>
+                        <Link href="/" className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${pathname === "/" ? "text-primary bg-primary/5" : "hover:text-primary hover:bg-grey-50"}`}>Home</Link>
+                        <Link href="/about" className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${pathname === "/about" ? "text-primary bg-primary/5" : "hover:text-primary hover:bg-grey-50"}`}>About</Link>
 
                         {/* Dropdowns */}
                         <div className="flex items-center" ref={dropdownRef}>
@@ -107,15 +102,15 @@ const Navbar = () => {
                                     <button
                                         onClick={() => toggleDropdown(group.name)}
                                         className={`flex items-center gap-1 px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${activeDropdown === group.name || group.links.some(l => pathname === l.href)
-                                            ? "text-primary bg-primary/10"
-                                            : "hover:text-primary hover:bg-slate-50"
+                                            ? "text-primary bg-primary/5"
+                                            : "hover:text-primary hover:bg-grey-50"
                                             }`}
                                     >
                                         {group.name} <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === group.name ? "rotate-180" : ""}`} />
                                     </button>
 
                                     {activeDropdown === group.name && (
-                                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 animate-in fade-in zoom-in-95 duration-200">
+                                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-grey-100 p-2 animate-in fade-in zoom-in-95 duration-200">
                                             {group.links.map((link) => {
                                                 const isActive = pathname === link.href;
                                                 return (
@@ -123,15 +118,15 @@ const Navbar = () => {
                                                         key={link.name}
                                                         href={link.href}
                                                         onClick={() => setActiveDropdown(null)}
-                                                        className={`flex items-start gap-4 p-4 rounded-xl transition-all ${isActive ? "bg-primary/10 text-primary" : "text-slate-700 hover:bg-slate-50 hover:pl-5"
+                                                        className={`flex items-start gap-4 p-4 rounded-xl transition-all ${isActive ? "bg-primary/5 text-primary" : "text-grey-700 hover:bg-grey-50 hover:pl-5"
                                                             }`}
                                                     >
-                                                        <div className={`mt-0.5 p-2 rounded-lg ${isActive ? "bg-primary text-white" : "bg-slate-100 text-slate-500"}`}>
+                                                        <div className={`mt-0.5 p-2 rounded-lg ${isActive ? "bg-primary text-white" : "bg-grey-100 text-grey-500"}`}>
                                                             <link.icon size={18} />
                                                         </div>
                                                         <div>
                                                             <div className="text-[14px] font-bold">{link.name}</div>
-                                                            <div className="text-[12px] text-slate-400 font-medium leading-tight">{link.desc}</div>
+                                                            <div className="text-[12px] text-grey-400 font-medium leading-tight">{link.desc}</div>
                                                         </div>
                                                     </Link>
                                                 );
@@ -142,7 +137,7 @@ const Navbar = () => {
                             ))}
                         </div>
 
-                        <Link href="/contact" className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${pathname === "/contact" ? "text-primary bg-primary/10" : "hover:text-primary hover:bg-slate-50"}`}>Contact</Link>
+                        <Link href="/contact" className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${pathname === "/contact" ? "text-primary bg-primary/5" : "hover:text-primary hover:bg-grey-50"}`}>Contact</Link>
                     </div>
 
                     {/* Right Side: 2 CTAs */}
@@ -155,7 +150,7 @@ const Navbar = () => {
                         </Link>
                         <Link
                             href="https://www.strongbody.ai/signup"
-                            className="hidden lg:flex items-center gap-1.5 bg-slate-900 text-white px-4 py-2.5 rounded-lg text-[13px] font-bold tracking-wide hover:bg-slate-800 transition-all active:scale-[0.98]"
+                            className="hidden lg:flex items-center gap-1.5 bg-secondary text-white px-4 py-2.5 rounded-lg text-[13px] font-bold tracking-wide hover:bg-secondary/90 transition-all active:scale-[0.98]"
                         >
                             Strategic Partner
                         </Link>
@@ -164,7 +159,7 @@ const Navbar = () => {
                         <div className="xl:hidden">
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="text-slate-700 p-2 bg-slate-50 rounded-xl border border-slate-100"
+                                className="text-grey-700 p-2 bg-grey-50 rounded-xl border border-grey-100"
                             >
                                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                             </button>
@@ -175,14 +170,14 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="xl:hidden absolute top-full left-0 w-full h-screen bg-white shadow-2xl z-[100] overflow-y-auto border-t border-slate-100">
+                <div className="xl:hidden absolute top-full left-0 w-full h-screen bg-white shadow-2xl z-[100] overflow-y-auto border-t border-grey-100">
                     <div className="p-6 space-y-6 pb-24">
                         <div className="space-y-2">
                             {simpleLinks.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className={`block px-5 py-4 text-base font-bold rounded-xl ${pathname === link.href ? "text-primary bg-primary/5 border border-primary/10" : "text-slate-800 bg-slate-50"}`}
+                                    className={`block px-5 py-4 text-base font-bold rounded-xl ${pathname === link.href ? "text-primary bg-primary/5 border border-primary/10" : "text-grey-800 bg-grey-50"}`}
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
@@ -192,16 +187,16 @@ const Navbar = () => {
 
                         {navGroups.map((group) => (
                             <div key={group.name} className="space-y-3">
-                                <div className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-4">{group.name}</div>
+                                <div className="text-[11px] font-black text-grey-400 uppercase tracking-widest px-4">{group.name}</div>
                                 <div className="grid grid-cols-1 gap-2">
                                     {group.links.map((link) => (
                                         <Link
                                             key={link.name}
                                             href={link.href}
-                                            className={`flex items-center gap-4 px-4 py-3.5 text-[15px] font-bold rounded-xl border border-slate-100 ${pathname === link.href ? "text-primary bg-primary/5 border-primary/20" : "text-slate-700 bg-white shadow-sm"}`}
+                                            className={`flex items-center gap-4 px-4 py-3.5 text-[15px] font-bold rounded-xl border border-grey-100 ${pathname === link.href ? "text-primary bg-primary/5 border-primary/20" : "text-grey-700 bg-white shadow-sm"}`}
                                             onClick={() => setIsOpen(false)}
                                         >
-                                            <div className="w-10 h-10 rounded-lg bg-slate-50 flex items-center justify-center text-primary">
+                                            <div className="w-10 h-10 rounded-lg bg-grey-50 flex items-center justify-center text-primary">
                                                 <link.icon size={20} />
                                             </div>
                                             {link.name}
@@ -221,7 +216,7 @@ const Navbar = () => {
                             </Link>
                             <Link
                                 href="https://www.strongbody.ai/signup"
-                                className="block w-full text-center bg-slate-900 text-white py-4 rounded-xl text-base font-bold shadow-lg shadow-slate-900/10"
+                                className="block w-full text-center bg-secondary text-white py-4 rounded-xl text-base font-bold shadow-lg shadow-secondary/20"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Become a Strategic Partner
@@ -230,6 +225,7 @@ const Navbar = () => {
                     </div>
                 </div>
             )}
+
         </nav>
     );
 };

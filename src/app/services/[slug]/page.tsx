@@ -18,12 +18,6 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     let service: any = await fetchPostDetail(resolvedParams.slug);
 
     if (!service) {
-        const mainService = defaultServices.find((s) => s.slug === resolvedParams.slug);
-        const addService = defaultAdditionalServices.find((s) => s.slug === resolvedParams.slug);
-        service = mainService || addService;
-    }
-
-    if (!service) {
         return {
             title: "Service Not Found | StrongBody AI",
         };
@@ -41,15 +35,6 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
     const resolvedParams = await params;
 
     let service: any = await fetchPostDetail(resolvedParams.slug);
-    let isFallback = false;
-
-    if (!service) {
-        const mainService = defaultServices.find((s) => s.slug === resolvedParams.slug);
-        const addService = defaultAdditionalServices.find((s) => s.slug === resolvedParams.slug);
-        service = mainService || addService;
-        isFallback = true;
-    }
-
     if (!service) {
         notFound();
     }
@@ -58,7 +43,7 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
     const content = service.content || service.details?.content || service.desc || "<p>Coming soon...</p>";
     const image = service.featured_image_url || service.image;
     const tag = service.category?.name || service.tag;
-    const isAdditional = isFallback ? !!defaultAdditionalServices.find((s) => s.slug === resolvedParams.slug) : false;
+    const isAdditional = false;
 
     return (
         <main className="min-h-screen bg-slate-50 pt-24 pb-24">

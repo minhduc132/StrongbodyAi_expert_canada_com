@@ -28,12 +28,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: route === "" ? 1 : 0.8,
     }));
 
-    // 2. Dynamic Blog Posts Routes (/[slug])
+    // 2. Dynamic Blog Posts Routes (/blog/[slug])
     let blogPostsRoutes: MetadataRoute.Sitemap = [];
     try {
         const posts = await fetchAllBlogPosts();
         blogPostsRoutes = posts.map((post: any) => ({
-            url: `${baseUrl}/${post.slug}`,
+            url: `${baseUrl}/blog/${post.slug}`,
             lastModified: post.date || new Date().toISOString(),
             changeFrequency: "monthly" as const,
             priority: 0.6,

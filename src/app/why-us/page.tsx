@@ -2,6 +2,31 @@ import PageHeader from "@/components/layout/PageHeader";
 import WhyUs from "@/components/sections/marketing/WhyUs";
 import MedicalExperts from "@/components/sections/marketplace/MedicalExperts";
 import { CheckCircle2 } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Why StrongBody AI? | The Future of Health Services",
+    description: "Discover why StrongBody AI is the most trusted AI-native health services marketplace. Verified professionals, secure escrow, AI voice translation, and global access — all in one platform.",
+    keywords: ["why StrongBody AI", "best telehealth platform", "AI health marketplace", "verified doctors online", "secure health payments", "health innovation"],
+    alternates: {
+        canonical: "https://strongbody.ai/why-us",
+    },
+    openGraph: {
+        title: "Why StrongBody AI? | The Future of Health Services",
+        description: "Verified professionals, secure escrow payments, AI voice translation, and global access. Learn why StrongBody AI is the leading AI-native health marketplace.",
+        url: "https://strongbody.ai/why-us",
+        siteName: "StrongBody AI",
+        images: [{ url: "/images/og-image.png", width: 1200, height: 630, alt: "Why StrongBody AI" }],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Why StrongBody AI? | Trusted Global Health Platform",
+        description: "Verified professionals, secure escrow, AI translation. The AI-native health services marketplace.",
+        images: ["/images/og-image.png"],
+    },
+};
 
 export default function WhyUsPage() {
     return (

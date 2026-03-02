@@ -3,6 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Scale, Server, AlertTriangle } from "lucide-react";
+// Note: metadata cannot be exported from a 'use client' page directly
+// SEO is handled via the root layout and page title
+
 
 const sections = [
     {

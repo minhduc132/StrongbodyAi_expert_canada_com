@@ -2,6 +2,31 @@ import PageHeader from "@/components/layout/PageHeader";
 import Ecosystem from "@/components/sections/marketing/Ecosystem";
 import WhyUs from "@/components/sections/marketing/WhyUs";
 import { Link2, Globe, Sparkles } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Global Health Ecosystem | StrongBody AI",
+    description: "Explore the StrongBody AI global health ecosystem — a borderless network connecting verified professionals, hospitals, and health organizations with patients across 194 countries.",
+    keywords: ["global health ecosystem", "StrongBody AI", "health network", "digital health", "AI healthcare", "international medical"],
+    alternates: {
+        canonical: "https://strongbody.ai/ecosystem",
+    },
+    openGraph: {
+        title: "Global Health Ecosystem | StrongBody AI",
+        description: "A borderless network connecting verified professionals, hospitals, and health organizations with patients across 194 countries.",
+        url: "https://strongbody.ai/ecosystem",
+        siteName: "StrongBody AI",
+        images: [{ url: "/images/og-image.png", width: 1200, height: 630, alt: "StrongBody AI Global Health Ecosystem" }],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Global Health Ecosystem | StrongBody AI",
+        description: "A borderless network connecting verified professionals with patients across 194 countries.",
+        images: ["/images/og-image.png"],
+    },
+};
 
 export default function EcosystemPage() {
     return (

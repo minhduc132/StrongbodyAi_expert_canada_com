@@ -2,6 +2,31 @@ import PageHeader from "@/components/layout/PageHeader";
 import UseCases from "@/components/sections/marketplace/UseCases";
 import ServiceCards from "@/components/sections/marketplace/ServiceCards";
 import { Quote } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Real-World Use Cases | StrongBody AI in Action",
+    description: "See how hospitals, clinics, pharmacies, and individual practitioners use StrongBody AI to expand reach, secure revenue, and deliver better patient outcomes globally.",
+    keywords: ["healthcare use cases", "StrongBody AI case studies", "digital health solutions", "telehealth implementation", "AI healthcare ROI"],
+    alternates: {
+        canonical: "https://strongbody.ai/use-cases",
+    },
+    openGraph: {
+        title: "Real-World Use Cases | StrongBody AI in Action",
+        description: "Discover how various healthcare organizations leverage StrongBody AI to deliver better patient outcomes and unlock global revenue.",
+        url: "https://strongbody.ai/use-cases",
+        siteName: "StrongBody AI",
+        images: [{ url: "/images/og-image.png", width: 1200, height: 630, alt: "StrongBody AI Use Cases" }],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Real-World Health Tech Use Cases | StrongBody AI",
+        description: "How hospitals, clinics, and specialists use StrongBody AI to expand globally and serve more patients.",
+        images: ["/images/og-image.png"],
+    },
+};
 
 export default function UseCasesPage() {
     return (

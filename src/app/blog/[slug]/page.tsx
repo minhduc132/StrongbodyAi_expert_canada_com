@@ -14,20 +14,42 @@ interface BlogPostPageProps {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
     const resolvedParams = await params;
-
     const post = await fetchPostDetail(resolvedParams.slug);
 
     if (!post) {
         return {
-            title: "Post Not Found | StrongBody AI Blog",
+            title: "Post Not Found",
+            description: "The article you're looking for could not be found.",
         };
     }
 
     const description = post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').substring(0, 160) : "");
+    const image = post.featured_image_url || post.image || "/images/og-image.png";
+    const category = post.categories?.[0]?.name || post.category?.name || "Health Insights";
 
     return {
-        title: `${post.title} | StrongBody AI Blog`,
+        title: post.title,
         description: description,
+        keywords: [post.title, category, "StrongBody AI", "health blog", "telehealth"],
+        alternates: {
+            canonical: `https://strongbody.ai/blog/${resolvedParams.slug}`,
+        },
+        openGraph: {
+            title: post.title,
+            description: description,
+            url: `https://strongbody.ai/blog/${resolvedParams.slug}`,
+            siteName: "StrongBody AI",
+            images: [{ url: image, width: 1200, height: 630, alt: post.title }],
+            locale: "en_US",
+            type: "article",
+            publishedTime: post.published_at || post.created_at,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: description,
+            images: [image],
+        },
     };
 }
 
@@ -59,8 +81,39 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     // Fetch related posts
     const relatedPosts = await fetchAllBlogPosts();
 
+    // JSON-LD Article Schema
+    const articleJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description: post.excerpt || "",
+        image: image || "/images/og-image.png",
+        datePublished: date,
+        dateModified: post.updated_at || date,
+        author: {
+            "@type": "Person",
+            name: author,
+        },
+        publisher: {
+            "@type": "Organization",
+            name: "StrongBody AI",
+            logo: {
+                "@type": "ImageObject",
+                url: "https://strongbody.ai/images/og-image.png",
+            },
+        },
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `https://strongbody.ai/blog/${resolvedParams.slug}`,
+        },
+    };
+
     return (
         <main className="min-h-screen bg-white">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+            />
             {/* Hero Image */}
             <div className="relative h-[400px] md:h-[500px] overflow-hidden">
                 {image ? (

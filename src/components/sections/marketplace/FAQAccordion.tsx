@@ -14,7 +14,7 @@ const FAQItem = ({ item }: { item: FAQItemProps }) => {
         <div className="border border-grey-200 rounded-xl overflow-hidden bg-white hover:border-grey-300 transition-colors">
             <button
                 onClick={() => setOpen(!open)}
-                className="w-full flex items-center justify-between p-5 text-left transition-all"
+                className="w-full h-[72px] flex items-center justify-between p-5 text-left transition-all"
             >
                 <span className="font-bold text-text-p text-sm pr-4">{item.q}</span>
                 <ChevronDown size={16} className={`text-text-s shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />

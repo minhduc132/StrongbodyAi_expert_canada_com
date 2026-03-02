@@ -1,10 +1,14 @@
 import AboutSection from "@/components/sections/marketing/AboutUs";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "About StrongBody AI | Our Mission & Technology",
-    description: "Learn how StrongBody AI is revolutionizing healthcare through AI-native marketplace infrastructure, secure escrow payments, and verified global expertise.",
-};
+import { generateUnifiedMetadata } from "@/utils/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+    return generateUnifiedMetadata(undefined, {
+        title: "About Our Mission",
+    });
+}
+
 
 export default function AboutPage() {
     return (

@@ -9,6 +9,12 @@ export const API_CONFIG = {
     }
 };
 
+export const MAIL_CONFIG = {
+    SMTP_USER: "no-reply@strongbody.ai",
+    SMTP_PASS: "vuiw noyt csvo dnjb",
+    ADMIN_EMAIL: "customercare@strongbody.ai"
+};
+
 export async function apiFetch(endpoint: string, options: RequestInit = {}) {
     const url = endpoint.startsWith("http") ? endpoint : `${API_BASE_URL}${endpoint}`;
 
@@ -19,7 +25,7 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
                 ...API_CONFIG.HEADERS,
                 ...options.headers,
             },
-            next: { revalidate: 0, ...options?.next }
+            next: { revalidate: 60, ...options?.next }
         } as any);
 
         if (!response.ok) {
@@ -28,7 +34,6 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
         }
 
         const data = await response.json();
-        console.log(`[API] ${url} → keys:`, Object.keys(data || {}), 'items?', (data?.data?.items || data?.items)?.length);
         return data.data || data;
     } catch (error) {
         console.error(`Fetch Error for ${url}:`, error);

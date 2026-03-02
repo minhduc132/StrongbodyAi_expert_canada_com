@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, Share2, Facebook, Twitter, Linkedin } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Facebook, Twitter, Linkedin, Headset } from "lucide-react";
 import Container from "@/components/layout/Container";
 import { Metadata } from "next";
 
@@ -12,23 +12,11 @@ interface BlogPostPageProps {
     }>;
 }
 
+import { generateUnifiedMetadata } from "@/utils/seo";
+
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
     const resolvedParams = await params;
-
-    const post = await fetchPostDetail(resolvedParams.slug);
-
-    if (!post) {
-        return {
-            title: "Post Not Found | StrongBody AI Blog",
-        };
-    }
-
-    const description = post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').substring(0, 160) : "");
-
-    return {
-        title: `${post.title} | StrongBody AI Blog`,
-        description: description,
-    };
+    return generateUnifiedMetadata(resolvedParams.slug);
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -45,7 +33,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const title = post.title;
     const content = post.content || post.details?.content || "<p>No content available.</p>";
     const image = post.featured_image_url || post.image || null;
-    const category = post.category?.name || "Uncategorized";
+    const category = post.categories?.[0]?.name || post.category?.name || "Uncategorized";
     const date = post.published_at || post.date || new Date().toISOString();
     const authorObj = post.author;
     const author = (authorObj && typeof authorObj === 'object')
@@ -59,8 +47,39 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     // Fetch related posts
     const relatedPosts = await fetchAllBlogPosts();
 
+    // JSON-LD Article Schema
+    const articleJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description: post.excerpt || "",
+        image: image || "/images/og-image.png",
+        datePublished: date,
+        dateModified: post.updated_at || date,
+        author: {
+            "@type": "Person",
+            name: author,
+        },
+        publisher: {
+            "@type": "Organization",
+            name: "StrongBody AI",
+            logo: {
+                "@type": "ImageObject",
+                url: "https://strongbody.ai/images/og-image.png",
+            },
+        },
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `https://strongbody.ai/${resolvedParams.slug}`,
+        },
+    };
+
     return (
         <main className="min-h-screen bg-white">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+            />
             {/* Hero Image */}
             <div className="relative h-[400px] md:h-[500px] overflow-hidden">
                 {image ? (
@@ -208,25 +227,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                     </div>
                                 )}
 
-                                {/* Newsletter */}
-                                <div className="p-6 bg-primary/5 rounded-2xl border border-primary/10">
-                                    <h3 className="text-lg font-bold text-grey-900 mb-2">Stay Updated</h3>
-                                    <p className="text-sm text-grey-600 font-medium mb-4">
-                                        Subscribe to our newsletter for the latest health insights and platform updates.
-                                    </p>
-                                    <form className="space-y-3">
-                                        <input
-                                            type="email"
-                                            placeholder="Your email"
-                                            className="w-full px-4 py-2.5 rounded-lg border border-grey-200 bg-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                                        />
-                                        <button
-                                            type="submit"
-                                            className="w-full bg-primary text-white py-2.5 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all"
+                                {/* CTA Card */}
+                                <div className="p-8 bg-gradient-to-br from-secondary to-grey-900 rounded-[2rem] relative overflow-hidden group shadow-xl shadow-secondary/20">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
+                                    <div className="relative z-10">
+                                        <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary/40 group-hover:scale-110 transition-transform duration-500">
+                                            <Headset className="text-white" size={24} />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Free Consultation</h3>
+                                        <p className="text-grey-400 text-sm font-medium leading-relaxed mb-6">
+                                            Get personalized health advice from our professional medical network.
+                                        </p>
+                                        <Link
+                                            href="/contact"
+                                            className="flex items-center justify-center gap-2 bg-white text-secondary py-3.5 rounded-xl text-sm font-bold hover:bg-primary hover:text-white transition-all duration-300 shadow-lg shadow-black/5"
                                         >
-                                            Subscribe
-                                        </button>
-                                    </form>
+                                            Book Now <ArrowRight size={16} />
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </aside>

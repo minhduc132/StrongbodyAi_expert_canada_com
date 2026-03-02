@@ -1,10 +1,14 @@
 import ServicesSection from "@/components/sections/marketplace/ServicesSection";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Health Services Marketplace | StrongBody AI US",
-    description: "Browse verified health services including teleconsultation, medical aesthetics, rehabilitation, and nutrition planning from top specialists in the United States.",
-};
+import { generateUnifiedMetadata } from "@/utils/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+    return generateUnifiedMetadata(undefined, {
+        title: "Health Services Marketplace",
+    });
+}
+
 
 export default function ServicesPage() {
     return (

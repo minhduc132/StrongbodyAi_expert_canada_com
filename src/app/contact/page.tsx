@@ -1,10 +1,14 @@
 import ContactContent from "@/components/sections/forms/ContactContent";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Contact Us | Connect with StrongBody AI Experts",
-    description: "Reach out to StrongBody AI for support, partnership inquiries, or to learn more about our AI-native health services marketplace in the US and globally.",
-};
+import { generateUnifiedMetadata } from "@/utils/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+    return generateUnifiedMetadata(undefined, {
+        title: "Contact Us",
+    });
+}
+
 
 export default function ContactPage() {
     return (

@@ -14,20 +14,41 @@ interface ServicePageProps {
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
     const resolvedParams = await params;
-
     let service: any = await fetchPostDetail(resolvedParams.slug);
 
     if (!service) {
         return {
-            title: "Service Not Found | StrongBody AI",
+            title: "Service Not Found",
+            description: "The health service you're looking for could not be found.",
         };
     }
 
     const description = service.excerpt || service.desc || (service.content ? service.content.replace(/<[^>]*>/g, '').substring(0, 160) : "");
+    const image = service.featured_image_url || service.image || "/images/og-image.png";
+    const category = service.category?.name || service.tag || "Health Service";
 
     return {
-        title: `${service.title} | StrongBody AI Services`,
+        title: service.title,
         description: description,
+        keywords: [service.title, category, "StrongBody AI", "health services US", "verified specialist", "teleconsultation"],
+        alternates: {
+            canonical: `https://strongbody.ai/services/${resolvedParams.slug}`,
+        },
+        openGraph: {
+            title: `${service.title} | StrongBody AI`,
+            description: description,
+            url: `https://strongbody.ai/services/${resolvedParams.slug}`,
+            siteName: "StrongBody AI",
+            images: [{ url: image, width: 1200, height: 630, alt: service.title }],
+            locale: "en_US",
+            type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${service.title} | StrongBody AI`,
+            description: description,
+            images: [image],
+        },
     };
 }
 
@@ -45,8 +66,32 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
     const tag = service.category?.name || service.tag;
     const isAdditional = false;
 
+    // JSON-LD for health service
+    const serviceJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        name: title,
+        description: service.excerpt || service.desc || "",
+        image: image || "/images/og-image.png",
+        url: `https://strongbody.ai/services/${resolvedParams.slug}`,
+        medicalSpecialty: tag || "General Medicine",
+        availableService: {
+            "@type": "MedicalTherapy",
+            name: title,
+        },
+        provider: {
+            "@type": "Organization",
+            name: "StrongBody AI",
+            url: "https://strongbody.ai",
+        },
+    };
+
     return (
         <main className="min-h-screen bg-slate-50 pt-24 pb-24">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+            />
             <Container>
                 {/* Back Link */}
                 <div className="mb-8">

@@ -3,7 +3,31 @@ import Container from "@/components/layout/Container";
 import { Smartphone, Globe, Shield, MessageSquare, ArrowRight, Download, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { Reveal, FadeIn, ScaleIn } from "@/components/animations/Reveal";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: "MultiMe AI App | One App, 194 Languages, Endless Health Care",
+    description: "Download the MultiMe AI app to access global health experts, real-time AI voice translation, secure escrow payments, and personalized care in your language.",
+    keywords: ["MultiMe AI", "health app", "AI voice translate", "teleconsultation app", "global health", "StrongBody AI app", "download health app"],
+    alternates: {
+        canonical: "https://strongbody.ai/multime",
+    },
+    openGraph: {
+        title: "MultiMe AI App | One App, 194 Languages, Endless Health Care",
+        description: "Download MultiMe AI to connect with verified global health experts, translate consultations in real-time, and receive care in your own language.",
+        url: "https://strongbody.ai/multime",
+        siteName: "StrongBody AI",
+        images: [{ url: "/images/og-image.png", width: 1200, height: 630, alt: "MultiMe AI App by StrongBody AI" }],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "MultiMe AI | One App, 194 Languages, Endless Care",
+        description: "Download the MultiMe AI app — chat with global health experts in your language with real-time AI translation.",
+        images: ["/images/og-image.png"],
+    },
+};
 const MultiMePage = () => {
     return (
         <main className="min-h-screen pt-24 pb-16 bg-white overflow-hidden">

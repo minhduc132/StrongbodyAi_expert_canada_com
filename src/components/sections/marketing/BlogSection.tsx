@@ -101,7 +101,7 @@ const BlogSection = async () => {
                     {posts.map((post: any, idx: number) => (
                         <ScaleIn key={post.id} delay={idx * 0.1}>
                             <Link
-                                href={`/blog/${post.slug}`}
+                                href={`/${post.slug}`}
                                 className="group bg-white rounded-[2rem] border border-grey-100 overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 flex flex-col h-full"
                             >
                                 <div className="relative h-56 overflow-hidden">

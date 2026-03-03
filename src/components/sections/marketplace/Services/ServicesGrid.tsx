@@ -35,7 +35,7 @@ const ServicesGrid = async () => {
                         className="h-full"
                     >
                         <Link
-                            href={`/services/${service.slug}`}
+                            href={`/${service.slug}`}
                             className="bg-white p-7 rounded-2xl border border-grey-100 shadow-sm hover:shadow-lg hover:border-primary/10 transition-all group flex flex-col h-full cursor-pointer"
                         >
                             <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all">

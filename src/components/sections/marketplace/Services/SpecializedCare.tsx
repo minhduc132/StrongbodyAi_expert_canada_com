@@ -37,7 +37,7 @@ const SpecializedCare = async () => {
                         className="h-full"
                     >
                         <Link
-                            href={`/services/${service.slug}`}
+                            href={`/${service.slug}`}
                             className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-grey-200 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 h-full flex flex-col cursor-pointer block"
                         >
                             <div className="relative h-64 overflow-hidden">

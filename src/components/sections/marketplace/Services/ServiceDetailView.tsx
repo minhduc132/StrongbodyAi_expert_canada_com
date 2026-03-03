@@ -1,70 +1,17 @@
-import { notFound } from "next/navigation";
+import React from "react";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, Star, Clock, ShieldCheck, MapPin } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Star, ShieldCheck, MapPin, Clock } from "lucide-react";
 import Container from "@/components/layout/Container";
-import { services as defaultServices, additionalServices as defaultAdditionalServices } from "@/components/sections/marketplace/Services/constants";
-import { Metadata } from "next";
-import { fetchPostDetail } from "@/app/api";
 
-interface ServicePageProps {
-    params: Promise<{
-        slug: string;
-    }>;
+interface ServiceDetailViewProps {
+    service: any;
 }
 
-export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
-    const resolvedParams = await params;
-    let service: any = await fetchPostDetail(resolvedParams.slug);
-
-    if (!service) {
-        return {
-            title: "Service Not Found",
-            description: "The health service you're looking for could not be found.",
-        };
-    }
-
-    const description = service.excerpt || service.desc || (service.content ? service.content.replace(/<[^>]*>/g, '').substring(0, 160) : "");
-    const image = service.featured_image_url || service.image || "/images/og-image.png";
-    const category = service.category?.name || service.tag || "Health Service";
-
-    return {
-        title: service.title,
-        description: description,
-        keywords: [service.title, category, "StrongBody AI", "health services US", "verified specialist", "teleconsultation"],
-        alternates: {
-            canonical: `https://strongbody.ai/services/${resolvedParams.slug}`,
-        },
-        openGraph: {
-            title: `${service.title} | StrongBody AI`,
-            description: description,
-            url: `https://strongbody.ai/services/${resolvedParams.slug}`,
-            siteName: "StrongBody AI",
-            images: [{ url: image, width: 1200, height: 630, alt: service.title }],
-            locale: "en_US",
-            type: "website",
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: `${service.title} | StrongBody AI`,
-            description: description,
-            images: [image],
-        },
-    };
-}
-
-export default async function ServiceDetailsPage({ params }: ServicePageProps) {
-    const resolvedParams = await params;
-
-    let service: any = await fetchPostDetail(resolvedParams.slug);
-    if (!service) {
-        notFound();
-    }
-
+export default function ServiceDetailView({ service }: ServiceDetailViewProps) {
     const title = service.title;
     const content = service.content || service.details?.content || service.desc || "<p>Coming soon...</p>";
     const image = service.featured_image_url || service.image;
     const tag = service.category?.name || service.tag;
-    const isAdditional = false;
 
     // JSON-LD for health service
     const serviceJsonLd = {
@@ -73,7 +20,6 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
         name: title,
         description: service.excerpt || service.desc || "",
         image: image || "/images/og-image.png",
-        url: `https://strongbody.ai/services/${resolvedParams.slug}`,
         medicalSpecialty: tag || "General Medicine",
         availableService: {
             "@type": "MedicalTherapy",
@@ -87,7 +33,7 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
     };
 
     return (
-        <main className="min-h-screen bg-slate-50 pt-24 pb-24">
+        <main className="min-h-screen bg-slate-50 pt-24 pb-24 text-grey-900">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
@@ -97,7 +43,7 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
                 <div className="mb-8">
                     <Link
                         href="/services"
-                        className="inline-flex items-center gap-2 text-primary-text font-bold hover:text-primary transition-colors text-sm"
+                        className="inline-flex items-center gap-2 text-grey-600 font-bold hover:text-primary transition-colors text-sm"
                     >
                         <ArrowLeft size={16} />
                         Back to Services
@@ -115,18 +61,12 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
                                 </div>
                             )}
 
-                            {!tag && !isAdditional && service.icon && (
-                                <div className="w-16 h-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center mb-6">
-                                    {service.icon}
-                                </div>
-                            )}
-
                             <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
                                 {title}
                             </h1>
 
                             <div
-                                className="text-lg text-slate-600 font-medium leading-relaxed mb-8 prose prose-lg"
+                                className="text-lg text-slate-600 font-medium leading-relaxed mb-8 prose prose-lg prose-grey max-w-none"
                                 dangerouslySetInnerHTML={{ __html: content }}
                             />
 
@@ -205,7 +145,7 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
                             </div>
 
                             {/* Need Help */}
-                            <div className="bg-primary/5 rounded-3xl p-8 border border-primary/10 text-center">
+                            <div className="bg-primary/5 rounded-3xl p-8 border border-primary/10 text-center text-grey-900">
                                 <h4 className="text-lg font-black text-slate-900 mb-2">Need Assistance?</h4>
                                 <p className="text-sm text-slate-600 font-medium mb-6">
                                     Our support team is here to help you find the right specialist.

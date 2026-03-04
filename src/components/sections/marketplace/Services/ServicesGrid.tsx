@@ -3,10 +3,26 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { services as defaultServices, getIconBySlug } from "./constants";
 import { Reveal, FadeIn, ScaleIn } from "@/components/animations/Reveal";
-import { fetchAllServices } from "@/app/api";
+import { fetchServicesFromWidget, fetchServicesByCategory } from "@/app/api";
 
-const ServicesGrid = async () => {
-    let services = await fetchAllServices();
+interface ServicesGridProps {
+    source?: 'widget' | 'category';
+    category?: string;
+    widgetCode?: string;
+}
+
+const ServicesGrid = async ({
+    source = 'widget',
+    category = 'services',
+    widgetCode = 'services'
+}: ServicesGridProps) => {
+    let services = [];
+
+    if (source === 'category') {
+        services = await fetchServicesByCategory(category);
+    } else {
+        services = await fetchServicesFromWidget(widgetCode);
+    }
 
     // If no services from API, don't show mock data
     if (!services || services.length === 0) {

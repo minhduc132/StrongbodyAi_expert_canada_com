@@ -43,30 +43,38 @@ const recentPosts = [
 ];
 */
 
-import { fetchWidgetItems } from "@/app/api";
+import { fetchBlogPostsByWidget, fetchBlogsByCategory } from "@/app/api";
 
-const BlogSection = async () => {
-    let widgetData = await fetchWidgetItems("blogs");
+interface BlogSectionProps {
+    source?: 'widget' | 'category';
+    category?: string;
+    widgetCode?: string;
+}
 
-    // Fallback try with singular 'blog' if 'blogs' is empty (standard API behavior)
-    if (!widgetData || !widgetData.items || widgetData.items.length === 0) {
-        widgetData = await fetchWidgetItems("blog");
-    }
-
+const BlogSection = async ({
+    source = 'widget',
+    category = 'blogs',
+    widgetCode = 'list-blog'
+}: BlogSectionProps) => {
     let posts = [];
 
-    if (widgetData && widgetData.items && widgetData.items.length > 0) {
-        posts = widgetData.items.slice(0, 3).map((item: any) => ({
-            id: item.id || Math.random().toString(),
-            title: item.title || item.name || "",
-            excerpt: item.excerpt || item.description || item.desc || "",
-            author: item.author || "",
-            date: item.published_at || item.created_at || "",
-            readTime: "",
-            category: item.category_name || "",
-            image: item.featured_image_url || item.image || item.thumbnail || null,
-            slug: item.slug
-        }));
+    if (source === 'category') {
+        posts = await fetchBlogsByCategory(category);
+    } else {
+        // First try the specific widget code
+        posts = await fetchBlogPostsByWidget(widgetCode);
+
+        // Fallback for safety if requested widget is empty
+        if (!posts || posts.length === 0) {
+            posts = await fetchBlogPostsByWidget("blogs");
+        }
+        if (!posts || posts.length === 0) {
+            posts = await fetchBlogPostsByWidget("blog");
+        }
+    }
+
+    if (posts && posts.length > 0) {
+        posts = posts.slice(0, 3);
     }
 
     // No posts? Don't show anything to avoid confusion

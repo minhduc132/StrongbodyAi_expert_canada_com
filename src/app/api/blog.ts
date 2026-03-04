@@ -51,6 +51,36 @@ export async function fetchBlogPostsByWidget(code: string) {
     }
 }
 
+export async function fetchBlogsByCategory(category: string = "blogs") {
+    try {
+        const { fetchPostsByCategory } = await import("./widget");
+        const posts = await fetchPostsByCategory(category);
+        if (!posts || !Array.isArray(posts)) return [];
+
+        return posts.map((item: any) => {
+            const authorObj = item.author;
+            const authorName = authorObj && typeof authorObj === 'object'
+                ? [authorObj.first_name, authorObj.last_name].filter(Boolean).join(' ')
+                : (typeof authorObj === 'string' ? authorObj : "");
+
+            return {
+                id: item.id || Math.random().toString(),
+                title: item.title || "",
+                excerpt: item.excerpt || item.description || "",
+                author: authorName || "StrongBody AI",
+                date: item.published_at || item.created_at || "",
+                readTime: "",
+                category: item.category_name || item.category?.name || "",
+                image: item.featured_image_url || item.image || item.thumbnail || null,
+                slug: item.slug
+            };
+        });
+    } catch (error) {
+        console.error(`Error in fetchBlogsByCategory for ${category}:`, error);
+        return [];
+    }
+}
+
 export async function fetchAllBlogPosts() {
-    return fetchBlogPostsByWidget("blogs");
+    return fetchBlogsByCategory("blogs");
 }

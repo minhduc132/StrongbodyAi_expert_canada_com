@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function ServicesPage() {
     return (
         <main className="min-h-screen pt-20">
-            <ServicesSection />
+            <ServicesSection source="category" category="services" />
         </main>
     );
 }

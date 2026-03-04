@@ -1,7 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import { Metadata } from "next";
 import BlogListClient from "./BlogListClient";
-import { fetchAllBlogPosts } from "@/app/api";
+import { fetchAllBlogPosts, fetchBlogsByCategory } from "@/app/api";
 
 import { generateUnifiedMetadata } from "@/utils/seo";
 
@@ -14,7 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function BlogPage() {
     // Initial data for "All" tab: Combined list of all blog posts
-    const initialPosts = await fetchAllBlogPosts();
+    // Initial data: Fetch according to the specific category requested
+    const initialPosts = await fetchBlogsByCategory("blogs");
 
     return (
         <main className="min-h-screen">

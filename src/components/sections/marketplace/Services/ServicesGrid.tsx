@@ -1,9 +1,9 @@
-import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { services as defaultServices, getIconBySlug } from "./constants";
-import { Reveal, FadeIn, ScaleIn } from "@/components/animations/Reveal";
+import { getIconBySlug } from "./constants";
+import { ScaleIn } from "@/components/animations/Reveal";
 import { fetchServicesFromWidget, fetchServicesByCategory } from "@/app/api";
+import ServicesGridClient from "./ServicesGridClient";
 
 interface ServicesGridProps {
     source?: 'widget' | 'category';
@@ -16,18 +16,21 @@ const ServicesGrid = async ({
     category = 'services',
     widgetCode = 'services'
 }: ServicesGridProps) => {
-    let services = [];
-
     if (source === 'category') {
-        services = await fetchServicesByCategory(category);
-    } else {
-        services = await fetchServicesFromWidget(widgetCode);
+        const services = await fetchServicesByCategory(category, 1, 12);
+        if (!services || services.length === 0) return null;
+        return (
+            <ServicesGridClient
+                initialServices={services}
+                source={source}
+                category={category}
+                widgetCode={widgetCode}
+            />
+        );
     }
 
-    // If no services from API, don't show mock data
-    if (!services || services.length === 0) {
-        return null;
-    }
+    const services = await fetchServicesFromWidget(widgetCode);
+    if (!services || services.length === 0) return null;
 
     return (
         <div className="mb-12">
@@ -44,9 +47,9 @@ const ServicesGrid = async ({
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {services.slice(0, 6).map((service: any, idx: number) => (
+                {services.map((service: any, idx: number) => (
                     <ScaleIn
-                        key={idx}
+                        key={`${service.id}-${idx}`}
                         delay={idx * 0.06}
                         className="h-full"
                     >
@@ -75,6 +78,5 @@ const ServicesGrid = async ({
         </div>
     );
 };
-
 
 export default ServicesGrid;

@@ -1,4 +1,4 @@
-import { fetchCategories, fetchWidgetItems } from "./widget";
+import { fetchCategories, fetchWidgetItems, fetchPostsByCategory } from "./widget";
 
 export async function fetchServicesFromWidget(code: string = "services") {
     try {
@@ -22,10 +22,9 @@ export async function fetchServicesFromWidget(code: string = "services") {
     }
 }
 
-export async function fetchServicesByCategory(category: string = "services") {
+export async function fetchServicesByCategory(category: string = "services", page: number = 1, limit: number = 6) {
     try {
-        const { fetchPostsByCategory } = await import("./widget");
-        const posts = await fetchPostsByCategory(category);
+        const posts = await fetchPostsByCategory(category, page, limit);
         if (!posts || !Array.isArray(posts)) return [];
 
         return posts.map((item: any) => ({
@@ -34,7 +33,7 @@ export async function fetchServicesByCategory(category: string = "services") {
             desc: item.excerpt || "No description provided",
             image: item.featured_image_url || item.image || item.thumbnail,
             slug: item.slug,
-            tag: "Service",
+            tag: item.category?.name || "Service",
             icon: null
         }));
     } catch (error) {
@@ -43,8 +42,8 @@ export async function fetchServicesByCategory(category: string = "services") {
     }
 }
 
-export async function fetchAllServices() {
-    return fetchServicesFromWidget("services");
+export async function fetchAllServices(page: number = 1, limit: number = 6) {
+    return fetchServicesByCategory("services", page, limit);
 }
 
 export async function fetchSpecializedServices() {

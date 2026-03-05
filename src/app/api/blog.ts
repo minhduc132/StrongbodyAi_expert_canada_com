@@ -1,4 +1,4 @@
-import { fetchWidgetItems } from "./widget";
+import { fetchWidgetItems, fetchPostsByCategory } from "./widget";
 
 const sanitizeSlug = (slug: string) => {
     if (!slug) return "";
@@ -51,10 +51,9 @@ export async function fetchBlogPostsByWidget(code: string) {
     }
 }
 
-export async function fetchBlogsByCategory(category: string = "blogs") {
+export async function fetchBlogsByCategory(category: string = "blogs", page: number = 1, limit: number = 6) {
     try {
-        const { fetchPostsByCategory } = await import("./widget");
-        const posts = await fetchPostsByCategory(category);
+        const posts = await fetchPostsByCategory(category, page, limit);
         if (!posts || !Array.isArray(posts)) return [];
 
         return posts.map((item: any) => {
@@ -81,6 +80,6 @@ export async function fetchBlogsByCategory(category: string = "blogs") {
     }
 }
 
-export async function fetchAllBlogPosts() {
-    return fetchBlogsByCategory("blogs");
+export async function fetchAllBlogPosts(page: number = 1, limit: number = 6) {
+    return fetchBlogsByCategory("blogs", page, limit);
 }

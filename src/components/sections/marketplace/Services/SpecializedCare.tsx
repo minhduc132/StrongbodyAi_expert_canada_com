@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { additionalServices as defaultAdditionalServices } from "./constants";
+import { getIconBySlug } from "./constants";
 import { Reveal, ScaleIn } from "@/components/animations/Reveal";
 import { fetchSpecializedServices } from "@/app/api";
 
@@ -40,13 +40,21 @@ const SpecializedCare = async () => {
                             href={`/${service.slug}`}
                             className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-grey-200 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 h-full flex flex-col cursor-pointer block"
                         >
-                            <div className="relative h-64 overflow-hidden">
-                                <img
-                                    src={service.image}
-                                    alt={service.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-primary shadow-lg border border-white/20">
+                            <div className="relative h-64 overflow-hidden bg-grey-50">
+                                {service.image ? (
+                                    <img
+                                        src={service.image}
+                                        alt={service.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center opacity-20">
+                                        <div className="w-20 h-20 text-grey-400">
+                                            {getIconBySlug(service.slug, service.title)}
+                                        </div>
+                                    </div>
+                                )}
+                                <div className="absolute top-5 left-5 bg-primary text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">
                                     {service.tag}
                                 </div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-grey-900/60 to-transparent"></div>

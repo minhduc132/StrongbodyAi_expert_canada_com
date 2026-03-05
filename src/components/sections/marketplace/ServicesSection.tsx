@@ -14,10 +14,25 @@ const ServicesSection = ({
     category = 'services',
     widgetCode = 'services'
 }: ServicesSectionProps) => {
+    // Condition for Dedicated List Page: Show only the category list with Load More
+    if (source === 'category') {
+        return (
+            <section className="py-24 bg-white relative overflow-hidden">
+                <Container>
+                    <ServicesGrid source="category" category={category} />
+                </Container>
+            </section>
+        );
+    }
+
+    // Condition for Home Page: Show widgets
     return (
         <section id="services" className="py-24 bg-white relative overflow-hidden">
             <Container>
-                <ServicesGrid source={source} category={category} widgetCode={widgetCode} />
+                {/* Main section from widget (defaults to 'services') */}
+                <ServicesGrid source="widget" widgetCode={widgetCode} />
+
+                {/* Specialized section from widget 'list-service' */}
                 <SpecializedCare />
             </Container>
         </section>

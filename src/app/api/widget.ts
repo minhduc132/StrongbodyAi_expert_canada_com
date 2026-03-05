@@ -18,6 +18,9 @@ export async function fetchPostDetail(slug: string, language: string = "en") {
     return apiFetch(`/posts/${slug}?language=${language}`);
 }
 
-export async function fetchPostsByCategory(category: string, language: string = "en") {
-    return apiFetch(`/posts?category=${category}&language=${language}`);
+export async function fetchPostsByCategory(category: string, page?: number, limit?: number, language: string = "en") {
+    let url = `/posts?category=${category}&language=${language}`;
+    if (page) url += `&page=${page}`;
+    if (limit) url += `&limit=${limit}`;
+    return apiFetch(url);
 }

@@ -2,8 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Loader2 } from "lucide-react";
 import Container from "@/components/layout/Container";
+import { fetchAllBlogPosts } from "@/app/api/blog";
 
 interface BlogPost {
     id: string | number;
@@ -22,13 +23,40 @@ interface BlogListClientProps {
 }
 
 export default function BlogListClient({ initialPosts }: BlogListClientProps) {
-    const posts = initialPosts;
+    const [posts, setPosts] = React.useState<BlogPost[]>(initialPosts);
+    const [page, setPage] = React.useState(1);
+    const [loading, setLoading] = React.useState(false);
+    const [hasMore, setHasMore] = React.useState(initialPosts.length === 6);
+
+    const handleLoadMore = async () => {
+        if (loading || !hasMore) return;
+
+        setLoading(true);
+        const nextPage = page + 1;
+
+        try {
+            const newPosts = await fetchAllBlogPosts(nextPage, 6);
+            if (newPosts.length > 0) {
+                setPosts(prev => [...prev, ...newPosts]);
+                setPage(nextPage);
+                if (newPosts.length < 6) {
+                    setHasMore(false);
+                }
+            } else {
+                setHasMore(false);
+            }
+        } catch (error) {
+            console.error("Error loading more posts:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <section className="py-24 bg-white min-h-[600px]">
             <Container>
                 {/* Blog Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                     {posts.length > 0 ? (
                         posts.map((post: BlogPost) => (
                             <Link
@@ -44,11 +72,11 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                     ) : (
-                                        <div className="w-full h-full bg-grey-100 flex items-center justify-center">
-                                            <Calendar className="text-grey-400" size={48} />
+                                        <div className="w-full h-full bg-grey-50 flex items-center justify-center opacity-20">
+                                            <Calendar className="text-grey-400" size={64} />
                                         </div>
                                     )}
-                                    <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">
+                                    <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                                         {post.category}
                                     </div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-grey-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -57,7 +85,16 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
                                     <div className="flex items-center gap-4 text-xs text-grey-500 font-medium mb-3">
                                         <div className="flex items-center gap-1">
                                             <Calendar size={12} className="text-primary/70" />
-                                            {post.date && new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                            {(() => {
+                                                try {
+                                                    if (!post.date) return "Health Insight";
+                                                    const d = new Date(post.date);
+                                                    if (isNaN(d.getTime())) return "Health Insight";
+                                                    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                                                } catch (e) {
+                                                    return "Health Insight";
+                                                }
+                                            })()}
                                         </div>
                                         <div className="flex items-center gap-1">
                                             <Clock size={12} className="text-primary/70" />
@@ -89,6 +126,29 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
                         </div>
                     )}
                 </div>
+
+                {/* Load More Button */}
+                {hasMore && (
+                    <div className="flex justify-center mt-12">
+                        <button
+                            onClick={handleLoadMore}
+                            disabled={loading}
+                            className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+                        >
+                            {loading ? (
+                                <>
+                                    <Loader2 size={18} className="animate-spin" />
+                                    Loading...
+                                </>
+                            ) : (
+                                <>
+                                    Load More Articles
+                                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                                </>
+                            )}
+                        </button>
+                    </div>
+                )}
             </Container>
         </section>
     );

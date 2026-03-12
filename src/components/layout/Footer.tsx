@@ -37,15 +37,15 @@ const Footer = () => {
                         <div className="space-y-2.5 text-sm text-grey-600 font-medium">
                             <div className="flex items-center gap-2">
                                 <Mail size={14} className="text-primary" />
-                                <a href="mailto:support@strongbody.ai" className="hover:text-primary transition-colors">support@strongbody.ai</a>
+                                <a href="mailto:customercare@strongbody.ai" className="hover:text-primary transition-colors">customercare@strongbody.ai</a>
                             </div>
-                            <div className="flex items-center gap-2">
+                            {/* <div className="flex items-center gap-2">
                                 <Phone size={14} className="text-primary" />
                                 <a href="tel:+18001234567" className="hover:text-primary transition-colors">+1 (800) 123-4567</a>
-                            </div>
+                            </div> */}
                             <div className="flex items-center gap-2">
                                 <MapPin size={14} className="text-primary" />
-                                <span>San Francisco, CA</span>
+                                <span>StrongBody SG PTE. LTD., Singapore</span>
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@ const Footer = () => {
 
                 <div className="pt-8 border-t border-grey-200 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-grey-500 text-xs font-medium text-center md:text-left">
-                        © 2026 StrongBody AI – Powered by MultiMe AI – Vietnam-based Global Platform. All rights reserved.
+                        © 2022 StrongBody AI – Zasilane przez MultiMe AI – Globalna platforma z Singapuru. Wszelkie prawa zastrzeżone.
                     </p>
                     <p className="text-grey-600 text-[10px] font-medium max-w-md text-center md:text-right">
                         StrongBody AI is a technology marketplace platform. We do not directly provide medical services. All services are provided by independent verified partners.

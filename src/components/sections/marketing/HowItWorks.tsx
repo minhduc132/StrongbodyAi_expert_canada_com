@@ -53,7 +53,7 @@ const HowItWorks = () => {
                     </p>
 
                     {/* Demo Video Button */}
-                    <Link
+                    {/* <Link
                         href="/contact"
                         className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-white/20 hover:border-white/30 transition-all shadow-sm"
                     >
@@ -61,7 +61,7 @@ const HowItWorks = () => {
                             <Play size={14} fill="currentColor" />
                         </div>
                         Watch Short Demo Video
-                    </Link>
+                    </Link> */}
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

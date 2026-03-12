@@ -44,21 +44,9 @@ export async function generateUnifiedMetadata(
                 if (catName) pageKeywords.unshift(catName);
             }
             pageKeywords.unshift(post.title);
-        } else {
-            // 2. If not a post, try fetching as a service
-            const { fetchAllServices, fetchSpecializedServices } = await import("@/app/api");
-            const allServices = await fetchAllServices();
-            const specializedServices = await fetchSpecializedServices();
-            const service = [...allServices, ...specializedServices].find(s => s.slug === slug);
-
-            if (service) {
-                pageTitle = service.title || pageTitle;
-                pageDesc = service.desc || pageDesc;
-                pageImage = service.image || pageImage;
-                pageKeywords.unshift(service.title, "Health Service");
-            }
         }
     }
+
 
     // 3. Construct Final Metadata
     const finalTitle = pageTitle ? `${pageTitle}` : baseTitle;

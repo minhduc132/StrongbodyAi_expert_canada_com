@@ -1,4 +1,5 @@
-import { fetchAllBlogPosts, fetchAllServices, fetchSpecializedServices } from "@/app/api";
+import { fetchAllBlogPosts } from "@/app/api";
+
 
 export async function GET(
     request: Request,
@@ -16,8 +17,8 @@ export async function GET(
         routes = [
             "",
             "/about",
-            "/services",
             "/contact",
+
             "/faq",
             "/legal",
             "/blog",
@@ -44,24 +45,7 @@ export async function GET(
                 image: post.image,
             }));
         }
-    } else if (slug === "service-sitemap.xml") {
-        const services = await fetchAllServices();
-        const specialized = await fetchSpecializedServices();
 
-        const allServices = [...(services || []), ...(specialized || [])];
-        const uniqueServices = new Map();
-
-        allServices.forEach((s: any) => {
-            const url = `${baseUrl}/${s.slug}`;
-            if (!uniqueServices.has(url)) {
-                uniqueServices.set(url, {
-                    url,
-                    lastModified: lastMod,
-                    image: s.image,
-                });
-            }
-        });
-        routes = Array.from(uniqueServices.values());
 
     } else {
         // Default empty for other placeholders (author, tag, portfolio, news, manual, usecase)

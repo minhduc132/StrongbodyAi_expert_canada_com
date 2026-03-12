@@ -36,9 +36,9 @@ const Navbar = () => {
             name: "Platform",
             links: [
                 { name: "How It Works", href: "/how-it-works", icon: Info, desc: "Process & Steps" },
-                { name: "Services", href: "/services", icon: LayoutGrid, desc: "Browse Categories" },
                 { name: "MultiMe AI App", href: "/multime", icon: Globe, desc: "Download the App" },
             ]
+
         },
         {
             name: "Community",

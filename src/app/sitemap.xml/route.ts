@@ -16,8 +16,10 @@ export async function GET(request: Request) {
       loc: `${baseUrl}/sitemap/post-sitemap-${i + 1}.xml`,
       lastmod: lastMod
     })),
-    { loc: `${baseUrl}/sitemap/service-sitemap.xml`, lastmod: lastMod },
   ];
+
+
+
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap-index.xsl"?>

@@ -13,8 +13,6 @@ interface BlogPostPageProps {
 }
 
 import { generateUnifiedMetadata } from "@/utils/seo";
-import ServiceDetailView from "@/components/sections/marketplace/Services/ServiceDetailView";
-
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
     const resolvedParams = await params;
     return generateUnifiedMetadata(resolvedParams.slug);
@@ -30,13 +28,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         notFound();
     }
 
-    const isService = !post.author || post.category?.code === 'services' || post.category?.code === 'list-service';
-
-    if (isService) {
-        return <ServiceDetailView service={post} />;
-    }
-
     // Mapping API response to our UI variables
+
     const title = post.title;
     const content = post.content || post.details?.content || "<p>No content available.</p>";
     const image = post.featured_image_url || post.image || null;

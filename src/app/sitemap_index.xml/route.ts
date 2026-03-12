@@ -19,8 +19,8 @@ export async function GET(request: Request) {
             loc: `${baseUrl}/sitemap/post-sitemap-${i + 1}.xml`,
             lastmod: lastMod
         })),
-        { loc: `${baseUrl}/sitemap/service-sitemap.xml`, lastmod: lastMod },
     ];
+
 
     // Removed "unrelated" placeholders (news, manual, portfolio, author, tag) 
     // to keep it clean while still supporting the "split" structure for posts.

@@ -87,7 +87,7 @@ const AboutSection = () => {
                                             "AI Voice Translate lets international clients understand you perfectly – even if you only speak your local language.",
                                             "Create professional Offers (price, package, schedule, terms) directly inside voice conversations.",
                                             "Receive secure Escrow payments – withdraw to your bank in just 30 minutes.",
-                                            "Build powerful personal brand through Voice Hub – your personal 'radio station' auto-translated to 194 languages.",
+                                            "Build powerful personal brand through Voice Hub – your personal 'radio station' auto-translated to 40 languages.",
                                             "Keep 80% of revenue (only 20% platform fee) from premium international clients.",
                                             "Proactively reach potential clients via Active Message + Voice Hub – sell services globally 24/7 from home."
                                         ].map((item, idx) => (

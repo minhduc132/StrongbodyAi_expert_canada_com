@@ -15,18 +15,18 @@ export async function GET(
 
     if (slug === "page-sitemap.xml") {
         routes = [
-            "",
-            "/about",
-            "/how-it-works",
-            "/for-clients",
-            "/for-partners",
-            "/faq",
-            "/contact",
-            "/blog",
-            "/legal",
-            "/multime"
+            "/",
+            "/about/",
+            "/how-it-works/",
+            "/for-clients/",
+            "/for-partners/",
+            "/faq/",
+            "/contact/",
+            "/blog/",
+            "/legal/",
+            "/multime/"
         ].map((route) => ({
-            url: `${baseUrl}${route}`,
+            url: route === "/" ? `${baseUrl}/` : `${baseUrl}${route}`,
             lastModified: lastMod,
         }));
     } else if (slug.startsWith("post-sitemap")) {
@@ -40,7 +40,7 @@ export async function GET(
         if (posts && Array.isArray(posts)) {
             // No need to slice locally, the API already paginated it
             routes = posts.map((post: any) => ({
-                url: `${baseUrl}/${post.slug}`,
+                url: `${baseUrl}/${post.slug}/`,
                 lastModified: post.date || lastMod,
                 image: post.image,
             }));

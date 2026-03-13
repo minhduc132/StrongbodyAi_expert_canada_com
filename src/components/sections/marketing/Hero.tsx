@@ -30,157 +30,89 @@ const partners = [
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-white">
-            {/* Background Image from public/images/hero.png */}
+        <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+            {/* Full-width Background Image */}
             <div className="absolute inset-0 z-0">
                 <img
                     src="/images/hero.png"
                     alt="Medical background"
-                    className="w-full h-full object-cover opacity-[0.8]"
+                    className="w-full h-full object-cover"
                 />
-                {/* Subtle overlay: transparent on right, light white on left for readability */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/40 to-white/10"></div>
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/40 to-secondary/20"></div>
             </div>
 
             <Container className="w-full pt-32 pb-20 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-start text-left">
-                    {/* Left Content */}
-                    <div className="max-w-2xl px-2">
-                        {/* Live Badge */}
-                        <div className="inline-flex items-center gap-2 bg-primary-light border border-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-bold mb-8 shadow-sm">
+                {/* Centered Hero Content - Stacked Vertically */}
+                <div className="max-w-4xl mx-auto text-center">
+                    {/* Live Badge */}
+                    <Reveal>
+                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full text-xs font-bold mb-10">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                             </span>
                             Now Live in the United States
                         </div>
+                    </Reveal>
 
-                        <h1 className="text-4xl lg:text-[3.5rem] font-bold !text-grey-900 tracking-tight leading-[1.1] mb-2 text-balance">
+                    <Reveal>
+                        <h1 className="text-5xl lg:text-7xl font-bold !text-white tracking-tight leading-[1.05] mb-6 text-balance">
                             StrongBody <span className="text-primary">AI</span> Healthcare
                         </h1>
-                        <h2 className="text-xl lg:text-2xl font-bold !text-grey-700 mb-6 text-balance">
+                    </Reveal>
+
+                    <Reveal>
+                        <h2 className="text-xl lg:text-2xl font-bold !text-white/80 mb-8 text-balance">
                             Powered by MultiMe AI – Speak Your Language, Reach the World
                         </h2>
+                    </Reveal>
 
-                        <Reveal>
-                            <p className="text-base text-grey-600 mb-10 leading-relaxed font-medium">
-                                Real-time AI Voice Translation (194 languages) <br />
-                                • Personal Care Team <br />
-                                • Transparent Offers <br />
-                                • Secure Escrow <br />
-                                • All inside one free app.
-                            </p>
+                    <Reveal>
+                        <p className="text-base text-white/60 mb-12 leading-relaxed font-medium max-w-2xl mx-auto">
+                            Real-time AI Voice Translation (40+ languages) • Personal Care Team • Transparent Offers • Secure Escrow • All inside one free app.
+                        </p>
+                    </Reveal>
 
-                            {/* 2 CTAs */}
-                            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                                <Link
-                                    href="/multime"
-                                    className="bg-primary text-white px-8 py-4 rounded-2xl text-[15px] font-bold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 flex items-center justify-center gap-2"
-                                >
-                                    Download MultiMe AI App <ArrowRight size={18} />
-                                </Link>
-                            </div>
+                    {/* CTA Buttons */}
+                    <Reveal>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                            <Link
+                                href="/multime"
+                                className="bg-primary text-white px-10 py-4 rounded-2xl text-[15px] font-bold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                            >
+                                Download MultiMe AI App <ArrowRight size={18} />
+                            </Link>
+                        </div>
+                    </Reveal>
 
-
-                            {/* Partners Strip */}
-                            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 mb-14 p-4 rounded-2xl bg-grey-50 border border-grey-100">
-                                {partners.map((p) => (
-                                    <div key={p.name} className="flex items-center gap-2 text-grey-600 hover:text-primary transition-all cursor-default">
-                                        <div className="opacity-100">{p.icon}</div>
-                                        <span className="text-[12px] font-bold uppercase tracking-wider">{p.name}</span>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Statistics Cards */}
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-                                {stats.map((s, idx) => (
-                                    <div key={idx} className="bg-white p-5 rounded-3xl border border-grey-100 shadow-sm hover:shadow-md transition-shadow">
-                                        <div className="w-10 h-10 rounded-2xl bg-primary-light flex items-center justify-center mb-3">
-                                            {s.icon}
-                                        </div>
-                                        <div className="text-xl font-bold text-grey-900 leading-tight mb-1">{s.val}</div>
-                                        <div className="text-[10px] font-bold !text-grey-500 uppercase leading-snug tracking-wider">{s.label}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </Reveal>
-                    </div>
-
-
-                    {/* Right Visual Area - Hidden on mobile, visible on desktop */}
-                    <div className="relative pt-10 lg:pt-0 px-4 lg:pl-10 lg:pr-0 overflow-visible hidden lg:block">
-                        <ScaleIn delay={0.2}>
-                            <div className="relative">
-                                {/* Doctor Image with specific rounding */}
-                                <div className="relative z-10 rounded-[100px_40px_100px_40px] overflow-hidden shadow-2xl border-8 border-white aspect-[4/5] bg-primary-light max-w-[450px] mx-auto">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800"
-                                        alt="Healthcare professional"
-                                        className="object-cover w-full h-full"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
+                    {/* Partners */}
+                    <FadeIn>
+                        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 mb-16">
+                            {partners.map((p) => (
+                                <div key={p.name} className="flex items-center gap-2 text-white/40 hover:text-white/70 transition-all cursor-default">
+                                    <div className="opacity-100">{p.icon}</div>
+                                    <span className="text-[12px] font-bold uppercase tracking-wider">{p.name}</span>
                                 </div>
-
-                                {/* Floating Trust Badges (The Right Side Pills) */}
-                                <div className="absolute top-1/4 -right-10 md:-right-12 lg:-right-12 z-20 flex flex-col gap-2 md:gap-3 scale-75 md:scale-90 lg:scale-100 origin-right">
-                                    <Float delay={0.6}>
-                                        <div className="bg-white/95 backdrop-blur shadow-xl py-3 px-5 rounded-2xl border border-grey-100 flex items-center gap-3 w-44 hover:translate-x-[-10px] transition-transform">
-                                            <div className="w-8 h-8 bg-primary-light rounded-lg flex items-center justify-center text-primary">
-                                                <ShieldCheck size={18} />
-                                            </div>
-                                            <div className="leading-tight">
-                                                <div className="text-[13px] font-bold text-grey-900">HIPAA</div>
-                                                <div className="text-[10px] font-bold text-grey-400">Compliant</div>
-                                            </div>
-                                        </div>
-                                    </Float>
-                                    <Float delay={0.8}>
-                                        <div className="bg-white/95 backdrop-blur shadow-xl py-3 px-5 rounded-2xl border border-grey-100 flex items-center gap-3 w-44 hover:translate-x-[-10px] transition-transform">
-                                            <div className="w-8 h-8 bg-primary-light rounded-lg flex items-center justify-center text-primary">
-                                                <Lock size={18} />
-                                            </div>
-                                            <div className="leading-tight">
-                                                <div className="text-[13px] font-bold text-grey-900">Escrow</div>
-                                                <div className="text-[10px] font-bold text-grey-400">Protected</div>
-                                            </div>
-                                        </div>
-                                    </Float>
-                                    <Float delay={1.0}>
-                                        <div className="bg-white/95 backdrop-blur shadow-xl py-3 px-5 rounded-2xl border border-grey-100 flex items-center gap-3 w-44 hover:translate-x-[-10px] transition-transform">
-                                            <div className="w-8 h-8 bg-primary-light rounded-lg flex items-center justify-center text-primary">
-                                                <Sparkles size={18} />
-                                            </div>
-                                            <div className="leading-tight">
-                                                <div className="text-[13px] font-bold text-grey-900">AI Matching</div>
-                                                <div className="text-[10px] font-bold text-grey-400">Enabled</div>
-                                            </div>
-                                        </div>
-                                    </Float>
-                                </div>
-
-                                {/* Large State Coverage Badge (Bottom) */}
-                                <div className="absolute -bottom-6 md:-bottom-8 -left-8 md:-left-12 lg:-left-16 z-20 scale-75 md:scale-90 lg:scale-100 origin-left">
-                                    <Float delay={1.2}>
-                                        <div className="bg-white/90 backdrop-blur-xl p-5 md:p-6 rounded-[32px] shadow-2xl border border-white/50 max-w-[320px]">
-                                            <div className="flex items-center gap-4 mb-3">
-                                                <div className="w-12 h-12 bg-primary-light rounded-2xl flex items-center justify-center text-primary">
-                                                    <Map size={24} />
-                                                </div>
-                                                <div>
-                                                    <div className="text-lg font-bold text-grey-900 leading-none">Available in 15 States</div>
-                                                </div>
-                                            </div>
-                                            <p className="text-[11px] text-grey-500 font-bold leading-relaxed opacity-80 uppercase tracking-wider">
-                                                Connecting 500+ verified professionals across the US
-                                            </p>
-                                        </div>
-                                    </Float>
-                                </div>
-                            </div>
-                        </ScaleIn>
-                    </div>
+                            ))}
+                        </div>
+                    </FadeIn>
                 </div>
+
+                {/* Statistics - Full Width Row at Bottom */}
+                <FadeIn>
+                    <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-5">
+                        {stats.map((s, idx) => (
+                            <div key={idx} className="bg-white/90 backdrop-blur-xl p-7 rounded-2xl border border-white text-center hover:bg-white transition-all shadow-xl">
+                                <div className="w-11 h-11 rounded-xl bg-grey-50 flex items-center justify-center mb-4 mx-auto">
+                                    {s.icon}
+                                </div>
+                                <div className="text-2xl font-bold text-grey-900 leading-tight mb-1">{s.val}</div>
+                                <div className="text-[10px] font-bold text-grey-600 uppercase leading-snug tracking-wider">{s.label}</div>
+                            </div>
+                        ))}
+                    </div>
+                </FadeIn>
             </Container>
         </section>
     );

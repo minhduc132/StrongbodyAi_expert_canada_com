@@ -9,9 +9,8 @@ export const metadata: Metadata = {
 
 
 export default async function BlogPage() {
-    // Initial data for "All" tab: Combined list of all blog posts
-    // Initial data: Fetch according to the specific category requested
-    const initialPosts = await fetchBlogsByCategory("blogs");
+    // Fetch up to 1000 posts initially to enable fast client-side 2-phase pagination
+    const initialPosts = await fetchBlogsByCategory("blogs", 1, 1000);
 
     return (
         <main className="min-h-screen">

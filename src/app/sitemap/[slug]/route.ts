@@ -17,13 +17,14 @@ export async function GET(
         routes = [
             "",
             "/about",
-            "/contact",
-
+            "/how-it-works",
+            "/for-clients",
+            "/for-partners",
             "/faq",
-            "/legal",
+            "/contact",
             "/blog",
-            "/why-us",
-            "/how-it-works"
+            "/legal",
+            "/multime"
         ].map((route) => ({
             url: `${baseUrl}${route}`,
             lastModified: lastMod,
@@ -31,22 +32,19 @@ export async function GET(
     } else if (slug.startsWith("post-sitemap")) {
         const match = slug.match(/post-sitemap-(\d+)\.xml/);
         const page = match ? parseInt(match[1]) : 1;
-        const postsPerSitemap = 1000;
+        const postsPerSitemap = 100; // API max safe limit per chunk
 
-        const posts = await fetchAllBlogPosts();
+        // Fetch exactly up to 100 posts specifically for this XML file's index
+        const posts = await fetchAllBlogPosts(page, postsPerSitemap);
+        
         if (posts && Array.isArray(posts)) {
-            const start = (page - 1) * postsPerSitemap;
-            const end = start + postsPerSitemap;
-            const paginatedPosts = posts.slice(start, end);
-
-            routes = paginatedPosts.map((post: any) => ({
-                url: `${baseUrl}/${post.slug}`, // Fixed: removed /blog/
+            // No need to slice locally, the API already paginated it
+            routes = posts.map((post: any) => ({
+                url: `${baseUrl}/${post.slug}`,
                 lastModified: post.date || lastMod,
                 image: post.image,
             }));
         }
-
-
     } else {
         // Default empty for other placeholders (author, tag, portfolio, news, manual, usecase)
         routes = [];

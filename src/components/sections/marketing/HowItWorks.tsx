@@ -33,56 +33,57 @@ const steps = [
 
 const HowItWorks = () => {
     return (
-        <section id="how-it-works" className="py-24 bg-secondary text-white overflow-hidden relative">
+        <section id="how-it-works" className="py-24 bg-grey-50 overflow-hidden relative">
             <Container>
                 <div className="text-center mb-16">
-
                     <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
                         Process
                     </span>
-
-
-                    <h2 className="text-3xl md:text-5xl font-bold !text-white mb-6">How It Works</h2>
-
-                    <p className="text-lg !text-white/70 max-w-2xl mx-auto leading-relaxed">
+                    <h2 className="text-3xl md:text-5xl font-bold text-grey-900 mb-6">How It Works</h2>
+                    <p className="text-lg text-grey-600 max-w-2xl mx-auto leading-relaxed font-medium">
                         Accessing global medical expertise is now as simple as a voice message.
                         Follow our streamlined process to begin your health journey.
                     </p>
-                    <p className="text-base text-white/70 font-medium max-w-2xl mx-auto mb-10">
+                    <p className="text-base text-grey-500 font-medium max-w-2xl mx-auto mb-10">
                         From discovery to completion — every step is transparent, secure, and powered by AI inside MultiMe AI App.
                     </p>
-
-                    {/* Demo Video Button */}
-                    {/* <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-white/20 hover:border-white/30 transition-all shadow-sm"
-                    >
-                        <div className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center">
-                            <Play size={14} fill="currentColor" />
-                        </div>
-                        Watch Short Demo Video
-                    </Link> */}
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {steps.map((step, idx) => (
-                        <Reveal
-                            key={idx}
-                            delay={idx * 0.1}
-                            className="h-full"
-                        >
-                            <div className="bg-white/5 backdrop-blur-sm p-7 rounded-2xl border border-white/10 shadow-sm hover:shadow-lg hover:border-white/30 transition-all group relative h-full text-left">
-                                <div className="text-4xl font-bold text-white/10 absolute top-5 right-5 group-hover:text-white/20 transition-colors">
-                                    {step.num}
+                {/* Vertical Numbered Steps - alternating sides */}
+                <div className="max-w-4xl mx-auto relative">
+                    {/* Center vertical line */}
+                    <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-grey-200 -translate-x-px"></div>
+
+                    <div className="space-y-8">
+                        {steps.map((step, idx) => (
+                            <Reveal
+                                key={idx}
+                                delay={idx * 0.1}
+                            >
+                                <div className={`relative flex items-start gap-8 ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+                                    {/* Step Number Circle on the line */}
+                                    <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 z-10">
+                                        <div className="w-16 h-16 rounded-2xl bg-secondary text-white flex items-center justify-center font-bold text-lg shadow-xl border-4 border-grey-50">
+                                            {step.num}
+                                        </div>
+                                    </div>
+
+                                    {/* Content card - alternating sides */}
+                                    <div className={`ml-20 lg:ml-0 lg:w-[calc(50%-3rem)] ${idx % 2 === 0 ? '' : 'lg:ml-auto'}`}>
+                                        <div className="bg-white p-8 rounded-3xl border border-grey-100 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all group">
+                                            <div className="flex items-center gap-4 mb-4">
+                                                <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                                                    {step.icon}
+                                                </div>
+                                                <h3 className="text-lg font-bold text-grey-900 group-hover:text-primary transition-colors">{step.title}</h3>
+                                            </div>
+                                            <p className="text-grey-600 font-medium leading-relaxed text-sm">{step.desc}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="w-12 h-12 rounded-xl bg-white/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all">
-                                    {step.icon}
-                                </div>
-                                <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                                <p className="text-white/60 font-medium leading-relaxed text-sm">{step.desc}</p>
-                            </div>
-                        </Reveal>
-                    ))}
+                            </Reveal>
+                        ))}
+                    </div>
                 </div>
 
             </Container>

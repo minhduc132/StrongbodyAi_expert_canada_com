@@ -6,9 +6,19 @@ export async function GET(request: Request) {
   const baseUrl = `${protocol}://${host}`;
   const lastMod = new Date().toISOString();
 
-  const posts = await fetchAllBlogPosts();
-  const postsPerSitemap = 1000;
-  const postSitemapCount = Math.max(1, Math.ceil((posts?.length || 0) / postsPerSitemap));
+  // Fetch all posts using loop to determine total count reliably (bypass limit)
+  const postsPerSitemap = 100;
+  let totalPosts = 0;
+  let currentPage = 1;
+  while (true) {
+      const pagePosts = await fetchAllBlogPosts(currentPage, postsPerSitemap);
+      if (!pagePosts || pagePosts.length === 0) break;
+      totalPosts += pagePosts.length;
+      if (pagePosts.length < postsPerSitemap) break;
+      currentPage++;
+  }
+  
+  const postSitemapCount = Math.max(1, Math.ceil(totalPosts / postsPerSitemap));
 
   const sitemaps = [
     { loc: `${baseUrl}/sitemap/page-sitemap.xml`, lastmod: lastMod },

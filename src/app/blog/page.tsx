@@ -3,13 +3,9 @@ import { Metadata } from "next";
 import BlogListClient from "./BlogListClient";
 import { fetchAllBlogPosts, fetchBlogsByCategory } from "@/app/api";
 
-import { generateUnifiedMetadata } from "@/utils/seo";
-
-export async function generateMetadata(): Promise<Metadata> {
-    return generateUnifiedMetadata(undefined, {
-        title: "Health Insights & Updates",
-    });
-}
+export const metadata: Metadata = {
+    title: "Health Insights & Updates",
+};
 
 
 export default async function BlogPage() {

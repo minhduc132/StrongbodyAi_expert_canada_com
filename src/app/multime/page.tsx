@@ -8,25 +8,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "MultiMe AI App | One App, 194 Languages, Endless Health Care",
     description: "Download the MultiMe AI app to access global health experts, real-time AI voice translation, secure escrow payments, and personalized care in your language.",
-    keywords: ["MultiMe AI", "health app", "AI voice translate", "teleconsultation app", "global health", "StrongBody AI app", "download health app"],
-    alternates: {
-        canonical: "https://strongbody.ai/multime",
-    },
-    openGraph: {
-        title: "MultiMe AI App | One App, 194 Languages, Endless Health Care",
-        description: "Download MultiMe AI to connect with verified global health experts, translate consultations in real-time, and receive care in your own language.",
-        url: "https://strongbody.ai/multime",
-        siteName: "StrongBody AI",
-        images: [{ url: "/images/og-image.png", width: 1200, height: 630, alt: "MultiMe AI App by StrongBody AI" }],
-        locale: "en_US",
-        type: "website",
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: "MultiMe AI | One App, 194 Languages, Endless Care",
-        description: "Download the MultiMe AI app — chat with global health experts in your language with real-time AI translation.",
-        images: ["/images/og-image.png"],
-    },
+    keywords: ["MultiMe AI", "health app", "AI voice translate", "teleconsultation app", "global health", "StrongBody AI app", "download health app"]
 };
 const MultiMePage = () => {
     return (
@@ -128,7 +110,7 @@ const MultiMePage = () => {
                             </p>
                             <div className="flex flex-wrap justify-center gap-6">
                                 <Link
-                                    href="https://www.strongbody.ai/signup"
+                                    href="https://www.strongbody.uk/signup"
                                     className="bg-white text-primary px-8 py-4 rounded-2xl font-bold hover:bg-grey-50 transition-all flex items-center gap-2 shadow-xl shadow-white/10"
                                 >
                                     Create Free Account <ArrowRight size={20} />

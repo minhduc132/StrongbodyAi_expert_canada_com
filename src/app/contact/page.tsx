@@ -1,13 +1,9 @@
 import ContactContent from "@/components/sections/forms/ContactContent";
 import { Metadata } from "next";
 
-import { generateUnifiedMetadata } from "@/utils/seo";
-
-export async function generateMetadata(): Promise<Metadata> {
-    return generateUnifiedMetadata(undefined, {
-        title: "Contact Us",
-    });
-}
+export const metadata: Metadata = {
+    title: "Contact Us",
+};
 
 
 export default function ContactPage() {

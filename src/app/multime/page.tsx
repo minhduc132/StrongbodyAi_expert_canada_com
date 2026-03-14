@@ -6,7 +6,7 @@ import { Reveal, FadeIn, ScaleIn } from "@/components/animations/Reveal";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "MultiMe AI App | One App, 40 Languages, Endless Health Care",
+    title: "MultiMe AI App | One App, 40+ Languages, Endless Health Care",
     description: "Download the MultiMe AI app to access global health experts, real-time AI voice translation, secure escrow payments, and personalized care in your language.",
     keywords: ["MultiMe AI", "health app", "AI voice translate", "teleconsultation app", "global health", "StrongBody AI app", "download health app"]
 };
@@ -21,7 +21,7 @@ const MultiMePage = () => {
                         <Reveal>
                             <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">MultiMe AI Super App</span>
                             <h1 className="text-4xl md:text-6xl font-bold !text-grey-900 mb-6 leading-tight">
-                                One App. <span className="text-primary">40 Languages.</span> Endless Care.
+                                One App. <span className="text-primary">40+ Languages.</span> Endless Care.
                             </h1>
                             <p className="text-lg text-grey-600 font-medium mb-10 leading-relaxed max-w-xl">
                                 Download the MultiMe AI app to unlock the full power of StrongBody AI. Chat with global experts, get real-time voice translation, and manage your health journey in your own language.

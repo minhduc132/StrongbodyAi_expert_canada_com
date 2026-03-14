@@ -18,7 +18,7 @@ import { Reveal, ScaleIn, Float, FadeIn } from "@/components/animations/Reveal";
 const stats = [
     { icon: <ShieldCheck size={20} className="text-primary" />, val: "500+", label: "Verified Professionals" },
     { icon: <Stethoscope size={20} className="text-primary" />, val: "20+", label: "Medical Specialties" },
-    { icon: <Map size={20} className="text-primary" />, val: "15", label: "States Covered" },
+    { icon: <Map size={20} className="text-primary" />, val: "194", label: "Countries Covered" },
     { icon: <Activity size={20} className="text-primary" />, val: "98%", label: "Dispute-Free Transactions" },
 ];
 

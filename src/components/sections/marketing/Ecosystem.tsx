@@ -5,7 +5,7 @@ import { Reveal, FadeIn, ScaleIn, Float } from "@/components/animations/Reveal";
 
 const stats = [
     { label: "Partner Orgs", val: "500+", icon: <Binary className="text-[#1c906c]" /> },
-    { label: "Global Reach", val: "120+", sub: "Countries", icon: <Globe className="text-[#1c906c]" /> },
+    { label: "Global Reach", val: "194+", sub: "Countries", icon: <Globe className="text-[#1c906c]" /> },
     { label: "Expert Access", val: "10K+", icon: <Zap className="text-[#1c906c]" /> },
     { label: "Data Uptime", val: "99.9%", icon: <Shield className="text-[#1c906c]" /> }
 ];

@@ -122,7 +122,7 @@ const BlogSection = async ({
                             <ScaleIn key={post.id} delay={idx * 0.1}>
                                 <Link
                                     href={`/${post.slug}`}
-                                    className="group bg-white rounded-[2rem] border border-grey-100 overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 flex flex-col h-full"
+                                    className="group bg-white rounded-[2rem] border-2 border-grey-200 overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 flex flex-col h-full"
                                 >
                                     <div className="relative h-56 overflow-hidden bg-grey-50">
                                         {post.image ? (
@@ -158,7 +158,7 @@ const BlogSection = async ({
                                         <p className="text-sm text-grey-600 font-medium leading-relaxed mb-6 line-clamp-3 flex-1">
                                             {post.excerpt}
                                         </p>
-                                        <div className="flex items-center justify-end mt-auto pt-6 border-t border-grey-100">
+                                        <div className="flex items-center justify-end mt-auto pt-6 border-t border-grey-200">
                                             <div className="w-8 h-8 rounded-full bg-grey-50 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors text-grey-400">
                                                 <ArrowRight size={14} />
                                             </div>

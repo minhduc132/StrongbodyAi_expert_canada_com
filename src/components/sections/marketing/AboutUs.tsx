@@ -71,7 +71,7 @@ const AboutSection = () => {
                                         <h4 className="text-xl font-bold mb-4 !text-white">
                                             For Health Professionals – Turn Your Expertise into Global Revenue
                                         </h4>
-                                        <p className="text-sm font-bold text-white/70 mb-6">You gain the opportunity to globalize your service sales immediately:</p>
+                                        <p className="text-sm font-bold text-white mb-6">You gain the opportunity to globalize your service sales immediately:</p>
                                     </div>
                                     <Link
                                         href="/multime"
@@ -93,7 +93,7 @@ const AboutSection = () => {
                                         ].map((item, idx) => (
                                             <li key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-white/5 border border-white/10">
                                                 <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
-                                                <span className="text-sm text-white/90 font-medium">{item}</span>
+                                                <span className="text-sm text-white font-medium">{item}</span>
                                             </li>
                                         ))}
                                     </ul>

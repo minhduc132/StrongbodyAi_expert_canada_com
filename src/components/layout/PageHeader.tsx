@@ -18,7 +18,7 @@ const PageHeader = ({ title, description, breadcrumb }: PageHeaderProps) => {
 
             <Container className="relative z-10 text-center">
                 <nav className="flex justify-center mb-6">
-                    <ol className="flex items-center space-x-2 text-sm font-medium text-white/60 uppercase tracking-widest">
+                    <ol className="flex items-center space-x-2 text-sm font-medium text-white uppercase tracking-widest">
                         <li className="hover:text-white transition-colors cursor-pointer">Home</li>
                         <li className="text-white/30">/</li>
                         <li className="text-white font-bold">{breadcrumb}</li>
@@ -27,7 +27,7 @@ const PageHeader = ({ title, description, breadcrumb }: PageHeaderProps) => {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold !text-white mb-6 tracking-tight text-balance">
                     {title}
                 </h1>
-                <p className="text-lg md:text-xl !text-white/80 max-w-3xl mx-auto leading-relaxed text-balance">
+                <p className="text-lg md:text-xl !text-white max-w-3xl mx-auto leading-relaxed text-balance">
                     {description}
                 </p>
             </Container>

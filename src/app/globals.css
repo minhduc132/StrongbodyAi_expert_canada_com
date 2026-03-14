@@ -12,21 +12,21 @@
     --secondary-light: #F0F4F8;
 
     /* Text Colors */
-    --text-p: #111827;
-    --text-m: #687588;
-    --text-s: #C6C6C6;
+    --text-p: #000000;
+    --text-m: #000000;
+    --text-s: #000000;
 
     /* Greyscale */
     --grey-50: #FAFAFA;
     --grey-100: #F5F6F8;
     --grey-200: #EBEDF0;
     --grey-300: #E2E4E8;
-    --grey-400: #CBD5E0;
-    --grey-500: #A0AEC0;
-    --grey-600: #687588;
-    --grey-700: #323B49;
-    --grey-800: #1F2937;
-    --grey-900: #111827;
+    --grey-400: #000000;
+    --grey-500: #000000;
+    --grey-600: #000000;
+    --grey-700: #000000;
+    --grey-800: #000000;
+    --grey-900: #000000;
 
     /* Gradients */
     --primary-gradient: linear-gradient(135deg, #DA1F27 0%, #B91C1C 100%);
@@ -56,6 +56,13 @@
     --color-grey-800: var(--grey-800);
     --color-grey-900: var(--grey-900);
 
+    --color-slate-400: #000000;
+    --color-slate-500: #000000;
+    --color-slate-600: #000000;
+    --color-slate-700: #000000;
+    --color-slate-800: #000000;
+    --color-slate-900: #000000;
+
     --color-primary-gradient: var(--primary-gradient);
     --color-secondary-gradient: var(--secondary-gradient);
 
@@ -70,7 +77,7 @@
     }
 
     body {
-        @apply bg-white text-text-m antialiased;
+        @apply bg-white text-black antialiased;
         line-height: 1.6;
     }
 

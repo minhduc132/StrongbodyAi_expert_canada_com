@@ -13,12 +13,12 @@ const getAdminEmailTemplate = (name: string, email: string, message: string, sit
     body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7f9; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     .header { background: linear-gradient(135deg, #32BDF2, #1DA1D2); padding: 30px; text-align: center; color: white; }
-    .content { padding: 30px; color: #334155; line-height: 1.6; }
+    .content { padding: 30px; color: #000000; line-height: 1.6; }
     .field { margin-bottom: 20px; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; }
-    .label { font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: bold; margin-bottom: 5px; letter-spacing: 0.1em; }
-    .value { font-size: 15px; color: #1e293b; font-weight: 500; }
+    .label { font-size: 11px; text-transform: uppercase; color: #000000; font-weight: bold; margin-bottom: 5px; letter-spacing: 0.1em; }
+    .value { font-size: 15px; color: #000000; font-weight: 500; }
     .message-box { background: #f8fafc; border-left: 4px solid #32BDF2; padding: 20px; border-radius: 4px; margin-top: 10px; }
-    .footer { background: #f8fafc; padding: 20px; text-align: center; font-size: 12px; color: #94a3b8; }
+    .footer { background: #f8fafc; padding: 20px; text-align: center; font-size: 12px; color: #000000; }
     .tag { display: inline-block; padding: 4px 12px; background: #e0f2fe; color: #0369a1; border-radius: 20px; font-size: 11px; font-weight: bold; border: 1px solid #bae6fd; }
   </style>
 </head>

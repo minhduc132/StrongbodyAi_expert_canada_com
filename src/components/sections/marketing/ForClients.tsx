@@ -24,7 +24,7 @@ const ForClients = () => {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                         Why Residents Love StrongBody AI on MultiMe
                     </h2>
-                    <p className="text-base text-white/60 font-medium max-w-2xl mx-auto mb-6">
+                    <p className="text-base text-white font-medium max-w-2xl mx-auto mb-6">
                         You are a perfect fit if you want to experience borderless healthcare without language barriers, high costs, or compromising on quality.
                     </p>
                 </div>
@@ -56,7 +56,7 @@ const ForClients = () => {
                                     {b.icon}
                                 </div>
                                 <h4 className="text-base font-bold text-white mb-2">{b.title}</h4>
-                                <p className="text-sm text-white/50 font-medium leading-relaxed">{b.desc}</p>
+                                <p className="text-sm text-white font-medium leading-relaxed">{b.desc}</p>
                             </div>
                         </Reveal>
                     ))}

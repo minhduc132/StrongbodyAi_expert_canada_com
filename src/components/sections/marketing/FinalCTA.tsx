@@ -24,7 +24,7 @@ const FinalCTA = () => {
                                         <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
                                             Ready to speak with global experts in your own language?
                                         </h3>
-                                        <p className="text-white/60 font-medium leading-relaxed">
+                                        <p className="text-white font-medium leading-relaxed">
                                             Find verified professionals, compare options, and book with confidence — all in one platform.
                                         </p>
                                     </div>

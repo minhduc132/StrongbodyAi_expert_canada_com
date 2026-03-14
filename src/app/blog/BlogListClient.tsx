@@ -86,7 +86,7 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
         <Link
             key={post.id}
             href={`/${post.slug}`}
-            className="group bg-white rounded-2xl border border-grey-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+            className="group bg-white rounded-2xl border-2 border-grey-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
         >
             <div className="relative h-48 overflow-hidden">
                 {post.image ? (
@@ -108,7 +108,7 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
             <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-4 text-xs text-grey-500 font-medium mb-3">
                     <div className="flex items-center gap-1">
-                        <Calendar size={12} className="text-primary/70" />
+                        <Calendar size={12} className="text-primary" />
                         {(() => {
                             try {
                                 if (!post.date) return "—";
@@ -121,7 +121,7 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
                         })()}
                     </div>
                     <div className="flex items-center gap-1">
-                        <Clock size={12} className="text-primary/70" />
+                        <Clock size={12} className="text-primary" />
                         {post.readTime}
                     </div>
                 </div>

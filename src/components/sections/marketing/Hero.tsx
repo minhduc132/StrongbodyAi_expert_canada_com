@@ -63,13 +63,10 @@ const Hero = () => {
                     </Reveal>
 
                     <Reveal>
-                        <h2 className="text-xl lg:text-2xl font-bold !text-white/80 mb-8 text-balance">
-                            Powered by MultiMe AI – Speak Your Language, Reach the World
+                        <h2 className="text-xl lg:text-2xl font-bold !text-white mb-8 text-balance">
+                            The Health Service Hub for the Multi-Lingual World
                         </h2>
-                    </Reveal>
-
-                    <Reveal>
-                        <p className="text-base text-white/60 mb-12 leading-relaxed font-medium max-w-2xl mx-auto">
+                        <p className="text-base text-white mb-12 leading-relaxed font-medium max-w-2xl mx-auto">
                             Real-time AI Voice Translation (40+ languages) • Personal Care Team • Transparent Offers • Secure Escrow • All inside one free app.
                         </p>
                     </Reveal>
@@ -90,7 +87,7 @@ const Hero = () => {
                     <FadeIn>
                         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 mb-16">
                             {partners.map((p) => (
-                                <div key={p.name} className="flex items-center gap-2 text-white/40 hover:text-white/70 transition-all cursor-default">
+                                <div key={p.name} className="flex items-center gap-2 text-white/70 hover:text-white transition-all cursor-default">
                                     <div className="opacity-100">{p.icon}</div>
                                     <span className="text-[12px] font-bold uppercase tracking-wider">{p.name}</span>
                                 </div>

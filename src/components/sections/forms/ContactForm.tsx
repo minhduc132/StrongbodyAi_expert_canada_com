@@ -102,7 +102,7 @@ const ContactForm = () => {
                                     required
                                     value={formData.firstName}
                                     onChange={handleChange}
-                                    className="w-full px-5 py-3.5 rounded-xl border border-grey-200 bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary text-sm font-medium text-text-p transition-all placeholder:text-grey-400 shadow-sm"
+                                    className="w-full px-5 py-3.5 rounded-xl border border-grey-200 bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary text-sm font-medium text-text-p transition-all placeholder-[#687588] shadow-sm"
                                     placeholder="John"
                                 />
                             </div>
@@ -114,7 +114,7 @@ const ContactForm = () => {
                                     required
                                     value={formData.lastName}
                                     onChange={handleChange}
-                                    className="w-full px-5 py-3.5 rounded-xl border border-grey-200 bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary text-sm font-medium text-text-p transition-all placeholder:text-grey-400 shadow-sm"
+                                    className="w-full px-5 py-3.5 rounded-xl border border-grey-200 bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary text-sm font-medium text-text-p transition-all placeholder-[#687588] shadow-sm"
                                     placeholder="Doe"
                                 />
                             </div>
@@ -128,7 +128,7 @@ const ContactForm = () => {
                                 required
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="w-full px-5 py-3.5 rounded-xl border border-grey-200 bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary text-sm font-medium text-text-p transition-all placeholder:text-grey-400 shadow-sm"
+                                className="w-full px-5 py-3.5 rounded-xl border border-grey-200 bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary text-sm font-medium text-text-p transition-all placeholder-[#687588] shadow-sm"
                                 placeholder="john@example.com"
                             />
                         </div>
@@ -158,7 +158,7 @@ const ContactForm = () => {
                                 rows={4}
                                 value={formData.message}
                                 onChange={handleChange}
-                                className="w-full px-5 py-3.5 rounded-xl border border-grey-200 bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary text-sm font-medium text-text-p resize-none transition-all placeholder:text-grey-400 shadow-sm"
+                                className="w-full px-5 py-3.5 rounded-xl border border-grey-200 bg-white focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary text-sm font-medium text-text-p resize-none transition-all placeholder-[#687588] shadow-sm"
                                 placeholder="Tell us how we can help..."
                             />
                         </div>

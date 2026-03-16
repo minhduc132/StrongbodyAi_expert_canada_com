@@ -40,9 +40,9 @@ const MultiMePage = () => {
                         <div className="relative">
                             <ScaleIn>
                                 <div className="relative z-10 mx-auto w-[280px] h-[580px] bg-secondary rounded-[3rem] border-[8px] border-secondary shadow-2xl overflow-hidden">
-                                    <div className="absolute top-0 inset-x-0 h-6 bg-secondary rounded-b-xl mx-auto w-1/3 z-20"></div>
+                                    <div className="absolute top-0 inset-x-0 h-6 rounded-b-xl mx-auto w-1/3 z-20"></div>
                                     <img
-                                        src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800"
+                                        src="/images/app.jpg"
                                         alt="App Interface"
                                         className="w-full h-full object-cover opacity-90"
                                     />

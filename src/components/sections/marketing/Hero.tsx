@@ -16,16 +16,16 @@ import Container from "@/components/layout/Container";
 import { Reveal, ScaleIn, Float, FadeIn } from "@/components/animations/Reveal";
 
 const stats = [
-    { icon: <ShieldCheck size={20} className="text-primary" />, val: "500+", label: "Verified Professionals" },
-    { icon: <Stethoscope size={20} className="text-primary" />, val: "20+", label: "Medical Specialties" },
+    { icon: <ShieldCheck size={20} className="text-primary" />, val: "500+", label: "Professionals" },
+    { icon: <Stethoscope size={20} className="text-primary" />, val: "20+", label: "Specialties" },
     { icon: <Map size={20} className="text-primary" />, val: "194", label: "Countries Covered" },
     { icon: <Activity size={20} className="text-primary" />, val: "98%", label: "Dispute-Free Transactions" },
 ];
 
 const partners = [
-    { name: "Mayo Clinic", icon: <CheckCircle2 size={16} className="text-primary" /> },
-    { name: "JOHNS HOPKINS", icon: <CheckCircle2 size={16} className="text-primary" /> },
-    { name: "Mount Sinai", icon: <CheckCircle2 size={16} className="text-primary" /> },
+    { name: "Global Experts", icon: <CheckCircle2 size={16} className="text-primary" /> },
+    { name: "AI Translation", icon: <CheckCircle2 size={16} className="text-primary" /> },
+    { name: "Secure Escrow", icon: <CheckCircle2 size={16} className="text-primary" /> },
 ];
 
 const Hero = () => {
@@ -52,13 +52,13 @@ const Hero = () => {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                             </span>
-                            Now Live in the United States
+                            Now Live in 194 Countries
                         </div>
                     </Reveal>
 
                     <Reveal>
                         <h1 className="text-5xl lg:text-7xl font-bold !text-white tracking-tight leading-[1.05] mb-6 text-balance">
-                            StrongBody <span className="text-primary">AI</span> Healthcare
+                            StrongBody <span className="text-primary">AI</span>
                         </h1>
                     </Reveal>
 

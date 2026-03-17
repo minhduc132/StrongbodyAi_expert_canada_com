@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import Container from "@/components/layout/Container";
 import { Reveal, ScaleIn } from "@/components/animations/Reveal";
 
@@ -107,16 +107,7 @@ const BlogSection = async ({
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {posts.map((post: any, idx: number) => {
-                        const formatDate = (dateStr: string) => {
-                            try {
-                                if (!dateStr) return "Health Insight";
-                                const d = new Date(dateStr);
-                                if (isNaN(d.getTime())) return "Health Insight";
-                                return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-                            } catch (e) {
-                                return "Health Insight";
-                            }
-                        };
+
 
                         return (
                             <ScaleIn key={post.id} delay={idx * 0.1}>
@@ -136,31 +127,31 @@ const BlogSection = async ({
                                                 <Calendar className="text-grey-400" size={64} />
                                             </div>
                                         )}
-                                        <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                                        <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-md border border-white/30 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                                             {post.category}
                                         </div>
                                         <div className="absolute inset-0 bg-gradient-to-t from-grey-900/60 via-grey-900/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     </div>
                                     <div className="p-8 flex-1 flex flex-col">
-                                        <div className="flex items-center gap-4 text-xs text-grey-500 font-medium mb-4">
-                                            <div className="flex items-center gap-1.5">
-                                                <Calendar size={14} className="text-primary" />
-                                                {formatDate(post.date)}
-                                            </div>
-                                            <div className="flex items-center gap-1.5">
-                                                <Clock size={14} className="text-primary" />
-                                                {post.readTime || "5 min read"}
-                                            </div>
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                            <span className="text-xs font-bold text-primary tracking-wider uppercase">{post.category}</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-grey-900 mb-4 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+                                        <h3 className="text-xl font-bold text-grey-900 mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
                                             {post.title}
                                         </h3>
-                                        <p className="text-sm text-grey-600 font-medium leading-relaxed mb-6 line-clamp-3 flex-1">
+                                        <p className="text-sm text-grey-500 font-medium leading-relaxed mb-6 line-clamp-2 flex-1">
                                             {post.excerpt}
                                         </p>
-                                        <div className="flex items-center justify-end mt-auto pt-6 border-t border-grey-200">
-                                            <div className="w-8 h-8 rounded-full bg-grey-50 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors text-grey-400">
-                                                <ArrowRight size={14} />
+                                        <div className="flex items-center justify-between mt-auto pt-6 border-t border-grey-100">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-full bg-grey-50 flex items-center justify-center border border-grey-200">
+                                                    <span className="text-[10px] font-bold text-primary">SB</span>
+                                                </div>
+                                                <span className="text-xs font-bold text-grey-500">StrongBody AI</span>
+                                            </div>
+                                            <div className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-3 transition-all">
+                                                Læs mere <ArrowRight size={14} />
                                             </div>
                                         </div>
                                     </div>

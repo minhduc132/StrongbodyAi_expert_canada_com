@@ -36,7 +36,7 @@ export async function fetchBlogPostsByWidget(code: string) {
             return {
                 id: item.id || Math.random().toString(),
                 title: item.title || "",
-                excerpt: item.excerpt || item.description || "",
+                excerpt: item.excerpt || "",
                 author: authorName,
                 date: item.published_at || item.created_at || "",
                 readTime: "",
@@ -65,7 +65,7 @@ export async function fetchBlogsByCategory(category: string = "blogs", page: num
             return {
                 id: item.id || Math.random().toString(),
                 title: item.title || "",
-                excerpt: item.excerpt || item.description || "",
+                excerpt: item.excerpt || "",
                 author: authorName || "StrongBody AI",
                 date: item.published_at || item.created_at || "",
                 readTime: "",

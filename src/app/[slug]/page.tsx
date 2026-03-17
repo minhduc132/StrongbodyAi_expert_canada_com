@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Facebook, Twitter, Linkedin, Headset } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Share2, Facebook, Twitter, Linkedin, Headset } from "lucide-react";
 import Container from "@/components/layout/Container";
 import { Metadata } from "next";
 
@@ -104,11 +104,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         </h1>
                         <div className="flex items-center gap-6 text-sm font-medium">
                             <div className="flex items-center gap-2">
-                                <Calendar size={16} />
-                                {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Clock size={16} />
                                 {author}
                             </div>
                         </div>
@@ -214,11 +209,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                                                 <h4 className="text-sm font-bold text-grey-900 group-hover:text-primary transition-colors line-clamp-2 mb-1">
                                                                     {relatedPost.title}
                                                                 </h4>
-                                                                {relatedPost.date && (
-                                                                    <p className="text-xs text-grey-500 font-medium">
-                                                                        {new Date(relatedPost.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                                                                    </p>
-                                                                )}
+
                                                             </div>
                                                         </div>
                                                     </Link>

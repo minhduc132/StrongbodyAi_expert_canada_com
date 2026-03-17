@@ -23,10 +23,10 @@ export async function GET(request: Request) {
     const postSitemapCount = Math.max(1, Math.ceil(totalPosts / postsPerSitemap));
 
     const sitemaps = [
-        { loc: `${baseUrl}/sitemap/page-sitemap.xml/`, lastmod: lastMod },
+        { loc: `${baseUrl}/sitemap/page-sitemap.xml`, lastmod: lastMod },
         // List post sitemaps
         ...Array.from({ length: postSitemapCount }, (_, i) => ({
-            loc: `${baseUrl}/sitemap/post-sitemap-${i + 1}.xml/`,
+            loc: `${baseUrl}/sitemap/post-sitemap-${i + 1}.xml`,
             lastmod: lastMod
         })),
     ];

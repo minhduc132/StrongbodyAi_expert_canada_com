@@ -22,7 +22,7 @@ const ForClients = () => {
                         For Clients
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Why Residents Love StrongBody AI on MultiMe
+                        Why Love StrongBody AI on MultiMe
                     </h2>
                     <p className="text-base text-white font-medium max-w-2xl mx-auto mb-6">
                         You are a perfect fit if you want to experience borderless healthcare without language barriers, high costs, or compromising on quality.

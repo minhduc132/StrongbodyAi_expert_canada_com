@@ -53,7 +53,7 @@ export async function generateUnifiedMetadata(
     const finalDesc = pageDesc || baseDesc;
 
     return {
-        metadataBase: new URL("https://strongbody.uk"),
+        metadataBase: new URL("https://strongbody.ca"),
         title: pageTitle ? {
             absolute: `${pageTitle} | ${settings?.site_title || "StrongBody AI"}`,
         } : baseTitle,
@@ -61,15 +61,15 @@ export async function generateUnifiedMetadata(
         keywords: Array.from(new Set(pageKeywords)),
         authors: [{ name: "StrongBody AI Team" }],
         alternates: {
-            canonical: slug ? `https://strongbody.uk/${slug}` : "https://strongbody.uk",
+            canonical: slug ? `https://strongbody.ca/${slug}` : "https://strongbody.ca",
         },
         openGraph: {
             title: pageTitle || baseTitle,
             description: finalDesc,
-            url: slug ? `https://strongbody.uk/${slug}` : "https://strongbody.uk",
+            url: slug ? `https://strongbody.ca/${slug}` : "https://strongbody.ca",
             siteName: settings?.site_title || "StrongBody AI",
             images: [{ url: pageImage, width: 1200, height: 630 }],
-            locale: "en_US",
+            locale: "en_CA",
             type: isArticle ? "article" : "website",
             publishedTime,
         },

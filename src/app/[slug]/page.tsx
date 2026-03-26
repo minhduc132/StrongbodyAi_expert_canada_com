@@ -65,12 +65,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             name: "StrongBody AI",
             logo: {
                 "@type": "ImageObject",
-                url: "https://strongbody.ai/images/og-image.png",
+                url: "https://strongbody.ca/images/og-image.png",
             },
         },
         mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://strongbody.ai/${resolvedParams.slug}`,
+            "@id": `https://strongbody.ca/${resolvedParams.slug}`,
         },
     };
 

@@ -5,27 +5,27 @@ import { Reveal, FadeIn } from "@/components/animations/Reveal";
 
 const differentiators = [
     {
-        icon: <Cpu size={26} />,
+        icon: <Cpu size={24} />,
         title: "True AI-Native Voice Experience from day one",
         desc: "Built around AI voice translation — speak naturally in any language.",
     },
     {
-        icon: <FileText size={26} />,
+        icon: <FileText size={24} />,
         title: "Offer-Based + Escrow Commerce",
         desc: "Unique in chat apps: seamless professional transactions combined with iron-clad escrow protection.",
     },
     {
-        icon: <Smartphone size={26} />,
+        icon: <Smartphone size={24} />,
         title: "One Account, One App",
         desc: "StrongBody + Global Voice Network — manage everything from a single secure account.",
     },
     {
-        icon: <Globe2 size={26} />,
+        icon: <Globe2 size={24} />,
         title: "Cross-Border Power",
         desc: "Experts in Malaysia reach premium global clients easily and effectively.",
     },
     {
-        icon: <BarChart3 size={26} />,
+        icon: <BarChart3 size={24} />,
         title: "Structured Reputation",
         desc: "Built via Voice & Real Reviews, maintaining high-fidelity trust over time.",
     }
@@ -33,38 +33,35 @@ const differentiators = [
 
 const WhyDifferent = () => {
     return (
-        <section className="py-24 bg-white overflow-hidden relative">
+        <section className="py-32 bg-white overflow-hidden relative border-t-2" style={{ borderColor: '#CBD5E1' }}>
             <Container className="relative z-10">
-                <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+                <div className="flex flex-col lg:flex-row gap-16 lg:gap-28 items-start">
                     {/* Left: Bold Statement */}
                     <div className="lg:w-2/5 lg:sticky lg:top-32">
                         <Reveal>
-                            <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                            <span className="text-primary font-black tracking-[0.2em] text-[11px] uppercase mb-5 block">
                                 The Difference
                             </span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-grey-900 mb-6 leading-tight">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-grey-900 mb-8 leading-tight tracking-tight">
                                 Why StrongBody AI is Different
                             </h2>
-                            <p className="text-base text-grey-600 font-medium max-w-md leading-relaxed mb-8">
+                            <p className="text-base text-grey-500 font-medium max-w-md leading-relaxed mb-10">
                                 We are not just another healthcare directory. StrongBody AI is a complete commerce infrastructure designed for modern health services.
                             </p>
-                            <div className="w-20 h-1 bg-primary rounded-full"></div>
+                            <div className="w-12 h-1 bg-primary rounded-sm"></div>
                         </Reveal>
                     </div>
 
-                    {/* Right: Stacked single-column cards */}
-                    <div className="lg:w-3/5 space-y-4">
+                    {/* Right: Stacked list */}
+                    <div className="lg:w-3/5 space-y-3">
                         {differentiators.map((item, idx) => (
-                            <Reveal
-                                key={idx}
-                                delay={idx * 0.06}
-                            >
-                                <div className="p-7 rounded-2xl bg-grey-50 border border-grey-100 hover:border-primary/20 hover:shadow-lg transition-all group flex items-start gap-6">
-                                    <div className="w-14 h-14 rounded-xl bg-white text-primary flex items-center justify-center shrink-0 border border-grey-100 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all shadow-sm">
+                            <Reveal key={idx} delay={idx * 0.06}>
+                                <div className="p-7 rounded-[24px] bg-grey-50 border border-grey-200 hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300 group flex items-start gap-6">
+                                    <div className="w-12 h-12 rounded-2xl bg-white text-primary flex items-center justify-center shrink-0 border border-grey-200 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all shadow-sm">
                                         {item.icon}
                                     </div>
-                                    <div>
-                                        <h4 className="text-lg font-bold mb-2 text-grey-900 group-hover:text-primary transition-colors">{item.title}</h4>
+                                    <div className="pt-1">
+                                        <h4 className="text-[15px] font-extrabold mb-2 text-grey-900 group-hover:text-primary transition-colors tracking-tight">{item.title}</h4>
                                         <p className="text-sm text-grey-500 font-medium leading-relaxed">{item.desc}</p>
                                     </div>
                                 </div>

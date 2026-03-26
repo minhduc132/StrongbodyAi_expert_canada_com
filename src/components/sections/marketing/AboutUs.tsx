@@ -6,43 +6,44 @@ import Link from "next/link";
 
 const AboutSection = () => {
     return (
-        <section id="multime-ai-app" className="py-24 bg-white">
+        <section id="multime-ai-app" className="py-32 bg-white border-t-2" style={{ borderColor: '#CBD5E1' }}>
             <Container>
-                {/* Section Header – Left-aligned instead of centered */}
-                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+                {/* Section Header */}
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
                     <div className="max-w-2xl">
-                        <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">MultiMe AI App</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-grey-900 leading-tight">
+                        <span className="text-primary font-black tracking-[0.2em] text-[11px] uppercase mb-5 block">MultiMe AI App</span>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-grey-900 leading-[1.05] tracking-tight">
                             Why Download the MultiMe AI App?
                         </h2>
                     </div>
-                    <p className="text-base text-grey-600 font-medium max-w-lg leading-relaxed">
+                    <p className="text-base text-grey-500 font-medium max-w-lg leading-relaxed border-l-2 border-grey-200 pl-6">
                         The only app you need to experience StrongBody AI fully. One account – seamless access to voice translation, offers, escrow, and your Personal Care Team.
                     </p>
                 </div>
 
-                {/* Stacked Layout: Full-width Client card on top, Pro card below */}
-                <div className="space-y-6">
-                    {/* Block 1 – Client: Horizontal layout with features in 2 columns */}
+                {/* Cards */}
+                <div className="space-y-4">
+                    {/* Block 1 – Client block */}
                     <Reveal delay={0.1}>
-                        <div className="p-8 lg:p-12 rounded-3xl bg-grey-50 border border-grey-100">
-                            <div className="flex flex-col lg:flex-row gap-10">
+                        <div className="p-10 lg:p-14 rounded-[28px] bg-grey-50 border border-grey-200">
+                            <div className="flex flex-col lg:flex-row gap-12">
                                 <div className="lg:w-1/3 flex flex-col justify-between">
                                     <div>
-                                        <h4 className="text-xl font-bold text-grey-900 mb-4">
-                                            For Clients – Get World-Class Care in Your Own Voice
+                                        <div className="inline-block bg-primary/8 text-primary text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full mb-5 border border-primary/15">For Clients</div>
+                                        <h4 className="text-2xl font-extrabold text-grey-900 mb-4 leading-tight tracking-tight">
+                                            Get World-Class Care in Your Own Voice
                                         </h4>
-                                        <p className="text-sm font-bold text-grey-600 mb-6">You get:</p>
+                                        <p className="text-sm font-bold text-grey-400 mb-6 uppercase tracking-widest">You get:</p>
                                     </div>
                                     <Link
                                         href="/multime"
-                                        className="w-full lg:w-fit inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-3.5 rounded-xl text-[14px] font-bold transition-all shadow-lg hover:shadow-primary/30 mt-6"
+                                        className="w-full lg:w-fit inline-flex items-center justify-center gap-2 bg-primary text-white px-7 py-4 rounded-2xl text-[13px] font-extrabold uppercase tracking-wider transition-all hover:-translate-y-0.5 shadow-xl shadow-primary/30 mt-6"
                                     >
-                                        Download MultiMe AI & Build Your Personal Care Team
+                                        Download MultiMe AI & Build Your Care Team
                                     </Link>
                                 </div>
                                 <div className="lg:w-2/3">
-                                    <ul className="grid md:grid-cols-2 gap-4">
+                                    <ul className="grid md:grid-cols-2 gap-3">
                                         {[
                                             "Real-time AI Voice Translate: Speak in your local language – experts hear and reply in theirs instantly.",
                                             "Build your Personal Care Team personalized in minutes (doctors + pharmacists + nutritionists + trainers + aesthetic specialists…).",
@@ -51,9 +52,9 @@ const AboutSection = () => {
                                             "Manage full consultation history, results, and care team inside one app.",
                                             "Flexible 24/7 services at affordable prices (often 40-70% less than local options)."
                                         ].map((item, idx) => (
-                                            <li key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-grey-100">
-                                                <CheckCircle2 size={18} className="text-primary mt-0.5 shrink-0" />
-                                                <span className="text-sm text-grey-600 font-medium">{item}</span>
+                                            <li key={idx} className="flex items-start gap-3 p-5 rounded-2xl bg-white border border-grey-200 hover:border-primary/20 transition-colors">
+                                                <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
+                                                <span className="text-sm text-grey-600 font-medium leading-relaxed">{item}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -62,26 +63,27 @@ const AboutSection = () => {
                         </div>
                     </Reveal>
 
-                    {/* Block 2 – Pro: Full-width dark */}
+                    {/* Block 2 – Pro block: dark */}
                     <Reveal delay={0.2}>
-                        <div className="p-8 lg:p-12 rounded-3xl text-white bg-secondary border border-grey-800 shadow-xl">
-                            <div className="flex flex-col lg:flex-row gap-10">
+                        <div className="p-10 lg:p-14 rounded-[28px] bg-secondary border border-grey-800">
+                            <div className="flex flex-col lg:flex-row gap-12">
                                 <div className="lg:w-1/3 flex flex-col justify-between">
                                     <div>
-                                        <h4 className="text-xl font-bold mb-4 !text-white">
-                                            For Health Professionals – Turn Your Expertise into Global Revenue
+                                        <div className="inline-block bg-white/10 text-white text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full mb-5 border border-white/15">For Professionals</div>
+                                        <h4 className="text-2xl font-extrabold !text-white mb-4 leading-tight tracking-tight">
+                                            Turn Your Expertise into Global Revenue
                                         </h4>
-                                        <p className="text-sm font-bold text-white mb-6">You gain the opportunity to globalize your service sales immediately:</p>
+                                        <p className="text-sm font-bold text-white/50 mb-6 uppercase tracking-widest">You gain immediately:</p>
                                     </div>
                                     <Link
                                         href="/multime"
-                                        className="w-full lg:w-fit inline-flex items-center justify-center gap-2 bg-white text-secondary px-6 py-3.5 rounded-xl text-[14px] font-bold transition-all shadow-lg hover:bg-white/90 mt-6"
+                                        className="w-full lg:w-fit inline-flex items-center justify-center gap-2 bg-white text-secondary px-7 py-4 rounded-2xl text-[13px] font-extrabold uppercase tracking-wider transition-all hover:bg-white/90 mt-6"
                                     >
                                         Download MultiMe AI & Receive Global Clients
                                     </Link>
                                 </div>
                                 <div className="lg:w-2/3">
-                                    <ul className="grid md:grid-cols-2 gap-4">
+                                    <ul className="grid md:grid-cols-2 gap-3">
                                         {[
                                             "Reach tens of millions of high-paying clients from US, UK, EU, Canada, Australia… without running ads.",
                                             "AI Voice Translate lets international clients understand you perfectly – even if you only speak your local language.",
@@ -91,9 +93,9 @@ const AboutSection = () => {
                                             "Keep 80% of revenue (only 20% platform fee) from premium international clients.",
                                             "Proactively reach potential clients via Active Message + Voice Hub – sell services globally 24/7 from home."
                                         ].map((item, idx) => (
-                                            <li key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-white/5 border border-white/10">
-                                                <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
-                                                <span className="text-sm text-white font-medium">{item}</span>
+                                            <li key={idx} className="flex items-start gap-3 p-5 rounded-2xl bg-white/5 border border-white/8 hover:bg-white/8 transition-colors">
+                                                <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
+                                                <span className="text-sm text-white/80 font-medium leading-relaxed">{item}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -109,3 +111,4 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
+

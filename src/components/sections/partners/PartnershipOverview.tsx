@@ -36,44 +36,45 @@ const recruitmentProcess = [
 
 const PartnershipOverview = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden text-grey-900 border-t border-grey-100">
+        <section className="py-32 bg-grey-50 relative overflow-hidden text-grey-900 border-t border-grey-200">
             <Container className="relative z-10">
-                <div className="text-center mb-16">
-                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
+                <div className="text-center mb-20">
+                    <span className="text-primary font-black tracking-[0.2em] text-[11px] uppercase mb-5 block">
                         Partnership Recruitment
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-text-p mb-6 leading-tight">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-grey-900 mb-6 leading-tight tracking-tight">
                         Become a Strategic Partner
                     </h2>
-                    <p className="text-lg text-text-m font-medium leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-lg text-grey-500 font-medium leading-relaxed max-w-2xl mx-auto">
                         We are selectively recruiting licensed health professionals to join our global network.
                     </p>
                 </div>
+
 
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 mb-16">
                     {/* Left side */}
                     <div>
                         <Reveal>
-                            <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-text-p">
-                                <Award className="text-primary" size={24} /> Perfect Fit For:
+                            <h3 className="text-lg font-extrabold mb-6 flex items-center gap-3 text-grey-900 uppercase tracking-tight">
+                                <Award className="text-primary" size={20} /> Perfect Fit For:
                             </h3>
-                            <ul className="space-y-3 mb-8">
+                            <ul className="space-y-2.5 mb-8">
                                 {eligibleProfessions.map((prof, idx) => (
-                                    <li key={idx} className="flex items-start gap-3">
-                                        <CheckCircle2 size={18} className="text-primary mt-0.5 shrink-0" />
-                                        <span className="text-sm font-medium text-text-m leading-relaxed">{prof}</span>
+                                    <li key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-grey-200 hover:border-primary/20 transition-colors">
+                                        <CheckCircle2 size={15} className="text-primary mt-0.5 shrink-0" />
+                                        <span className="text-sm font-medium text-grey-600 leading-relaxed">{prof}</span>
                                     </li>
                                 ))}
                             </ul>
 
-                            <div className="p-4 rounded-xl bg-primary-light border border-primary/10 text-primary text-sm font-bold mb-8">
+                            <div className="p-5 rounded-2xl bg-primary/5 border border-primary/10 text-primary text-sm font-extrabold mb-8 uppercase tracking-wide">
                                 Minimum requirement: You must hold a valid practicing license in your jurisdiction.
                             </div>
                         </Reveal>
 
                         <Reveal delay={0.1}>
-                            <h3 className="text-xl font-bold mb-6 flex items-center gap-2 mt-12 text-text-p">
-                                <ClipboardCheck className="text-primary" size={24} /> Recruitment Process
+                            <h3 className="text-lg font-extrabold mb-6 flex items-center gap-3 mt-14 text-grey-900 uppercase tracking-tight">
+                                <ClipboardCheck className="text-primary" size={20} /> Recruitment Process
                             </h3>
                             <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-grey-200 before:to-transparent">
                                 {recruitmentProcess.map((step, idx) => (
@@ -93,32 +94,31 @@ const PartnershipOverview = () => {
                     {/* Right side */}
                     <div>
                         <Reveal delay={0.2} className="h-full">
-                            <div className="p-8 md:p-10 rounded-[2.5rem] h-full flex flex-col bg-white border border-grey-300 shadow-2xl relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+                            <div className="p-10 md:p-12 rounded-[32px] h-full flex flex-col bg-secondary border border-grey-800 shadow-2xl relative overflow-hidden">
                                 <div className="relative z-10 flex-1 flex flex-col">
-                                    <h3 className="text-2xl font-bold mb-8 text-text-p">What You Get as a Strategic Partner</h3>
-                                    <ul className="space-y-5 mb-10 flex-1">
+                                    <h3 className="text-2xl font-extrabold mb-8 !text-white tracking-tight">What You Get as a Strategic Partner</h3>
+                                    <ul className="space-y-3 mb-10 flex-1">
                                         {partnerBenefits.map((benefit, idx) => (
-                                            <li key={idx} className="flex items-start gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-primary-light flex items-center justify-center shrink-0 mt-0.5">
-                                                    <CheckCircle2 size={14} className="text-primary" />
+                                            <li key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-white/5 border border-white/8 hover:bg-white/8 transition-colors">
+                                                <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                                                    <CheckCircle2 size={12} className="text-primary" />
                                                 </div>
-                                                <span className="text-sm font-medium leading-relaxed text-text-m">{benefit}</span>
+                                                <span className="text-sm font-medium leading-relaxed text-white/70">{benefit}</span>
                                             </li>
                                         ))}
                                     </ul>
 
                                     <div className="mt-auto">
-                                        <p className="text-xs font-bold text-text-s uppercase tracking-widest mb-6">
+                                        <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em] mb-6">
                                             Selective recruitment policy – Not all applications are accepted.
                                         </p>
                                         <Link
                                             href="https://www.strongbody.ai/signup"
-                                            className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white px-7 py-4 rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-xl text-center"
+                                            className="w-full inline-flex items-center justify-center gap-2.5 bg-primary text-white px-7 py-4 rounded-2xl text-sm font-extrabold uppercase tracking-wider hover:-translate-y-0.5 transition-all shadow-xl shadow-primary/30 text-center"
                                         >
                                             Apply to Become a Strategic Partner <ArrowRight size={16} />
                                         </Link>
-                                        <p className="text-xs text-text-m mt-4 font-medium text-center">
+                                        <p className="text-xs text-white/30 mt-4 font-medium text-center">
                                             Takes 2 minutes • Request Partnership Kit • Schedule Consultation
                                         </p>
                                     </div>

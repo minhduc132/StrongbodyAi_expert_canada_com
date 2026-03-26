@@ -46,28 +46,32 @@ const FAQSection = async () => {
     ];
 
     return (
-        <section className="py-24 bg-white border-t border-grey-100">
+        <section className="py-32 bg-white border-t border-grey-100">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-14">
-                    <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">
+                <div className="text-center mb-16">
+                    <span className="text-primary font-black tracking-[0.2em] text-[11px] uppercase mb-5 block">
                         Help
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-text-p">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-grey-900 tracking-tight">
                         Frequently Asked Questions
                     </h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-10">
                     <div>
-                        <h3 className="text-sm font-bold text-text-p mb-4 flex items-center gap-2">
-                            <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <h3 className="text-[11px] font-black text-grey-400 mb-5 flex items-center gap-2.5 uppercase tracking-[0.2em]">
+                            <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center">
+                                <div className="w-2 h-2 rounded-full bg-white"></div>
+                            </div>
                             For Clients
                         </h3>
                         <FAQAccordion items={clientFAQs} />
                     </div>
                     <div>
-                        <h3 className="text-sm font-bold text-text-p mb-4 flex items-center gap-2">
-                            <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <h3 className="text-[11px] font-black text-grey-400 mb-5 flex items-center gap-2.5 uppercase tracking-[0.2em]">
+                            <div className="w-5 h-5 rounded-full bg-secondary flex items-center justify-center">
+                                <div className="w-2 h-2 rounded-full bg-white"></div>
+                            </div>
                             For Partners
                         </h3>
                         <FAQAccordion items={partnerFAQs} />
@@ -76,6 +80,7 @@ const FAQSection = async () => {
             </div>
         </section>
     );
+
 };
 
 export default FAQSection;

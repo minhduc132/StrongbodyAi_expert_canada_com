@@ -3,35 +3,34 @@
 
 :root {
     --background: #ffffff;
-    --foreground: #111827;
+    --foreground: #020617;
 
     /* Main Colors */
     --primary: #DA1F27;
-    --primary-light: #FDF1F1;
-    --secondary: #1F2C43;
-    --secondary-light: #F0F4F8;
+    --primary-light: #FEE2E2;
+    --secondary: #0F172A;
+    --secondary-light: #F1F5F9;
 
     /* Text Colors */
-    --text-p: #000000;
-    --text-m: #000000;
-    --text-s: #000000;
+    --text-p: #020617;
+    --text-m: #334155;
+    --text-s: #64748B;
 
-    /* Greyscale */
-    --grey-50: #FAFAFA;
-    --grey-100: #F5F6F8;
-    --grey-200: #EBEDF0;
-    --grey-300: #E2E4E8;
-    --grey-400: #000000;
-    --grey-500: #000000;
-    --grey-600: #000000;
-    --grey-700: #000000;
-    --grey-800: #000000;
-    --grey-900: #000000;
+    /* Greyscale - Slate-based for modern tech feel */
+    --grey-50: #F8FAFC;
+    --grey-100: #F1F5F9;
+    --grey-200: #E2E8F0;
+    --grey-300: #CBD5E1;
+    --grey-400: #94A3B8;
+    --grey-500: #64748B;
+    --grey-600: #475569;
+    --grey-700: #334155;
+    --grey-800: #1E293B;
+    --grey-900: #0F172A;
 
-    /* Gradients */
-    --primary-gradient: linear-gradient(135deg, #DA1F27 0%, #B91C1C 100%);
-    --secondary-gradient: linear-gradient(135deg, #1F2C43 0%, #111A2E 100%);
-    --brand-gradient: linear-gradient(135deg, #1F2C43 0%, #111827 100%);
+    /* Removed Gradients as per constraints - Using solid brand colors */
+    --primary-solid: #DA1F27;
+    --secondary-solid: #0F172A;
 }
 
 @theme inline {
@@ -56,74 +55,50 @@
     --color-grey-800: var(--grey-800);
     --color-grey-900: var(--grey-900);
 
-    --color-slate-400: #000000;
-    --color-slate-500: #000000;
-    --color-slate-600: #000000;
-    --color-slate-700: #000000;
-    --color-slate-800: #000000;
-    --color-slate-900: #000000;
-
-    --color-primary-gradient: var(--primary-gradient);
-    --color-secondary-gradient: var(--secondary-gradient);
-
     --font-heading: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
     --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+    --radius-3xl: 24px;
+    --radius-2xl: 18px;
+    --radius-xl: 12px;
 }
 
 @layer base {
     * {
-        @apply border-grey-300;
+        @apply border-grey-200;
         font-family: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
     }
 
     body {
-        @apply bg-white text-black antialiased;
+        @apply bg-white text-grey-900 antialiased selection:bg-primary/20 selection:text-primary;
         line-height: 1.6;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply tracking-tight font-bold text-text-p;
-        line-height: 1.15;
+    h1, h2, h3, h4, h5, h6 {
+        @apply tracking-tight font-extrabold text-grey-900 transition-colors;
+        line-height: 1.1;
     }
 
-    h1 {
-        font-size: 64px;
-    }
-
-    h2 {
-        font-size: 48px;
-    }
-
-    h3 {
-        font-size: 40px;
-    }
-
-    h4 {
-        font-size: 32px;
-    }
-
-    h5 {
-        font-size: 24px;
-    }
-
-    h6 {
-        font-size: 20px;
-    }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+    h4 { font-size: 1.5rem; }
+    h5 { font-size: 1.25rem; }
+    h6 { font-size: 1.125rem; }
 
     p {
-        @apply text-text-m;
-        font-size: 16px;
+        @apply text-grey-600 font-medium;
+        font-size: 1rem;
     }
 }
 
 @layer utilities {
     .glass {
-        @apply bg-white/70 backdrop-blur-md border border-white/20;
+        @apply bg-white/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-slate-200/50;
+    }
+    
+    .card-hover {
+        @apply transition-all duration-300 hover:shadow-2xl hover:shadow-slate-200/80 hover:-translate-y-1;
     }
 
     .text-balance {
@@ -131,34 +106,12 @@
     }
 }
 
-
-
-@layer utilities {
-    .glass {
-        @apply bg-white/70 backdrop-blur-md border border-white/20;
-    }
-}
-
 @keyframes bounce-slow {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 @keyframes bounce-slower {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}

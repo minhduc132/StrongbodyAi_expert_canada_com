@@ -74,7 +74,7 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${scrolled
-                ? "bg-white border-b border-grey-100 py-2 shadow-sm"
+                ? "bg-white border-b border-grey-200 py-2 shadow-md"
                 : "bg-white py-3"
                 }`}
         >
@@ -92,8 +92,8 @@ const Navbar = () => {
                     {/* Desktop Navigation */}
                     <div className="hidden xl:flex items-center space-x-1">
                         {/* Home & About */}
-                        <Link href="/" className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${pathname === "/" ? "text-primary bg-primary/5" : "hover:text-primary hover:bg-grey-50"}`}>Home</Link>
-                        <Link href="/about" className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${pathname === "/about" ? "text-primary bg-primary/5" : "hover:text-primary hover:bg-grey-50"}`}>About</Link>
+                        <Link href="/" className={`px-3 py-2 text-[13px] font-extrabold transition-all rounded-lg ${pathname === "/" ? "text-primary bg-primary/5" : "text-grey-600 hover:text-primary hover:bg-grey-50"}`}>Home</Link>
+                        <Link href="/about" className={`px-3 py-2 text-[13px] font-extrabold transition-all rounded-lg ${pathname === "/about" ? "text-primary bg-primary/5" : "text-grey-600 hover:text-primary hover:bg-grey-50"}`}>About</Link>
 
                         {/* Dropdowns */}
                         <div className="flex items-center" ref={dropdownRef}>
@@ -101,16 +101,16 @@ const Navbar = () => {
                                 <div key={group.name} className="relative">
                                     <button
                                         onClick={() => toggleDropdown(group.name)}
-                                        className={`flex items-center gap-1 px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${activeDropdown === group.name || group.links.some(l => pathname === l.href)
+                                        className={`flex items-center gap-1 px-3 py-2 text-[13px] font-extrabold transition-all rounded-lg ${activeDropdown === group.name || group.links.some(l => pathname === l.href)
                                             ? "text-primary bg-primary/5"
-                                            : "hover:text-primary hover:bg-grey-50"
+                                            : "text-grey-600 hover:text-primary hover:bg-grey-50"
                                             }`}
                                     >
                                         {group.name} <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === group.name ? "rotate-180" : ""}`} />
                                     </button>
 
                                     {activeDropdown === group.name && (
-                                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-grey-100 p-2 animate-in fade-in zoom-in-95 duration-200">
+                                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-[20px] shadow-2xl shadow-slate-200/80 border border-grey-200 p-2 animate-in fade-in zoom-in-95 duration-200">
                                             {group.links.map((link) => {
                                                 const isActive = pathname === link.href;
                                                 return (
@@ -121,12 +121,12 @@ const Navbar = () => {
                                                         className={`flex items-start gap-4 p-4 rounded-xl transition-all ${isActive ? "bg-primary/5 text-primary" : "text-grey-700 hover:bg-grey-50 hover:pl-5"
                                                             }`}
                                                     >
-                                                        <div className={`mt-0.5 p-2 rounded-lg ${isActive ? "bg-primary text-white" : "bg-grey-100 text-grey-500"}`}>
-                                                            <link.icon size={18} />
+                                                        <div className={`mt-0.5 p-2 rounded-xl ${isActive ? "bg-primary text-white" : "bg-grey-100 text-grey-500"}`}>
+                                                            <link.icon size={16} />
                                                         </div>
                                                         <div>
-                                                            <div className="text-[14px] font-bold">{link.name}</div>
-                                                            <div className="text-[12px] text-grey-400 font-medium leading-tight">{link.desc}</div>
+                                                            <div className="text-[13px] font-extrabold tracking-tight">{link.name}</div>
+                                                            <div className="text-[11px] text-grey-400 font-medium leading-tight">{link.desc}</div>
                                                         </div>
                                                     </Link>
                                                 );
@@ -137,20 +137,20 @@ const Navbar = () => {
                             ))}
                         </div>
 
-                        <Link href="/contact" className={`px-3 py-2 text-[14px] font-bold transition-all rounded-lg ${pathname === "/contact" ? "text-primary bg-primary/5" : "hover:text-primary hover:bg-grey-50"}`}>Contact</Link>
+                        <Link href="/contact" className={`px-3 py-2 text-[13px] font-extrabold transition-all rounded-lg ${pathname === "/contact" ? "text-primary bg-primary/5" : "text-grey-600 hover:text-primary hover:bg-grey-50"}`}>Contact</Link>
                     </div>
 
                     {/* Right Side: 2 CTAs */}
                     <div className="flex items-center gap-2">
                         <Link
                             href="/multime"
-                            className="hidden lg:flex items-center gap-1.5 bg-primary text-white px-4 py-2.5 rounded-lg text-[13px] font-bold tracking-wide hover:bg-primary/90 transition-all active:scale-[0.98]"
+                            className="hidden lg:flex items-center gap-1.5 bg-primary text-white px-5 py-2.5 rounded-xl text-[12px] font-extrabold uppercase tracking-widest hover:bg-primary/90 transition-all active:scale-[0.98]"
                         >
                             App Free Download
                         </Link>
                         <Link
                             href="https://www.strongbody.ai/signup"
-                            className="hidden lg:flex items-center gap-1.5 bg-secondary text-white px-4 py-2.5 rounded-lg text-[13px] font-bold tracking-wide hover:bg-secondary/90 transition-all active:scale-[0.98]"
+                            className="hidden lg:flex items-center gap-1.5 bg-secondary text-white px-5 py-2.5 rounded-xl text-[12px] font-extrabold uppercase tracking-widest hover:bg-secondary/90 transition-all active:scale-[0.98]"
                         >
                             Strategic Partner
                         </Link>

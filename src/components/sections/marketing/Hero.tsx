@@ -31,81 +31,77 @@ const partners = [
 const Hero = () => {
     return (
         <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
-            {/* Full-width Background Image */}
+            {/* Premium Tech Background - Using solid surfaces instead of image */}
             <div className="absolute inset-0 z-0">
-                <img
-                    src="/images/hero.png"
-                    alt="Medical background"
-                    className="w-full h-full object-cover"
-                />
-                {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/40 to-secondary/20"></div>
+                <div className="absolute inset-0 bg-secondary"></div>
+                {/* Subtle tech surface detail */}
+                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
             </div>
 
-            <Container className="w-full pt-32 pb-20 relative z-10">
+            <Container className="w-full pt-40 pb-20 relative z-10">
                 {/* Centered Hero Content - Stacked Vertically */}
-                <div className="max-w-4xl mx-auto text-center">
-                    {/* Live Badge */}
+                <div className="max-w-4xl mx-auto text-center mb-20">
+                    {/* Live Badge - Redesigned for Premium Look */}
                     <Reveal>
-                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full text-xs font-bold mb-10">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 text-white px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-[0.2em] mb-12">
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-40"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
                             </span>
                             Now Live in 194 Countries
                         </div>
                     </Reveal>
 
                     <Reveal>
-                        <h1 className="text-5xl lg:text-7xl font-bold !text-white tracking-tight leading-[1.05] mb-6 text-balance">
-                            StrongBody <span className="text-primary">AI</span>
+                        <h1 className="text-6xl lg:text-8xl font-black !text-white tracking-tighter leading-[0.95] mb-8 text-balance uppercase">
+                            StrongBody <span className="text-primary italic">AI</span>
                         </h1>
                     </Reveal>
 
                     <Reveal>
-                        <h2 className="text-xl lg:text-2xl font-bold !text-white mb-8 text-balance">
+                        <h2 className="text-2xl lg:text-3xl font-bold !text-white/90 mb-10 text-balance tracking-tight">
                             The Health Service Hub for the Multi-Lingual World
                         </h2>
-                        <p className="text-base text-white mb-12 leading-relaxed font-medium max-w-2xl mx-auto">
+                        <p className="text-lg text-white/70 mb-14 leading-relaxed font-medium max-w-2xl mx-auto border-l-2 border-primary/30 pl-8">
                             Real-time AI Voice Translation (40+ languages) • Personal Care Team • Transparent Offers • Secure Escrow • All inside one free app.
                         </p>
                     </Reveal>
 
                     {/* CTA Buttons */}
                     <Reveal>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                        <div className="flex flex-col sm:flex-row gap-5 justify-center mb-16">
                             <Link
                                 href="/multime"
-                                className="bg-primary text-white px-10 py-4 rounded-2xl text-[15px] font-bold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                                className="bg-primary text-white px-12 py-5 rounded-2xl text-[16px] font-extrabold transition-all shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:-translate-y-1 flex items-center justify-center gap-3 uppercase tracking-wider"
                             >
-                                Download MultiMe AI App <ArrowRight size={18} />
+                                Download MultiMe AI App <ArrowRight size={20} />
                             </Link>
                         </div>
                     </Reveal>
 
                     {/* Partners */}
                     <FadeIn>
-                        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 mb-16">
+                        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
                             {partners.map((p) => (
-                                <div key={p.name} className="flex items-center gap-2 text-white/70 hover:text-white transition-all cursor-default">
-                                    <div className="opacity-100">{p.icon}</div>
-                                    <span className="text-[12px] font-bold uppercase tracking-wider">{p.name}</span>
+                                <div key={p.name} className="flex items-center gap-3 text-white/40 hover:text-white transition-all cursor-default group">
+                                    <div className="grayscale group-hover:grayscale-0 transition-all">{p.icon}</div>
+                                    <span className="text-[11px] font-black uppercase tracking-[0.15em]">{p.name}</span>
                                 </div>
                             ))}
                         </div>
                     </FadeIn>
                 </div>
 
-                {/* Statistics - Full Width Row at Bottom */}
+                {/* Statistics - Redesigned as Premium Floating Cards */}
                 <FadeIn>
-                    <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-5">
+                    <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {stats.map((s, idx) => (
-                            <div key={idx} className="bg-white/90 backdrop-blur-xl p-7 rounded-2xl border border-white text-center hover:bg-white transition-all shadow-xl">
-                                <div className="w-11 h-11 rounded-xl bg-grey-50 flex items-center justify-center mb-4 mx-auto">
+                            <div key={idx} className="bg-white p-10 rounded-[32px] border border-grey-200 flex flex-col items-center text-center shadow-2xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-300 group">
+                                <div className="w-14 h-14 rounded-2xl bg-grey-50 flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
                                     {s.icon}
                                 </div>
-                                <div className="text-2xl font-bold text-grey-900 leading-tight mb-1">{s.val}</div>
-                                <div className="text-[10px] font-bold text-grey-600 uppercase leading-snug tracking-wider">{s.label}</div>
+                                <div className="text-4xl font-black text-grey-900 leading-none mb-2 tracking-tighter">{s.val}</div>
+                                <div className="text-[11px] font-black text-grey-500 uppercase leading-snug tracking-[0.2em]">{s.label}</div>
                             </div>
                         ))}
                     </div>
@@ -114,6 +110,7 @@ const Hero = () => {
         </section>
     );
 };
+
 
 
 export default Hero;

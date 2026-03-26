@@ -96,7 +96,7 @@ const Hero = () => {
                 <FadeIn>
                     <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {stats.map((s, idx) => (
-                            <div key={idx} className="bg-white p-10 rounded-[32px] border border-grey-200 flex flex-col items-center text-center shadow-2xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-300 group">
+                            <div key={idx} className="bg-white p-10 rounded-[32px] border border-grey-200 flex flex-col items-center text-center shadow-xl shadow-black/10 hover:-translate-y-2 transition-all duration-300 group">
                                 <div className="w-14 h-14 rounded-2xl bg-grey-50 flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
                                     {s.icon}
                                 </div>

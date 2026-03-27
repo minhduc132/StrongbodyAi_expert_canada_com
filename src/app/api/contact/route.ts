@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { MAIL_CONFIG } from "@/config/api";
+import { MAIL_CONFIG, STRONGBODY_API_BASE_URL } from "@/config/api";
 
 const getAdminEmailTemplate = (name: string, email: string, message: string, siteType: string) => {
   return `
@@ -10,7 +10,7 @@ const getAdminEmailTemplate = (name: string, email: string, message: string, sit
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7f9; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif; background-color: #f4f7f9; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     .header { background: linear-gradient(135deg, #32BDF2, #1DA1D2); padding: 30px; text-align: center; color: white; }
     .content { padding: 30px; color: #000000; line-height: 1.6; }
@@ -25,8 +25,8 @@ const getAdminEmailTemplate = (name: string, email: string, message: string, sit
 <body>
   <div class="container">
     <div class="header">
-      <h1 style="margin:0; font-size: 22px;">New Contact Submission</h1>
-      <p style="margin:5px 0 0; opacity: 0.9; font-size: 14px;">Origin: ${siteType}</p>
+      <h1 style="margin:0; font-size: 22px;">New Contact Form Submission</h1>
+      <p style="margin:5px 0 0; opacity: 0.9; font-size: 14px;">Source: ${siteType}</p>
     </div>
     <div class="content">
       <div style="text-align: right; margin-bottom: 20px;">
@@ -46,7 +46,7 @@ const getAdminEmailTemplate = (name: string, email: string, message: string, sit
       </div>
     </div>
     <div class="footer">
-      <p>© ${new Date().getFullYear()} StrongBody AI • Malaysia. All rights reserved.</p>
+      <p>© ${new Date().getFullYear()} ${siteType.toUpperCase()} • All rights reserved.</p>
     </div>
   </div>
 </body>
@@ -69,19 +69,71 @@ export async function POST(req: NextRequest) {
     const fullName = `${firstName} ${lastName}`;
     const htmlContent = getAdminEmailTemplate(fullName, email, `[Role: ${role}]\n\n${message}`, siteType);
 
-    // 3. Send Mail
+    // Collect client metadata for API tracking
+    const userAgent = req.headers.get('user-agent') || 'Unknown';
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0] || req.headers.get('x-real-ip') || 'Unknown';
+    const country = req.headers.get('x-vercel-ip-country') || 'Unknown';
+    const language = req.headers.get('accept-language')?.split(',')[0] || 'Unknown';
+    const consolidatedUserAgent = `${userAgent} | IP: ${ip} | Country: ${country} | Lang: ${language}`;
+
+    // ----------------------------------------------------------------
+    // PART A: SUBMIT DATA TO STRONGBODY API
+    // ----------------------------------------------------------------
+    const submitFormData = new FormData();
+    submitFormData.append('fullName', fullName || '');
+    submitFormData.append('email', email || '');
+    submitFormData.append('area', ''); 
+    submitFormData.append('workPreference', role || '');
+    
+    const contactRequestObj = {
+        type: siteType,
+        role: role,
+        message: message,
+        userAgent: consolidatedUserAgent
+    };
+    submitFormData.append('contactRequest', JSON.stringify(contactRequestObj));
+
+    const apiUrl = `${STRONGBODY_API_BASE_URL}/v1/admin/ldp/applyjob`; 
+
+    const response = await fetch(apiUrl, {
+        method: 'POST',
+        body: submitFormData,
+        headers: {
+            'Scope': 'admin.strongbody.ai', 
+        },
+        mode: 'cors',
+        credentials: 'include',
+    });
+
+    if (!response.ok) {
+        let errorMsg = 'Failed to submit inquiry to API';
+        try {
+            const errData = await response.json();
+            errorMsg = errData.message || errData.error || errorMsg;
+        } catch(e) { /* ignore */ }
+        console.error("Error communicating with API:", response.status, errorMsg);
+        return NextResponse.json({ success: false, error: errorMsg }, { status: response.status });
+    }
+
+    const responseData = await response.json().catch(() => ({}));
+    console.log(`✅ Data sent to API successfully for: ${email}`);
+
+    // ----------------------------------------------------------------
+    // PART B: SEND EMAIL NOTIFICATION TO ADMIN
+    // ----------------------------------------------------------------
     const info = await transporter.sendMail({
       from: `"StrongBody AI System" <${MAIL_CONFIG.SMTP_USER}>`,
       to: MAIL_CONFIG.ADMIN_EMAIL,
       subject: `[${siteType.toUpperCase()}] New Message from ${fullName}`,
       html: htmlContent,
     });
+    console.log(`📧 Notification sent to admin from: ${email}, messageId: ${info.messageId}`);
 
-    console.log("✅ Email sent:", info.messageId);
-    return NextResponse.json({ success: true, message: "Email sent successfully" });
+    return NextResponse.json({ success: true, message: "Request completely successful", data: responseData });
 
   } catch (error) {
     console.error("API Contact Error:", error);
     return NextResponse.json({ success: false, error: "Internal Server Error" }, { status: 500 });
   }
 }
+

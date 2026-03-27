@@ -14,12 +14,16 @@ export async function generateUnifiedMetadata(
     }
 
     // 1. Base Metadata from Global Settings
-    const baseTitle = settings?.meta_title || settings?.site_title || "StrongBody AI";
+    const siteTitle = settings?.site_title || "StrongBody AI";
+    const baseTitle = settings?.meta_title || siteTitle;
     const baseDesc = settings?.meta_description || settings?.site_tagline || "";
     const baseKeywords = settings?.meta_keywords
         ? settings.meta_keywords.split(",").map((k: string) => k.trim())
         : [];
     const baseOgImage = settings?.og_image || "/images/og-image.png";
+    const baseOgTitle = settings?.og_title || baseTitle;
+    const baseOgDesc = settings?.og_description || baseDesc;
+    const favicon = settings?.favicon_url || "/favicon.ico";
 
     // 2. Page Specific Metadata (if slug exists)
     let pageTitle = fallback?.title;
@@ -49,25 +53,29 @@ export async function generateUnifiedMetadata(
 
 
     // 3. Construct Final Metadata
-    const finalTitle = pageTitle ? `${pageTitle}` : baseTitle;
+    const finalTitle = pageTitle ? {
+        absolute: `${pageTitle} | ${siteTitle}`,
+    } : baseTitle;
     const finalDesc = pageDesc || baseDesc;
 
     return {
         metadataBase: new URL("https://strongbody.ca"),
-        title: pageTitle ? {
-            absolute: `${pageTitle} | ${settings?.site_title || "StrongBody AI"}`,
-        } : baseTitle,
+        title: finalTitle,
         description: finalDesc,
         keywords: Array.from(new Set(pageKeywords)),
         authors: [{ name: "StrongBody AI Team" }],
+        icons: {
+            icon: favicon,
+            apple: favicon,
+        },
         alternates: {
             canonical: slug ? `https://strongbody.ca/${slug}` : "https://strongbody.ca",
         },
         openGraph: {
-            title: pageTitle || baseTitle,
+            title: pageTitle || baseOgTitle,
             description: finalDesc,
             url: slug ? `https://strongbody.ca/${slug}` : "https://strongbody.ca",
-            siteName: settings?.site_title || "StrongBody AI",
+            siteName: siteTitle,
             images: [{ url: pageImage, width: 1200, height: 630 }],
             locale: "en_CA",
             type: isArticle ? "article" : "website",
@@ -75,7 +83,7 @@ export async function generateUnifiedMetadata(
         },
         twitter: {
             card: "summary_large_image",
-            title: pageTitle || baseTitle,
+            title: pageTitle || baseOgTitle,
             description: finalDesc,
             images: [pageImage],
         },
@@ -92,3 +100,4 @@ export async function generateUnifiedMetadata(
         },
     };
 }
+

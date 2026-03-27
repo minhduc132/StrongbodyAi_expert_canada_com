@@ -31,6 +31,9 @@
     /* Removed Gradients as per constraints - Using solid brand colors */
     --primary-solid: #DA1F27;
     --secondary-solid: #0F172A;
+    --primary-gradient: #DA1F27;
+    --secondary-gradient: #0F172A;
+    --brand-gradient: #0F172A;
 }
 
 @theme inline {

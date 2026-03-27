@@ -6,6 +6,8 @@ import { Metadata } from "next";
 
 import { fetchPostDetail, fetchAllBlogPosts } from "@/app/api";
 
+import ShareButtons from "@/components/blog/ShareButtons";
+
 interface BlogPostPageProps {
     params: Promise<{
         slug: string;
@@ -93,7 +95,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         <Calendar className="text-grey-400" size={80} />
                     </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-grey-900/80 to-grey-900/40"></div>
+                <div className="absolute inset-0 bg-grey-900/60"></div>
                 <Container className="relative h-full flex items-end pb-12">
                     <div className="text-white">
                         <div className="inline-block bg-primary text-white px-4 py-1.5 rounded-full text-xs font-bold mb-4">
@@ -162,21 +164,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                             {/* Share Section */}
                             <div className="mt-8 pt-8 border-t border-grey-200">
-                                <h3 className="text-lg font-bold text-grey-900 mb-4">Share this article</h3>
-                                <div className="flex items-center gap-3">
-                                    <button className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-all">
-                                        <Facebook size={18} />
-                                    </button>
-                                    <button className="w-10 h-10 rounded-lg bg-sky-500 text-white flex items-center justify-center hover:bg-sky-600 transition-all">
-                                        <Twitter size={18} />
-                                    </button>
-                                    <button className="w-10 h-10 rounded-lg bg-blue-700 text-white flex items-center justify-center hover:bg-blue-800 transition-all">
-                                        <Linkedin size={18} />
-                                    </button>
-                                    <button className="w-10 h-10 rounded-lg bg-grey-100 text-grey-700 flex items-center justify-center hover:bg-grey-200 transition-all">
-                                        <Share2 size={18} />
-                                    </button>
-                                </div>
+                                <ShareButtons
+                                    url={`https://strongbody.ca/${resolvedParams.slug}`}
+                                    title={title}
+                                    labels={{
+                                        shareTitle: "Share this article",
+                                        copySuccess: "Link copied!"
+                                    }}
+                                />
                             </div>
                         </article>
 
@@ -219,7 +214,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                 )}
 
                                 {/* CTA Card */}
-                                <div className="p-8 bg-gradient-to-br from-secondary to-grey-900 rounded-[2rem] relative overflow-hidden group shadow-xl shadow-secondary/20">
+                                <div className="p-8 bg-secondary rounded-[2rem] relative overflow-hidden group shadow-xl shadow-secondary/20">
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
                                     <div className="relative z-10">
                                         <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary/40 group-hover:scale-110 transition-transform duration-500">

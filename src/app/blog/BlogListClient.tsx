@@ -103,7 +103,7 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
                 <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-md border border-white/30 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                     {post.category}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-grey-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 bg-grey-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-2 mb-3">

@@ -70,7 +70,7 @@ const UseCases = () => {
                             className="h-full"
                         >
                             <div className="group p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 relative flex flex-col items-start h-full">
-                                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${useCase.color} flex items-center justify-center text-white mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-lg shadow-primary/10`}>
+                                <div className={`w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-lg shadow-primary/10`}>
                                     <useCase.icon size={28} />
                                 </div>
 

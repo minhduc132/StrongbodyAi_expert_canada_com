@@ -1,6 +1,5 @@
 import { fetchAllBlogPosts } from "@/app/api";
 
-
 export async function GET(
     request: Request,
     { params }: { params: Promise<{ slug: string }> }
@@ -31,22 +30,38 @@ export async function GET(
         }));
     } else if (slug.startsWith("post-sitemap")) {
         const match = slug.match(/post-sitemap-(\d+)\.xml/);
-        const page = match ? parseInt(match[1]) : 1;
-        const postsPerSitemap = 100; // API max safe limit per chunk
+        const sitemapIndex = match ? parseInt(match[1]) : 1;
 
-        // Fetch exactly up to 100 posts specifically for this XML file's index
-        const posts = await fetchAllBlogPosts(page, postsPerSitemap);
+        // Configuration: split only every 10,000 posts
+        const postsPerSitemap = 10000;
+        const postsPerBatch = 100; // API limit per fetch
         
-        if (posts && Array.isArray(posts)) {
-            // No need to slice locally, the API already paginated it
-            routes = posts.map((post: any) => ({
-                url: `${baseUrl}/${post.slug}/`,
-                lastModified: post.date || lastMod,
-                image: post.image,
-            }));
-        }
+        const startPost = (sitemapIndex - 1) * postsPerSitemap;
+        const startPage = Math.floor(startPost / postsPerBatch) + 1;
+        const batchesNeeded = postsPerSitemap / postsPerBatch;
+
+        const allMappedPosts: any[] = [];
+        
+        // Parallel fetching for performance
+        const batchPromises = Array.from({ length: batchesNeeded }, (_, i) => 
+            fetchAllBlogPosts(startPage + i, postsPerBatch)
+        );
+
+        const results = await Promise.all(batchPromises);
+        
+        results.forEach(res => {
+            const batchPosts = res?.posts || [];
+            batchPosts.forEach((post: any) => {
+                allMappedPosts.push({
+                    url: `${baseUrl}/${post.slug}/`,
+                    lastModified: post.date || lastMod,
+                    image: post.image,
+                });
+            });
+        });
+
+        routes = allMappedPosts;
     } else {
-        // Default empty for other placeholders (author, tag, portfolio, news, manual, usecase)
         routes = [];
     }
 

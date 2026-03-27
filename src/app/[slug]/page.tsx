@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Calendar, Share2, Facebook, Twitter, Linkedin, Headset } from "lucide-react";
+import { ArrowLeft, ArrowRight, Share2, Facebook, Twitter, Linkedin, Headset, Calendar } from "lucide-react";
 import Container from "@/components/layout/Container";
 import { Metadata } from "next";
 
 import { fetchPostDetail, fetchAllBlogPosts } from "@/app/api";
 
 import ShareButtons from "@/components/blog/ShareButtons";
+import { generateUnifiedMetadata } from "@/utils/seo";
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -14,11 +15,27 @@ interface BlogPostPageProps {
     }>;
 }
 
-import { generateUnifiedMetadata } from "@/utils/seo";
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
     const resolvedParams = await params;
     return generateUnifiedMetadata(resolvedParams.slug);
 }
+
+const decodeHtml = (html: string) => {
+    if (!html) return "";
+    const entities: { [key: string]: string } = {
+        "&#8220;": "“",
+        "&#8221;": "”",
+        "&#8216;": "‘",
+        "&#8217;": "’",
+        "&quot;": '"',
+        "&amp;": "&",
+        "&lt;": "<",
+        "&gt;": ">",
+        "&#39;": "'",
+        "&hellip;": "..."
+    };
+    return html.replace(/&#\d+;|&[a-z]+;/g, (match) => entities[match] || match);
+};
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const resolvedParams = await params;
@@ -30,24 +47,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         notFound();
     }
 
-    // Mapping API response to our UI variables
-
     const title = post.title;
     const content = post.content || post.details?.content || "<p>No content available.</p>";
     const image = post.featured_image_url || post.image || null;
     const category = post.categories?.[0]?.name || post.category?.name || "Uncategorized";
     const date = post.published_at || post.date || new Date().toISOString();
-    const authorObj = post.author;
-    const author = (authorObj && typeof authorObj === 'object')
-        ? [authorObj.first_name, authorObj.last_name].filter(Boolean).join(' ') || "StrongBody AI"
-        : (typeof authorObj === 'string' ? authorObj : "StrongBody AI");
-    const authorRole = "Content Team";
-    const authorImage = (authorObj && typeof authorObj === 'object' && authorObj.avatar_url)
-        ? authorObj.avatar_url
-        : "/images/avatar.jpg";
 
-    // Fetch related posts
-    const relatedPosts = await fetchAllBlogPosts();
+    // Fetch related posts (limited for the discovery section)
+    const { posts: allPosts } = await fetchAllBlogPosts(1, 10);
+    const relatedPosts = allPosts || [];
+
+    // Filter discovery posts (bottom of page)
+    const discoveryPosts = relatedPosts.filter((p: any) => p.slug !== resolvedParams.slug).slice(0, 3);
 
     // JSON-LD Article Schema
     const articleJsonLd = {
@@ -60,7 +71,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dateModified: post.updated_at || date,
         author: {
             "@type": "Person",
-            name: author,
+            name: "StrongBody AI",
         },
         publisher: {
             "@type": "Organization",
@@ -91,8 +102,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         className="w-full h-full object-cover"
                     />
                 ) : (
-                    <div className="w-full h-full bg-grey-100 flex items-center justify-center">
-                        <Calendar className="text-grey-400" size={80} />
+                    <div className="w-full h-full bg-grey-900/10 flex items-center justify-center">
+                        <img
+                            src="/blogDefault.png"
+                            alt={title}
+                            className="max-h-full object-contain opacity-40 translate-y-[-10%]"
+                        />
                     </div>
                 )}
                 <div className="absolute inset-0 bg-grey-900/60"></div>
@@ -102,13 +117,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             {category}
                         </div>
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                            {title}
+                            {decodeHtml(title)}
                         </h1>
-                        <div className="flex items-center gap-6 text-sm font-medium">
-                            <div className="flex items-center gap-2">
-                                {author}
-                            </div>
-                        </div>
                     </div>
                 </Container>
             </div>
@@ -144,24 +154,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                 dangerouslySetInnerHTML={{ __html: content }}
                             />
 
-                            {/* Author Section */}
-                            <div className="mt-12 p-8 bg-grey-50 rounded-2xl border border-grey-100">
-                                <div className="flex items-start gap-4">
-                                    <img
-                                        src={authorImage}
-                                        alt={author}
-                                        className="w-16 h-16 rounded-full object-cover"
-                                    />
-                                    <div>
-                                        <h4 className="text-lg font-bold text-grey-900 mb-1">{author}</h4>
-                                        <p className="text-sm text-grey-500 font-medium mb-3">{authorRole}</p>
-                                        <p className="text-sm text-grey-600 font-medium">
-                                            {author} is a key contributor to StrongBody AI&apos;s mission of making quality healthcare accessible globally.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
                             {/* Share Section */}
                             <div className="mt-8 pt-8 border-t border-grey-200">
                                 <ShareButtons
@@ -178,7 +170,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         {/* Sidebar */}
                         <aside className="lg:col-span-1">
                             <div className="sticky top-24 space-y-8">
-                                {/* Related Posts */}
+                                {/* Related Posts (Sidebar) */}
                                 {relatedPosts.filter((p: any) => p.slug !== resolvedParams.slug).length > 0 && (
                                     <div>
                                         <h3 className="text-xl font-bold text-grey-900 mb-6">Related Articles</h3>
@@ -193,18 +185,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                                         className="block group"
                                                     >
                                                         <div className="flex gap-4">
-                                                            {relatedPost.image && (
-                                                                <img
-                                                                    src={relatedPost.image}
-                                                                    alt={relatedPost.title}
-                                                                    className="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-                                                                />
-                                                            )}
+                                                            <img
+                                                                src={relatedPost.image || relatedPost.featured_image_url || "/blogDefault.png"}
+                                                                alt={relatedPost.title}
+                                                                className="w-20 h-20 rounded-xl object-cover flex-shrink-0 opacity-80"
+                                                            />
                                                             <div>
                                                                 <h4 className="text-sm font-bold text-grey-900 group-hover:text-primary transition-colors line-clamp-2 mb-1">
-                                                                    {relatedPost.title}
+                                                                    {decodeHtml(relatedPost.title)}
                                                                 </h4>
-
                                                             </div>
                                                         </div>
                                                     </Link>
@@ -236,8 +225,59 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         </aside>
                     </div>
                 </div>
-            </Container>
 
+                {/* Further Discoveries Section */}
+                {discoveryPosts.length > 0 && (
+                    <div className="py-24 border-t border-grey-100">
+                        <div className="flex items-center justify-between mb-12">
+                            <h2 className="text-3xl font-bold text-grey-900">Explore More Insights</h2>
+                            <Link href="/blog" className="text-primary font-bold flex items-center gap-2 hover:underline group">
+                                View Library <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {discoveryPosts.map((discoveryPost: any) => (
+                                <Link
+                                    key={discoveryPost.id}
+                                    href={`/${discoveryPost.slug}`}
+                                    className="group bg-white rounded-2xl border-2 border-grey-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+                                >
+                                    <div className="relative aspect-video w-full overflow-hidden">
+                                        {(discoveryPost.image || discoveryPost.featured_image_url) ? (
+                                            <img
+                                                src={discoveryPost.image || discoveryPost.featured_image_url}
+                                                alt={discoveryPost.title}
+                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full bg-grey-50 flex items-center justify-center">
+                                                <img
+                                                    src="/blogDefault.png"
+                                                    alt={discoveryPost.title}
+                                                    className="w-full h-full object-contain opacity-80"
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="p-6 flex-1 flex flex-col">
+                                        <h3 className="text-lg font-bold text-grey-900 mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+                                            {decodeHtml(discoveryPost.title)}
+                                        </h3>
+                                        <p className="text-xs text-grey-500 font-medium leading-relaxed mb-4 line-clamp-2 flex-1">
+                                            {discoveryPost.excerpt}
+                                        </p>
+                                        <div className="flex items-center justify-between mt-auto pt-6 border-t border-grey-100">
+                                            <div className="flex items-center gap-2 text-primary font-bold text-xs group-hover:gap-2.5 transition-all">
+                                                Read more <ArrowRight size={14} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </Container>
         </main>
     );
 }

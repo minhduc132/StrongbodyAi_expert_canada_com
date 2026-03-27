@@ -6,18 +6,12 @@ export async function GET(request: Request) {
   const baseUrl = `${protocol}://${host}`;
   const lastMod = new Date().toISOString();
 
-  // Fetch all posts using loop to determine total count reliably (bypass limit)
-  const postsPerSitemap = 100;
-  let totalPosts = 0;
-  let currentPage = 1;
-  while (true) {
-      const pagePosts = await fetchAllBlogPosts(currentPage, postsPerSitemap);
-      if (!pagePosts || pagePosts.length === 0) break;
-      totalPosts += pagePosts.length;
-      if (pagePosts.length < postsPerSitemap) break;
-      currentPage++;
-  }
+  // Efficient count detection using metadata-aware API
+  const { meta } = await fetchAllBlogPosts(1, 1);
+  const totalPosts = meta?.total || 0;
   
+  // SEO best practice: split only after 10,000 URLs
+  const postsPerSitemap = 10000; 
   const postSitemapCount = Math.max(1, Math.ceil(totalPosts / postsPerSitemap));
 
   const sitemaps = [
@@ -27,9 +21,6 @@ export async function GET(request: Request) {
       lastmod: lastMod
     })),
   ];
-
-
-
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap-index.xsl"?>

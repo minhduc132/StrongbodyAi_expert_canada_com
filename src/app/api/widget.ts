@@ -1,26 +1,36 @@
 import { apiFetch } from "@/config/api";
 
+const DEFAULT_LANG = process.env.API_LANGUAGE || "en";
+
 export async function fetchCategories(parentSlug?: string) {
     const endpoint = parentSlug ? `/categories/${parentSlug}` : `/categories`;
-    return apiFetch(endpoint);
+    const res = await apiFetch(endpoint);
+    return res?.data || res;
 }
 
 export async function fetchWidgetItems(code: string) {
-    const data = await apiFetch(`/widgets/${code}`);
+    let data = await apiFetch(`/widgets/${code}`);
     if (!data && code.includes("-")) {
         const sanitizedCode = code.replace(/-/g, "");
-        return apiFetch(`/widgets/${sanitizedCode}`);
+        data = await apiFetch(`/widgets/${sanitizedCode}`);
     }
-    return data;
+    return data?.data || data;
 }
 
-export async function fetchPostDetail(slug: string, language: string = "en") {
-    return apiFetch(`/posts/${slug}?language=${language}`);
+export async function fetchPostDetail(slug: string, language: string = DEFAULT_LANG) {
+    const langParam = language ? `?language=${language}` : "";
+    const res = await apiFetch(`/posts/${slug}${langParam}`);
+    return res?.data || res;
 }
 
-export async function fetchPostsByCategory(category: string, page?: number, limit?: number, language: string = "en") {
-    let url = `/posts?category=${category}&language=${language}`;
-    if (page) url += `&page=${page}`;
-    if (limit) url += `&limit=${limit}`;
+export async function fetchPostsByCategory(category?: string, page?: number, limit?: number, language: string = DEFAULT_LANG) {
+    const params = new URLSearchParams();
+    if (language) params.append("language", language);
+    if (category) params.append("category", category);
+    if (page) params.append("page", page.toString());
+    if (limit) params.append("limit", limit.toString());
+    
+    const queryString = params.toString();
+    const url = `/posts${queryString ? `?${queryString}` : ""}`;
     return apiFetch(url);
 }

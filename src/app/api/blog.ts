@@ -51,12 +51,19 @@ export async function fetchBlogPostsByWidget(code: string) {
     }
 }
 
-export async function fetchBlogsByCategory(category: string = "blogs", page: number = 1, limit: number = 6) {
+export async function fetchBlogsByCategory(category?: string, page: number = 1, limit: number = 6) {
     try {
-        const posts = await fetchPostsByCategory(category, page, limit);
-        if (!posts || !Array.isArray(posts)) return [];
+        const res = await fetchPostsByCategory(category, page, limit);
 
-        return posts.map((item: any) => {
+        // Handle both flattened and nested data (res.data || res)
+        const postsArray = res?.data || (Array.isArray(res) ? res : []);
+        const meta = res?.meta || { page: 1, total_pages: 1, total: 0 };
+
+        if (!postsArray || !Array.isArray(postsArray)) {
+            return { posts: [], meta };
+        }
+
+        const mappedPosts = postsArray.map((item: any) => {
             const authorObj = item.author;
             const authorName = authorObj && typeof authorObj === 'object'
                 ? [authorObj.first_name, authorObj.last_name].filter(Boolean).join(' ')
@@ -74,12 +81,14 @@ export async function fetchBlogsByCategory(category: string = "blogs", page: num
                 slug: item.slug
             };
         });
+
+        return { posts: mappedPosts, meta };
     } catch (error) {
         console.error(`Error in fetchBlogsByCategory for ${category}:`, error);
-        return [];
+        return { posts: [], meta: { page: 1, total_pages: 1, total: 0 } };
     }
 }
 
 export async function fetchAllBlogPosts(page: number = 1, limit: number = 6) {
-    return fetchBlogsByCategory("blogs", page, limit);
+    return fetchBlogsByCategory(undefined, page, limit);
 }

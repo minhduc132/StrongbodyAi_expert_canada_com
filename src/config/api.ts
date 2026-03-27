@@ -35,8 +35,7 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
             return null;
         }
 
-        const data = await response.json();
-        return data.data || data;
+        return await response.json();
     } catch (error) {
         console.error(`Fetch Error for ${url}:`, error);
         return null;

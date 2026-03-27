@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
     }
 
     const responseData = await response.json().catch(() => ({}));
-    console.log(`✅ Data sent to API successfully for: ${email}`);
+    console.log(`Data sent to API successfully for: ${email}`);
 
     // ----------------------------------------------------------------
     // PART B: SEND EMAIL NOTIFICATION TO ADMIN
@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
       subject: `[${siteType.toUpperCase()}] New Message from ${fullName}`,
       html: htmlContent,
     });
-    console.log(`📧 Notification sent to admin from: ${email}, messageId: ${info.messageId}`);
+    console.log(`Notification sent to admin from: ${email}, messageId: ${info.messageId}`);
 
     return NextResponse.json({ success: true, message: "Request completely successful", data: responseData });
 

@@ -13,11 +13,16 @@ export async function GET(request: Request) {
     let currentPage = 1;
     
     while (true) {
-        const pagePosts = await fetchAllBlogPosts(currentPage, postsPerSitemap);
-        if (!pagePosts || pagePosts.length === 0) break;
-        totalPosts += pagePosts.length;
-        if (pagePosts.length < postsPerSitemap) break;
-        currentPage++;
+        try {
+            const { posts: pagePosts } = await fetchAllBlogPosts(currentPage, postsPerSitemap);
+            if (!pagePosts || pagePosts.length === 0) break;
+            totalPosts += pagePosts.length;
+            if (pagePosts.length < postsPerSitemap) break;
+            currentPage++;
+        } catch (e) {
+            console.error(`Sitemap generation error at page ${currentPage}:`, e);
+            break;
+        }
     }
 
     const postSitemapCount = Math.max(1, Math.ceil(totalPosts / postsPerSitemap));

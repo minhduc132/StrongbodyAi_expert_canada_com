@@ -116,9 +116,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         <div className="inline-block bg-primary text-white px-4 py-1.5 rounded-full text-xs font-bold mb-4">
                             {category}
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                        <div className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
                             {decodeHtml(title)}
-                        </h1>
+                        </div>
                     </div>
                 </Container>
             </div>
@@ -137,7 +137,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <div className="grid lg:grid-cols-3 gap-12">
                         {/* Main Content */}
                         <article className="lg:col-span-2">
-                            <div
+                            <h1 className="text-3xl md:text-4xl font-bold mb-8 text-grey-900 leading-tight">
+                                {decodeHtml(title)}
+                            </h1>
+                            <div title="">
                                 className="prose prose-lg prose-grey max-w-none
                                     prose-headings:text-grey-900 prose-headings:font-bold prose-headings:leading-tight
                                     prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg

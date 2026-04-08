@@ -110,7 +110,7 @@ const MultiMePage = () => {
                             </p>
                             <div className="flex flex-wrap justify-center gap-6">
                                 <Link
-                                    href="https://www.strongbody.uk/signup"
+                                    href="https://www.strongbody.ai/signup"
                                     className="bg-white text-primary px-8 py-4 rounded-2xl font-bold hover:bg-grey-50 transition-all flex items-center gap-2 shadow-xl shadow-white/10"
                                 >
                                     Create Free Account <ArrowRight size={20} />

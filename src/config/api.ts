@@ -41,3 +41,9 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
         return null;
     }
 }
+
+export const cmsApi = {
+    getMenu: (menuCode: string, language: string = (API_CONFIG.HEADERS.language as string || "en")) => {
+        return apiFetch(`/menus/${menuCode}?language=${language}`);
+    },
+};

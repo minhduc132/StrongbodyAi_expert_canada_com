@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         "@type": "Article",
         headline: title,
         description: post.excerpt || "",
-        image: image || "/images/og-image.png",
+        image: image || "/images/logo.png",
         datePublished: date,
         dateModified: post.updated_at || date,
         author: {
@@ -78,12 +78,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             name: "StrongBody AI",
             logo: {
                 "@type": "ImageObject",
-                url: "https://strongbody.ca/images/og-image.png",
+                url: "https://get-expert-canada.com/images/logo.png",
             },
         },
         mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://strongbody.ca/${resolvedParams.slug}`,
+            "@id": `https://get-expert-canada.com/${resolvedParams.slug}`,
         },
     };
 
@@ -160,7 +160,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             {/* Share Section */}
                             <div className="mt-8 pt-8 border-t border-grey-200">
                                 <ShareButtons
-                                    url={`https://strongbody.ca/${resolvedParams.slug}`}
+                                    url={`https://get-expert-canada.com/${resolvedParams.slug}`}
                                     title={title}
                                     labels={{
                                         shareTitle: "Share this article",

@@ -20,7 +20,7 @@ export async function generateUnifiedMetadata(
     const baseKeywords = settings?.meta_keywords
         ? settings.meta_keywords.split(",").map((k: string) => k.trim())
         : [];
-    const baseOgImage = settings?.og_image || "/images/og-image.png";
+    const baseOgImage = settings?.og_image || "/images/logo.png";
     const baseOgTitle = settings?.og_title || baseTitle;
     const baseOgDesc = settings?.og_description || baseDesc;
     const favicon = settings?.favicon_url || "/favicon.ico";
@@ -59,7 +59,7 @@ export async function generateUnifiedMetadata(
     const finalDesc = pageDesc || baseDesc;
 
     return {
-        metadataBase: new URL("https://strongbody.ca"),
+        metadataBase: new URL("https://get-expert-canada.com"),
         title: finalTitle,
         description: finalDesc,
         keywords: Array.from(new Set(pageKeywords)),
@@ -69,12 +69,12 @@ export async function generateUnifiedMetadata(
             apple: favicon,
         },
         alternates: {
-            canonical: slug ? `https://strongbody.ca/${slug}` : "https://strongbody.ca",
+            canonical: slug ? `https://get-expert-canada.com/${slug}` : "https://get-expert-canada.com",
         },
         openGraph: {
             title: pageTitle || baseOgTitle,
             description: finalDesc,
-            url: slug ? `https://strongbody.ca/${slug}` : "https://strongbody.ca",
+            url: slug ? `https://get-expert-canada.com/${slug}` : "https://get-expert-canada.com",
             siteName: siteTitle,
             images: [{ url: pageImage, width: 1200, height: 630 }],
             locale: "en_CA",

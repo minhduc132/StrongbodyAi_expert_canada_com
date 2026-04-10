@@ -27,8 +27,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "StrongBody AI",
-    url: "https://strongbody.ca",
-    logo: "https://strongbody.ca/images/og-image.png",
+    url: "https://get-expert-canada.com",
+    logo: "https://get-expert-canada.com/images/logo.png",
     description: "AI-Native Health Services Marketplace connecting verified professionals and clients globally.",
     sameAs: [
       "https://apps.apple.com/us/app/multime-ai/id6748796219",
@@ -37,7 +37,7 @@ export default function RootLayout({
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
-      url: "https://strongbody.ca/contact",
+      url: "https://get-expert-canada.com/contact",
     },
   };
 

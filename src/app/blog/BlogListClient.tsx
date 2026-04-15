@@ -76,13 +76,11 @@ export default function BlogListClient({ initialPosts, currentPage, totalPages }
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                 ) : (
-                    <div className="w-full h-full bg-grey-50 flex items-center justify-center">
-                        <img
-                            src="/blogDefault.png"
-                            alt={post.title}
-                            className="w-full h-full object-contain opacity-80"
-                        />
-                    </div>
+                    <img
+                        src="/blogDefault.png?v=2"
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
                 )}
                 <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-md border border-white/30 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                     {post.category}

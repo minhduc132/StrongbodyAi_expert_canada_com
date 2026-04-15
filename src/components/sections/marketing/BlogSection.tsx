@@ -99,13 +99,11 @@ const BlogSection = async ({
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                             />
                                         ) : (
-                                            <div className="w-full h-full bg-grey-50 flex items-center justify-center">
-                                                <img
-                                                    src="/blogDefault.png"
-                                                    alt={post.title}
-                                                    className="w-full h-full object-contain opacity-80"
-                                                />
-                                            </div>
+                                            <img
+                                                src="/blogDefault.png?v=2"
+                                                alt={post.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                            />
                                         )}
                                     </div>
                                     <div className="p-7 flex-1 flex flex-col">

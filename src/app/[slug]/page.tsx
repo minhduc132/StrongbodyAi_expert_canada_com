@@ -102,13 +102,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         className="w-full h-full object-cover"
                     />
                 ) : (
-                    <div className="w-full h-full bg-grey-900/10 flex items-center justify-center">
-                        <img
-                            src="/blogDefault.png"
-                            alt={title}
-                            className="max-h-full object-contain opacity-40 translate-y-[-10%]"
-                        />
-                    </div>
+                    <img
+                        src="/blogDefault.png?v=2"
+                        alt={title}
+                        className="w-full h-full object-cover"
+                    />
                 )}
                 <div className="absolute inset-0 bg-grey-900/60"></div>
                 <Container className="relative h-full flex items-end pb-12">
@@ -189,7 +187,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                                     >
                                                         <div className="flex gap-4">
                                                             <img
-                                                                src={relatedPost.image || relatedPost.featured_image_url || "/blogDefault.png"}
+                                                                src={relatedPost.image || relatedPost.featured_image_url || "/blogDefault.png?v=2"}
                                                                 alt={relatedPost.title}
                                                                 className="w-20 h-20 rounded-xl object-cover flex-shrink-0 opacity-80"
                                                             />
@@ -253,13 +251,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                             />
                                         ) : (
-                                            <div className="w-full h-full bg-grey-50 flex items-center justify-center">
-                                                <img
-                                                    src="/blogDefault.png"
-                                                    alt={discoveryPost.title}
-                                                    className="w-full h-full object-contain opacity-80"
-                                                />
-                                            </div>
+                                            <img
+                                                src="/blogDefault.png?v=2"
+                                                alt={discoveryPost.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                                            />
                                         )}
                                     </div>
                                     <div className="p-6 flex-1 flex flex-col">

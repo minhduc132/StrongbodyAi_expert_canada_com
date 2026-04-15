@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             <h1 className="text-3xl md:text-4xl font-bold mb-8 text-grey-900 leading-tight">
                                 {decodeHtml(title)}
                             </h1>
-                            <div title="">
+                            <div
                                 className="prose prose-lg prose-grey max-w-none
                                     prose-headings:text-grey-900 prose-headings:font-bold prose-headings:leading-tight
                                     prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg

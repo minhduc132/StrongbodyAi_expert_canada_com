@@ -108,18 +108,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         className="w-full h-full object-cover"
                     />
                 )}
-                <div className="absolute inset-0 bg-grey-900/60"></div>
-                <Container className="relative h-full flex items-end pb-12">
-                    <div className="text-white">
-                        <div className="inline-block bg-primary text-white px-4 py-1.5 rounded-full text-xs font-bold mb-4">
-                            {category}
-                        </div>
-                        <div className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                            {decodeHtml(title)}
-                        </div>
-                    </div>
-                </Container>
-            </div>
+</div>
 
             <Container>
                 <div className="py-12">

@@ -15,10 +15,8 @@ const allLinks = [
 ];
 
 const legalLinks = [
-    { name: "Trust & Compliance", href: "/legal" },
-    { name: "Privacy Policy", href: "/legal" },
-    { name: "Terms of Service", href: "/legal" },
-    { name: "Compliance Disclaimer", href: "/legal" },
+    { name: "Privacy Policy", href: "https://www.strongbody.ai/articles/privacy-policy" },
+    { name: "Terms of Service", href: "https://www.strongbody.ai/articles/terms-and-conditions" },
 ];
 
 const Footer = () => {

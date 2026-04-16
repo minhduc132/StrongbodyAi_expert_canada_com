@@ -4,12 +4,11 @@ import { Smartphone, Globe, Shield, MessageSquare, ArrowRight, Download, CheckCi
 import Link from "next/link";
 import { Reveal, FadeIn, ScaleIn } from "@/components/animations/Reveal";
 import { Metadata } from "next";
+import { generateUnifiedMetadata } from "@/utils/seo";
 
-export const metadata: Metadata = {
-    title: "MultiMe AI App | One App, 40+ Languages, Endless Health Care",
-    description: "Download the MultiMe AI app to access global health experts, real-time AI voice translation, secure escrow payments, and personalized care in your language.",
-    keywords: ["MultiMe AI", "health app", "AI voice translate", "teleconsultation app", "global health", "StrongBody AI app", "download health app"]
-};
+export async function generateMetadata(): Promise<Metadata> {
+    return generateUnifiedMetadata(undefined, { title: "MultiMe AI App | One App, 40+ Languages, Endless Health Care", description: "Download the MultiMe AI app to access global health experts, real-time AI voice translation, secure escrow payments, and personalized care in your language." });
+}
 const MultiMePage = () => {
     return (
         <main className="min-h-screen pt-24 pb-16 bg-white overflow-hidden">

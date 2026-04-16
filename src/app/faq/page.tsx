@@ -1,12 +1,11 @@
 import FAQSection from "@/components/sections/marketplace/FAQSection";
 import PageHeader from "@/components/layout/PageHeader";
 import { Metadata } from "next";
+import { generateUnifiedMetadata } from "@/utils/seo";
 
-export const metadata: Metadata = {
-    title: "FAQ | StrongBody AI Help Center",
-    description: "Get answers to frequently asked questions about StrongBody AI marketplace, payments, professional verification, and how to get started.",
-    keywords: ["StrongBody AI FAQ", "health marketplace questions", "escrow payment FAQ", "verified doctors FAQ", "how to use StrongBody AI"]
-};
+export async function generateMetadata(): Promise<Metadata> {
+    return generateUnifiedMetadata(undefined, { title: "FAQ | StrongBody AI Help Center", description: "Get answers to frequently asked questions about StrongBody AI marketplace, payments, professional verification, and how to get started." });
+}
 
 
 export default function FAQPage() {

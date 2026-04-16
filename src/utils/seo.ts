@@ -20,7 +20,7 @@ export async function generateUnifiedMetadata(
     const baseKeywords = settings?.meta_keywords
         ? settings.meta_keywords.split(",").map((k: string) => k.trim())
         : [];
-    const baseOgImage = settings?.og_image || settings?.og_image_url || "/blogDefault.png";
+    const baseOgImage = settings?.og_image || settings?.og_image_url || "/images/hero.png";
     const baseOgTitle = settings?.og_title || baseTitle;
     const baseOgDesc = settings?.og_description || baseDesc;
     const favicon = settings?.favicon_url || "/favicon.ico";

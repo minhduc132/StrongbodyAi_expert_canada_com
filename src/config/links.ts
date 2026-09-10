@@ -1,11 +1,11 @@
 export const LINKS = {
   appDownload: "https://link.multime.ai/uVD7/b4zsnrc1",
-  becomeSeller: "https://www.strongbody.ai/become-seller/profession-search",
-  buildYourShop: "https://www.strongbody.ai/build-your-shop?type=cv",
-  openProfileShop: "https://www.strongbody.ai/open-your-profile/openprofile179",
-  voiceTranslation: "https://www.strongbody.ai/subcription/voice-translation",
-  globalSell: "https://www.strongbody.ai/become-seller/global-sell",
-  strongbodyWeb: "https://www.strongbody.ai",
+  becomeSeller: "https://www.strongbody.ai/become-seller/profession-search?utm_campaign=country_site&utm_source=get-expert-canada.com",
+  buildYourShop: "https://www.strongbody.ai/build-your-shop?type=cv&utm_campaign=country_site&utm_source=get-expert-canada.com",
+  openProfileShop: "https://www.strongbody.ai/open-your-profile/openprofile179?utm_campaign=country_site&utm_source=get-expert-canada.com",
+  voiceTranslation: "https://www.strongbody.ai/subcription/voice-translation?utm_campaign=country_site&utm_source=get-expert-canada.com",
+  globalSell: "https://www.strongbody.ai/become-seller/global-sell?utm_campaign=country_site&utm_source=get-expert-canada.com",
+  strongbodyWeb: "https://www.strongbody.ai?utm_campaign=country_site&utm_source=get-expert-canada.com",
 } as const;
 
 export const APP_DOWNLOAD_URL = LINKS.appDownload;

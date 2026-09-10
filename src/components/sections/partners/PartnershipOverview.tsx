@@ -86,7 +86,7 @@ const PartnershipOverview = () => {
                                             Selective recruitment policy – Not all applications are accepted.
                                         </p>
                                         <Link
-                                            href="https://www.strongbody.ai/signup"
+                                            href="https://www.strongbody.ai/signup?utm_campaign=country_site&utm_source=get-expert-canada.com"
                                             className="w-full inline-flex items-center justify-center gap-2.5 bg-primary text-white px-7 py-4 rounded-2xl text-sm font-extrabold uppercase tracking-wider hover:-translate-y-0.5 transition-all shadow-xl shadow-primary/30 text-center"
                                         >
                                             Apply to Become a Strategic Partner <ArrowRight size={16} />

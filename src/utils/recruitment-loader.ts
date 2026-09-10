@@ -155,7 +155,10 @@ export function getProfessionFromJob(job: Pick<JobDetail, 'id' | 'title'>): stri
 export function getPartnerRecruitmentApplyUrl(profession: string): string {
     const query = profession.trim().toLowerCase();
     if (!query) return BECOME_SELLER_URL;
-    return `${BECOME_SELLER_URL}?q=${encodeURIComponent(query)}`;
+    // Hang nay co the da mang san query (tham so nguon cua site quoc gia),
+    // nen phai chon dau noi thay vi cung dinh "?".
+    const separator = BECOME_SELLER_URL.includes("?") ? "&" : "?";
+    return `${BECOME_SELLER_URL}${separator}q=${encodeURIComponent(query)}`;
 }
 
 export function getPartnerRecruitmentRegisterUrl(profession: string): string {

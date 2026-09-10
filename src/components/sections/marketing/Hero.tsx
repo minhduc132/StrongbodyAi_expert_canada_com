@@ -112,7 +112,7 @@ const Hero = () => {
             {/* For more info footer */}
             <div className="mt-8 pb-4 text-center text-sm md:text-base font-medium text-white/90">
                 For more info, visit{" "}
-                <a href="https://strongbody.ai" className="font-bold text-[#ff6b72] underline underline-offset-4 decoration-[#da1f27]/70 hover:text-[#ff858a] hover:decoration-[#da1f27] transition-colors" target="_blank" rel="noopener noreferrer">Strongbody.ai</a>
+                <a href="https://strongbody.ai?utm_campaign=country_site&utm_source=get-expert-canada.com" className="font-bold text-[#ff6b72] underline underline-offset-4 decoration-[#da1f27]/70 hover:text-[#ff858a] hover:decoration-[#da1f27] transition-colors" target="_blank" rel="noopener noreferrer">Strongbody.ai</a>
             </div>
             </Container>
         </section>

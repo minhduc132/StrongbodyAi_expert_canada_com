@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { Paperclip, Send } from "lucide-react";
 
-const POST_REQUEST_URL = "https://www.strongbody.ai/post-request";
+const POST_REQUEST_URL = "https://www.strongbody.ai/post-request?utm_campaign=country_site&utm_source=get-expert-canada.com";
 
 export default function PostRequestCard() {
   const fileInputRef = useRef<HTMLInputElement>(null);

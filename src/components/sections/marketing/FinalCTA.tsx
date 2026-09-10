@@ -56,7 +56,7 @@ const FinalCTA = () => {
                                     </div>
                                 </div>
                                 <Link
-                                    href="https://www.strongbody.ai/signup"
+                                    href="https://www.strongbody.ai/signup?utm_campaign=country_site&utm_source=get-expert-canada.com"
                                     className="shrink-0 inline-flex items-center gap-2.5 bg-secondary text-white px-10 py-4 rounded-2xl font-extrabold uppercase tracking-wider text-sm shadow-lg hover:-translate-y-0.5 transition-all w-full lg:w-auto justify-center"
                                 >
                                     Apply as Strategic Partner <ArrowRight size={16} />

@@ -87,7 +87,7 @@ function ExpertCard({ expert }: { expert: WellnessExpert }) {
 
         <div className="mt-auto flex">
           <Link
-            href={"https://strongbody.ai/message-center/" + expert.user_id}
+            href={"https://strongbody.ai/message-center/?utm_campaign=country_site&utm_source=get-expert-canada.com" + expert.user_id}
             className="inline-flex w-full items-center justify-center rounded-lg bg-[#da1f27] px-5 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-[#b91c1f] sm:w-auto"
           >
             Chat now
@@ -122,7 +122,7 @@ export default async function RecommendedExpertsSection() {
           </div>
 
           <Link
-            href="https://strongbody.ai/experts"
+            href="https://strongbody.ai/experts?utm_campaign=country_site&utm_source=get-expert-canada.com"
             className="shrink-0 rounded-full border border-[#da1f27] px-5 py-2 text-sm font-semibold text-[#da1f27] transition hover:bg-[#da1f27] hover:text-white"
           >
             View all

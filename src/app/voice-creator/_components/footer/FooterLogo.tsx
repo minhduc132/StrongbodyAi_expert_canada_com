@@ -11,7 +11,7 @@ export default function FooterLogo({
   className?: string;
 }) {
   return (
-    <a href="https://www.strongbody.ai" aria-label={voiceCreatorFooterCopy.ui.homeAriaLabel}>
+    <a href="https://www.strongbody.ai?utm_campaign=country_site&utm_source=get-expert-canada.com" aria-label={voiceCreatorFooterCopy.ui.homeAriaLabel}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/footer-logo.svg"

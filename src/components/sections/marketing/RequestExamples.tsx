@@ -6,7 +6,7 @@ import { ArrowRight, BriefcaseBusiness, Crown, Download, HeartHandshake, Moon, P
 import { SAMPLE_REQUESTS } from "@/content/samples";
 
 const APP_DOWNLOAD_URL = "https://link.multime.ai/uVD7/b4zsnrc1";
-const POST_REQUEST_URL = "https://www.strongbody.ai/post-request";
+const POST_REQUEST_URL = "https://www.strongbody.ai/post-request?utm_campaign=country_site&utm_source=get-expert-canada.com";
 
 function withSource(href: string, source: string) {
   const url = new URL(href);
